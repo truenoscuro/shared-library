@@ -1,5 +1,5 @@
 @groovy.transform.Field
-es.tresdigits.Step step = new es.tresdigits.Step()
+es.tresdigits.Step step = new es.tresdigits.Step(this)
 
 
 def info(message) {
