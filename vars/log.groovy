@@ -1,3 +1,7 @@
+@groovy.transform.Field
+es.tresdigits.Step step = new es.tresdigits.Step()
+
+
 def info(message) {
     echo "INFO: ${message}"
 }
