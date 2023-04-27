@@ -2,8 +2,10 @@ package es.tresdigits
 
 class Step implements Serializable {
   def steps
-  Step(steps) {this.steps = steps}
+  Step() {}
+  def setStep(steps){this.steps = steps}
   def mvn(args) {
       steps.echo "${args}"
     }
+  
 }
