@@ -24,6 +24,7 @@ def test(step,env){
 
 def testDocker(step,env,docker){
     step.echo "${docker}"
+    step.echo "${utils}"
     init(step,env)
     step.echo " Test Docker"
     docker.init(step,utils,docker)
