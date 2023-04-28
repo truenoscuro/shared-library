@@ -22,11 +22,11 @@ def test(step,env){
    
 }
 
-def testDocker(step,env,docker){
+def testDocker(step,env,docker,body){
     init(step,env)
     step.echo " Test Docker"
     dockerCustom.init(step,utils,docker)
-    dockerCustom.build()
+    dockerCustom.build(body)
     
 }
 
