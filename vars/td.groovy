@@ -26,8 +26,8 @@ def testDocker(step,env,docker){
     
     init(step,env)
     step.echo " Test Docker"
-    docker.init(step,utils,docker)
-    docker.build()
+    docker.init(step,utils,"casa")
+    //docker.build()
     
 }
 
