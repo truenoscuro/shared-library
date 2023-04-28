@@ -1,6 +1,6 @@
 package es.tresdigits
 
-class Step  implements Serializable {
+class Step implements Serializable {
 
   def script
 
@@ -10,6 +10,8 @@ class Step  implements Serializable {
 
   def echo(args) {  script.echo "${args}" }
   def holaMundo(){ script.echo "hola mundo"; }
+
+  def echoScript(){ echo "hola mundo"}
 
 
 }
