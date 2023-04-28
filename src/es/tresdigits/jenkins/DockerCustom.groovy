@@ -16,10 +16,8 @@ class DockerCustom implements Serializable {
     }
 
     def build(){ 
-        docker.image("node:latest").inside{
-            echo 'hello-word'
-        }
         
+        docker.image('node').inside
         
     }
 
