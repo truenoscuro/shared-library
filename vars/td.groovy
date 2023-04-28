@@ -1,3 +1,5 @@
+package vars
+
 import groovy.transform.Field
 
 //import clases
