@@ -5,7 +5,7 @@ import groovy.transform.Field
 //import clases
 import es.tresdigits.jenkins.Utils
 import es.tresdigits.jenkins.Angular
-import es.tresdigits.jenkins.Docker
+import es.tresdigits.jenkins.DockerCustom
 
 
 
