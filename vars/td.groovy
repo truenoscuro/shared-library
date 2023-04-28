@@ -13,7 +13,7 @@ import es.tresdigits.jenkins.Utils
 
 // inicialitzacio de utils
 def init(step,env){
-    script.echo "Init pipeline... "
+    step.echo "Init pipeline... "
     utils.init(step,env)
 }
 
