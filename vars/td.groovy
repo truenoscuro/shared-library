@@ -26,8 +26,8 @@ def testDocker(step,env,docker){
     init(step,env)
     step.echo " Test Docker"
     dockerCustom.init(step,utils,docker)
-    dockerCustom.build(body)
-    
+   
+ 
 }
 
 def testAngular(step,env){

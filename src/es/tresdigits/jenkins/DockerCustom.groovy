@@ -2,7 +2,6 @@ package es.tresdigits.jenkins
 
 
 
-
 class DockerCustom implements Serializable {
     
     def step
@@ -10,7 +9,7 @@ class DockerCustom implements Serializable {
     def docker
 
     // init docker
-    def init(step,utils,docker){
+    def init(step,utils){
         step.echo "Init docker..."
 
         this.step = step
@@ -18,11 +17,9 @@ class DockerCustom implements Serializable {
         this.docker = docker
     }
 
-    def build( body ){ 
+    def build(){ 
         
-        docker.image('node').inside{
-            body()
-        }
+        docker.image('node').inside
         
     }
 
