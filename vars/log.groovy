@@ -2,8 +2,8 @@
 es.tresdigits.Step step = new es.tresdigits.Step()
 
 def init(sript){
+    script.echo "init step"
     step.init(sript)
-    return step;
 }
 
 def info(message) {
