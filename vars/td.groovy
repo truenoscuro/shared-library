@@ -23,14 +23,16 @@ def test(step,env){
 }
 
 def testDocker(step,env){
+    
+    init(step,env)
     step.echo " Test Docker"
     docker.init(step,utils)
     
-
-
 }
 
 def testAngular(step,env)
+    
+    init(step,env)
     step.echo " Test Angular"
     angular.init(step,utils)
     angular.newProject("prova-1")
