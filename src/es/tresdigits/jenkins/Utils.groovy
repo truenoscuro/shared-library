@@ -15,10 +15,7 @@ class Utils  implements Serializable {
 
         step.echo "Sent mail..."
     
-        step.emailext   "   subject: '${subjectVar}', 
-                            body: '${bodyVar}',
-                            to: '${toVar}'
-                        "
+        step.emailext  "subject: '${subjectVar}',body: '${bodyVar}', to: '${toVar}'"
                     
     }
 
