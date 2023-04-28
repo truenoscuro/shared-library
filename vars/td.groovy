@@ -12,8 +12,9 @@ import es.tresdigits.jenkins.Utils
 
 
 // inicialitzacio de utils
-def init(script,env){
-    utils.init(script,env)
+def init(script){
+    script.echo "Init pipeline... "
+    utils.init(script)
 }
 
 
