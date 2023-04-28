@@ -1,10 +1,12 @@
-@groovy.transform.Field
-es.tresdigits.Step step = new es.tresdigits.Step()
+import groovy.transform.Field
+import es.tresdigits.step
+
+@Field Step step = new Step()
 
 def init(sript){
-    script.echo "init step"
-    step.init(sript)
+    echo "init step"
 }
+
 
 def info(message) {
     echo "INFO: ${message}"
