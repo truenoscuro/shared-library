@@ -16,8 +16,11 @@ class DockerCustom implements Serializable {
     }
 
     def build(){ 
-        docker.image("hello-world").inside()
+        img = docker.image("node")
 
+        img.inside(){
+            sh "node -v"
+        }
         
     }
 
