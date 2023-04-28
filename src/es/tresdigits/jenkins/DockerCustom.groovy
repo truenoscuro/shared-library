@@ -2,7 +2,6 @@ package es.tresdigits.jenkins
 
 
 
-import 
 
 class DockerCustom implements Serializable {
     
