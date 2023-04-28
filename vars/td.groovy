@@ -12,7 +12,7 @@ import es.tresdigits.jenkins.Docker
 // Field de clases
 @Field Utils utils = new Utils()
 @Field Angular angular = new Angular()
-@Field Docker docker = new Docker()
+@Field DockerCustom dockerCustom = new DockerCustom()
 
 // Test function
 def test(step,env){
@@ -23,12 +23,10 @@ def test(step,env){
 }
 
 def testDocker(step,env,docker){
-    step.echo "${docker}"
-    step.echo "${utils}"
     init(step,env)
     step.echo " Test Docker"
-    docker.init(step,utils,docker)
-    docker.build()
+    dockerCustom.init(step,utils,docker)
+    dockerCustom.build()
     
 }
 

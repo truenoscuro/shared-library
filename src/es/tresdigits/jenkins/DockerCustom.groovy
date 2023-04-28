@@ -1,6 +1,6 @@
 package es.tresdigits.jenkins
 
-class Docker implements Serializable {
+class DockerCustom implements Serializable {
     
     def step
     def utils
