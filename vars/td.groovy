@@ -12,8 +12,8 @@ import es.tresdigits.jenkins.Utils
 
 
 // inicialitzacio de utils
-def init(script){
-    utils.init(script)
+def init(script,env){
+    utils.init(script,env)
 }
 
 
