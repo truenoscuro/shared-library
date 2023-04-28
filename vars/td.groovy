@@ -14,7 +14,7 @@ import es.tresdigits.jenkins.Utils
 def test(step,env){
     init(step,env);
     step.echo "Test utils init"
-    
+    utils.emailSent("nofreruizsalom@gmail.com","test prova")
 }
 
 // inicialitzacio de utils

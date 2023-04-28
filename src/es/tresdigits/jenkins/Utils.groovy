@@ -12,6 +12,9 @@ class Utils  implements Serializable {
     }
 
     def emailSent( toVar, subjectVar, bodyVar=""){
+
+        step.echo "Sent mail..."
+
         step.mail to: "${toVar}", subject: "${subjectVar}", body: "${bodyVar}"
     }
 
