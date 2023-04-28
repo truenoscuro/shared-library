@@ -10,6 +10,12 @@ import es.tresdigits.jenkins.Utils
 @Field Utils utils = new Utils()
 
 
+// Test function
+def test(step,env){
+    init(step,env);
+    step.echo "Test utils init"
+    
+}
 
 // inicialitzacio de utils
 def init(step,env){
