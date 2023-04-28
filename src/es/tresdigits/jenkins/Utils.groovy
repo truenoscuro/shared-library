@@ -1,4 +1,4 @@
-package es.tresdigits
+package es.tresdigits.jenkins
 
 class Utils  implements Serializable {
 
@@ -12,7 +12,7 @@ class Utils  implements Serializable {
         this.env = env    
     }
 
-    
+
 
 
 
