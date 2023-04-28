@@ -11,7 +11,13 @@ class Utils  implements Serializable {
         this.env = env // ENV se poden afegir posat env.[nom dalgo] = [String]
     }
 
+    def emailSent( toVar, subjectVar, bodyVar=""){
+        step.mail to: "${toVar}" subject: "${subjectVar}" body: "${bodyVar}"
+    }
+
     
+
+
 
 
 
