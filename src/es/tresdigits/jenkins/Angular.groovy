@@ -17,7 +17,7 @@ class Angular  implements Serializable {
 
     def newProject(nameProject){
         step.echo "New Project..."
-        step.ng new nameProject
+        step.ng "new nameProject"
         //step.sh ng new nameProject
         //step.sh cd ${nameProject}
     }
