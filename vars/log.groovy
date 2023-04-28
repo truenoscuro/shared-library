@@ -1,21 +1,12 @@
 import groovy.transform.Field
-import es.tresdigits.Step
 
-@Field Step step = new Step()
+//import clases
+import es.tresdigits.jenkins.Utils
 
+
+// Field de clases
+@Field Utils utils = new Utils()
+// inicialitzacio de utils
 def init(script){
-    script.echo "init step"
-    step.init(script)
-}
-
-def holaMundo(){
-    step.holaMundo()
-}
-
-def info(message) {
-    echo "INFO: ${message}"
-}
-
-def warning(message) {
-    echo "WARNING: ${message}"
+    utils.init(script)
 }
