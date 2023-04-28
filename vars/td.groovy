@@ -5,14 +5,16 @@ import groovy.transform.Field
 //import clases
 import es.tresdigits.jenkins.Utils
 import es.tresdigits.jenkins.Angular
-import es.tresdigits.jenkins.DockerCustom
+
+
+//docker ve de docker-workflow
 
 
 
 // Field de clases
 @Field Utils utils = new Utils()
 @Field Angular angular = new Angular()
-@Field DockerCustom dockerCustom = new DockerCustom()
+
 
 // Test function
 def test(step,env){
@@ -22,13 +24,14 @@ def test(step,env){
    
 }
 
-def testDocker(step,env,docker){
-    init(step,env)
-    step.echo " Test Docker"
-    dockerCustom.init(step,utils,docker)
-   
- 
+def call(docker,body){
+    docker.image('node').inside{
+        body()
+    }
 }
+
+
+
 
 def testAngular(step,env){
     
