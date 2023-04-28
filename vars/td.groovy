@@ -26,6 +26,7 @@ def test(step,env){
 
 def call(docker,body){
     docker.image('node').inside{
+        sh 'npm -v'
         body()
     }
 }
