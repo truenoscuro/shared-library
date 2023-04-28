@@ -3,9 +3,9 @@ import es.tresdigits.Step
 
 @Field Step step = new Step()
 
-def init(sript){
+def init(script){
     script.echo "init step"
-    step.init(step)
+    step.init(script)
 }
 
 def holaMundo(){
