@@ -10,7 +10,6 @@ class Angular  implements Serializable {
     // init angular
     def init(step,utils){
         step.echo "Init angular..."
-
         this.step = step
         this.utils = utils
     }
