@@ -3,11 +3,9 @@ package es.tresdigits
 class Step  implements Serializable {
 
   def script
-  def env
 
-  def init(script, env){
+  def init(script){
     this.script = script
-    this.env = env
   }
 
   def echo(args) {  script.echo "${args}" }

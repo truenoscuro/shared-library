@@ -1,8 +1,8 @@
 @groovy.transform.Field
 es.tresdigits.Step step = new es.tresdigits.Step()
 
-def init(sript, env){
-    step.init(sript,env)
+def init(sript){
+    step.init(sript)
     return step;
 }
 
