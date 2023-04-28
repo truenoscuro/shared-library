@@ -1,5 +1,9 @@
 package es.tresdigits.jenkins
 
+
+
+import 
+
 class DockerCustom implements Serializable {
     
     def step
@@ -15,9 +19,11 @@ class DockerCustom implements Serializable {
         this.docker = docker
     }
 
-    def build(){ 
+    def build( body ){ 
         
-        docker.image('node').inside()
+        docker.image('node').inside{
+            body()
+        }
         
     }
 
