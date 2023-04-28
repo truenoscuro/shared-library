@@ -22,7 +22,6 @@ def test(step,env){
     */
     step.echo " Test Angular"
     angular.init(step,utils)
-
     angular.newProject("prova-1")
 
 }
