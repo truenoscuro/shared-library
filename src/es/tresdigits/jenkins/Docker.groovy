@@ -6,7 +6,7 @@ class Docker implements Serializable {
     def utils
 
 
-    // init angular
+    // init docker
     def init(step,utils){
         step.echo "Init docker..."
 
@@ -15,6 +15,6 @@ class Docker implements Serializable {
     }
 
 
-    
+
 
 }

@@ -30,7 +30,7 @@ def testDocker(step,env){
     
 }
 
-def testAngular(step,env)
+def testAngular(step,env){
     
     init(step,env)
     step.echo " Test Angular"
