@@ -10,7 +10,7 @@ class Utils  implements Serializable {
         this.step =step
         this.env = env
 
-        step.echo "Enviaroment: ${env}"
+        step.echo "Enviaroment: ${env.BUILD_ID}"
 
     }
 
