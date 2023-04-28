@@ -15,7 +15,7 @@ class DockerCustom implements Serializable {
         this.docker = docker
     }
 
-    def build(){ docker.build("hello-world")}
+    def build(){ docker.image("hello-world")}
 
 
 
