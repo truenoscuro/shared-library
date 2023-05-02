@@ -66,7 +66,7 @@ def testAngular2(step,env,docker){
 
     //apache RUn
     def container = apache.run("-u root -p 80:80 -w /var/www/html")
-    step.echo "${container}"
+    container.stop()
     //esto furula
     /*
     node.inside("-u root"){
