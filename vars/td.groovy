@@ -73,7 +73,7 @@ def testAngular2(step,env,docker){
         utils.git()
         angular.iPackage()
         angular.build()
-        step.sh "ls"
+        step.sh "pwd"
 
     }.run()
     
