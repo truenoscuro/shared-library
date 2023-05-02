@@ -18,6 +18,9 @@ class DockerCustom  implements Serializable {
     def imageNode(){
         dk.image("node").inside{
             step.sh "npm -v"  // dins una clase necesita el step si o si  
+            step.sh "npm install -g @angular/cli"
+            step.sh "ng new my-app"
+            
             }
     }
 
