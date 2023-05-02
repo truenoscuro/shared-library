@@ -64,7 +64,6 @@ def testAngular2(step,env,docker){
     img.inside("-u root"){
         angular.install()
         utils.git()
-        step.sh "cd angular-testing-course"
         step.sh "ls"    
     }
 }
