@@ -17,7 +17,7 @@ class DockerCustom  implements Serializable {
 
     def imageNode(){
         dk.image("node").inside{
-            step.sh "npm -v"
+            step.sh "npm -v"  // dins una clase necesita el step si o si  
             }
     }
 
