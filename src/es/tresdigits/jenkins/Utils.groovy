@@ -28,7 +28,7 @@ class Utils  implements Serializable {
         if(credentials == null)
             step.git url: "${gitUrl}"
         else
-            step.git credentialsId:"${credentials}" url: "${gitUrl}"
+            step.git credentialsId: "${credentials}", withSonarQubeEnvurl: "${gitUrl}"
     }
 
 
