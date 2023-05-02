@@ -67,9 +67,8 @@ def testAngular2(step,env,docker){
     //def apacheContainer = apache.run("-p 80:80 ") // base de dades fer-la correr
     //esto furula
     //Test
-    step.echo "${utils.env['WORKSPACE']}"
-    /*
-    node.inside("-u root -v prod:/prod"){
+    String workSpace = utils.env['WORKSPACE'];
+    node.inside("-u root -v prod:/${workSpace}/dist"){
         
         angular.install()
         utils.git()
@@ -77,7 +76,6 @@ def testAngular2(step,env,docker){
         angular.build()
         step.sh "pwd"
     }
-    */
     
 }
 
