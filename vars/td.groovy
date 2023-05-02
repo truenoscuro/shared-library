@@ -45,10 +45,10 @@ def testDocker(step,env,docker){
 
 }
 
-def testSonar(step,env,sonar){
+def testSonar(step,env){
     init(step,env)
     step.echo "Test Sonar"
-    sonar.init(step,env,sonar)
+    sonar.init(step,env)
 }
 
 
