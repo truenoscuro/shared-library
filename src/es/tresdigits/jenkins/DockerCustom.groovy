@@ -25,7 +25,7 @@ class DockerCustom  implements Serializable {
     //Imagenes Docker
     def image(nameImage){ 
         step.echo "Image ${nameImage} creada"
-        return dk.image( ${nameImage} ) 
+        return dk.image( "${nameImage}" ) 
     
     }
 
