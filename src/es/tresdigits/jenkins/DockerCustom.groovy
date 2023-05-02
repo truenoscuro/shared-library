@@ -15,14 +15,12 @@ class DockerCustom  implements Serializable {
         this.step = step  // aquest no es necesari en principi
     }
 
-    def imageNode(){
-        dk.image("node:latest").inside("--user root"){
-            step.sh "npm -v"  // dins una clase necesita el step si o si  
-            step.sh "npm install -g @angular/cli"
-            step.sh "ng new my-app"
-            
-            }
-    }
+    //TODO per culpa del jenkinsDocker fa falta posar --user root a tot
+    
+    //TODO dins utils pasa totes les versions dels dockers i fer utils.getNodeVersion()
+
+    //Imagenes Docker
+    def imageNode(){ return dk.image("node:latest") }
 
 
 
