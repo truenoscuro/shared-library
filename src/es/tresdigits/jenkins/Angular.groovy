@@ -14,10 +14,21 @@ class Angular  implements Serializable {
         this.utils = utils
     }
 
-    def newProject(nameProject){
-        step.echo "New Project..."
-        step.sh "ng new ${nameProject}"
-        //step.sh ng new nameProject
-        //step.sh cd ${nameProject}
+    def install(){
+        step.sh "npm install -g @angular/cli"
     }
+
+    def build(){
+        step.echo "Build angular"
+        step.sh "ng build"
+    }
+
+
+    /** 
+    PIPELINE
+    **/
+
+
+
+
 }

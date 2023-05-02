@@ -23,9 +23,9 @@ class DockerCustom  implements Serializable {
     //TODO dins utils pasa totes les versions dels dockers i fer utils.getNodeVersion()
 
     //Imagenes Docker
-    def imageNode(){ 
-        step.echo "Image node creada"
-        return dk.image("node:latest") 
+    def image(nameImage){ 
+        step.echo "Image ${nameImage} creada"
+        return dk.image( ${nameImage} ) 
     
     }
 
