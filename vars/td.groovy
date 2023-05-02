@@ -60,22 +60,23 @@ def testAngular2(step,env,docker){
     
     angular.init(step,utils)
 
-    def node = dk.image("node")
-    
+    def node = dk.image("node")   
     def apache = dk.image("php:7.2-apache")
 
     //apache RUn
-    // def container = apache.run("-u root -p 80:80 -w /var/www/html") // base de dades fer-la correr
+    //def apacheContainer = apache.run("-p 80:80 ") // base de dades fer-la correr
     //esto furula
-    /*
-    node.inside("-u root"){
+    //Test
+    node.inside("-u root "){
         
         angular.install()
         utils.git()
         angular.iPackage()
         angular.build()
+        step.sh "ls"
+
     }
-    */
+    
 }
 
 
