@@ -60,13 +60,23 @@ def testAngular2(step,env,docker){
     
     angular.init(step,utils)
 
-    def img = dk.image("node")
-    img.inside("-u root"){
+    def node = dk.image("node")
+    
+    def apache = dk.image("php-apache")
+
+    //apache RUn
+    apache.withRun("-u root -p 80:80 -w /var/www/html"){
+
+    }
+    //esto furula
+    node.inside("-u root"){
         
         angular.install()
         utils.git()
         angular.iPackage()
         angular.build()
+
+
     }
 }
 
