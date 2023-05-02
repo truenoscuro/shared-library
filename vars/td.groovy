@@ -65,9 +65,7 @@ def testAngular2(step,env,docker){
     def apache = dk.image("php:7.2-apache")
 
     //apache RUn
-    apache.withRun("-u root -p 80:80 -w /var/www/html"){
-
-    }
+    apache.run("-u root -p 80:80 -w /var/www/html")
     //esto furula
     node.inside("-u root"){
         
