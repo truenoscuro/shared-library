@@ -68,7 +68,7 @@ def testAngular2(step,env,docker){
     String wS= env["WORKSPACE"]
     //esto furula
     //Test
-    node.inside("-u root -w /node  -v prod:${wS}/dist"){
+    node.withRun("-u root -w /node"){
         angular.install()
         utils.git()
         angular.iPackage()
