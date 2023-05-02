@@ -68,7 +68,7 @@ def testAngular2(step,env,docker){
     //esto furula
     //Test
 
-    node.inside("-u root -v prod:/${utils.env['WORKSPACE']}"){
+    node.inside("-u root"){
         
         angular.install()
         utils.git()
