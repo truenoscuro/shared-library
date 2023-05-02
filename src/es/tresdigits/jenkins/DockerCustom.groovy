@@ -15,10 +15,8 @@ class DockerCustom  implements Serializable {
         this.step = step  // aquest no es necesari en principi
     }
 
-    def npmV(){
-        dk.image("node").inside{
-            sh "npm -v"
-        }
+    def imageNode(){
+        return dk.image("node")
     }
 
 
