@@ -58,9 +58,7 @@ def testAngular2(step,env,docker){
     
     angular.init(step,utils)
 
-    def img = dk.image("node")
-    
-    img.inside("-u root"){
+    dk.image("node").inside("-u root"){
         angular.install()
         step.sh "Instalado angular"
     }
