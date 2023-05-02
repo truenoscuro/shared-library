@@ -65,16 +65,16 @@ def testAngular2(step,env,docker){
     def node = dk.image("node")   
     // base de dades fer-la correr
     //TODO 
-
+    String wS= env["WORKSPACE"]
     //esto furula
     //Test
-    node.inside("-u root -w /node  -v prod:/node/dist"){
+    node.inside("-u root -w /node  -v prod:${wS}/dist"){
         angular.install()
         utils.git()
         angular.iPackage()
         angular.build()
     }
-    
+
 }
 
 def testSpring2(step,env,docker){
