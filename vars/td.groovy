@@ -54,6 +54,8 @@ def testSonar(step,env){
 // Test desplegar en angular en Docker
 def testAngular2(step,env,docker){
     utils.init(step,env)
+    utils.initGit("https://github.com/angular-university/angular-testing-course.git")
+    
     dk.init(step,docker,utils)
     
     angular.init(step,utils)
@@ -61,6 +63,9 @@ def testAngular2(step,env,docker){
     def img = dk.image("node")
     img.inside("-u root"){
         angular.install()
+        utils.git()
+        step.sh "cd angular-testing-course"
+        step.sh "ls"    
     }
 }
 

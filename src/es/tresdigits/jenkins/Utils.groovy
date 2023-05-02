@@ -16,7 +16,7 @@ class Utils  implements Serializable {
         this.env = env // ENV se poden afegir posat env.[nom dalgo] = [String]
     }
 
-    def initGit( gitUrl , credentials ){
+    def initGit( gitUrl , credentials="" ){
         this.gitUrl = gitUrl
         this.credentials = credentials
     }
@@ -25,7 +25,7 @@ class Utils  implements Serializable {
     
     def git(){
         //TODO credentials se treura del java 
-        if(credentials == null)
+        if(credentials.length() == 0)
             step.git url: "${gitUrl}"
         else
             step.git credentialsId: "${credentials}", withSonarQubeEnvurl: "${gitUrl}"
