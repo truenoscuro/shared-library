@@ -67,7 +67,7 @@ def testAngular2(step,env,docker){
     //def apacheContainer = apache.run("-p 80:80 ") // base de dades fer-la correr
     //esto furula
     //Test
-
+    echo "${utils.env['WORKSPACE']}"
     node.inside("-u root -v prod:/prod"){
         
         angular.install()
