@@ -7,6 +7,7 @@ import es.tresdigits.jenkins.Utils
 import es.tresdigits.jenkins.Angular
 import es.tresdigits.jenkins.DockerCustom
 import es.tresdigits.jenkins.Sonar
+import es.tresdigits.jenkins.Spring
 
 //docker ve de docker-workflow
 
@@ -17,6 +18,7 @@ import es.tresdigits.jenkins.Sonar
 @Field Angular angular = new Angular()
 @Field DockerCustom dk = new DockerCustom()
 @Field Sonar sonar = new Sonar()
+@Field Spring spring = new Spring()
 
 
 // Test function
@@ -51,7 +53,7 @@ def testSonar(step,env){
     sonar.init(step,env)
 }
 
-// Test desplegar en angular en Docker
+// Test buildear en angular en Docker
 def testAngular2(step,env,docker){
     utils.init(step,env)
     utils.initGit("https://github.com/angular-university/angular-testing-course.git") // git de prueba angular
@@ -61,9 +63,6 @@ def testAngular2(step,env,docker){
     angular.init(step,utils)
 
     def node = dk.image("node")   
-    def apache = dk.image("php:7.2-apache")
-
-
     // base de dades fer-la correr
     //TODO 
 
@@ -75,12 +74,26 @@ def testAngular2(step,env,docker){
         angular.iPackage()
         angular.build()
     }
-    
-    //apache RUn
-    //def apacheContainer = apache.run("-p 80:80 -v prod:'${workSpace}'/var/www/html/.") 
-    
 }
 
+def testSpring2(step,env,docker){
+     utils.init(step,env)
+    utils.initGit("https://github.com/Aravamudhan/spring-boot-app.git") // git de prueba angular
+    
+    dk.init(step,docker,utils)
+    
+    spring.init(step,utils)
+
+    def maven = dk.image("maven")   
+    // base de dades fer-la correr
+    //TODO 
+    //esto furula
+    //Test
+    maven.inside("-u root"){
+        utils.git()
+        spring.build()
+    }
+}
 
 
 // inicialitzacio de utils
