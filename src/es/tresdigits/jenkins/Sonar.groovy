@@ -7,7 +7,7 @@ class Sonar  implements Serializable {
     def env
    
 
-    def init( step,env,sonar ){
+    def init( step,env ){
         step.echo "Init Sonar..."
         this.step = step
         this.env = env
