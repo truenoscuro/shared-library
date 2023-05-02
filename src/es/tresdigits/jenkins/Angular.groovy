@@ -23,7 +23,7 @@ class Angular  implements Serializable {
         step.sh "ng build"
     }
 
-    def package(){
+    def iPackage(){
         step.sh "npm i"
     }
 

@@ -64,8 +64,8 @@ def testAngular2(step,env,docker){
     img.inside("-u root"){
         angular.install()
         utils.git()
-        angular.package()
-        
+        angular.iPackage()
+
     }
 }
 
