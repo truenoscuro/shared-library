@@ -68,12 +68,13 @@ def testAngular2(step,env,docker){
 
     //esto furula
     //Test
-    node.inside("-u root"){
+    node.inside("-u root -w /node  -v prod:/node/dist"){
         angular.install()
         utils.git()
         angular.iPackage()
         angular.build()
     }
+    
 }
 
 def testSpring2(step,env,docker){
