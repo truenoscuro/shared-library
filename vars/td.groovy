@@ -66,7 +66,7 @@ def testAngular2(step,env,docker){
         angular.install()
         utils.git()
         angular.iPackage()
-
+        angular.build()
     }
 }
 
