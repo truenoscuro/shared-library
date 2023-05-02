@@ -36,9 +36,9 @@ def testAngular(step,env){
 }
 def testDocker(step,env,docker){
     init(step,env)
-    setep.echo " Test Docker "
+    step.echo " Test Docker "
     dk.init(step,docker,utils)
-    
+
 
 }
 
