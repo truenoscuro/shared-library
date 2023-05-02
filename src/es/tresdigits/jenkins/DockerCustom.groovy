@@ -1,6 +1,11 @@
 package es.tresdigits.jenkins
 
+/*
+Aquesta clase nomes retorna ses images contruides per ara no utiltiza dockerFiles pero se podrien fer 
+i en vers d'utilitzar la funcio image seria build
+*/
 
+//TODO per culpa del jenkinsDocker fa falta posar --user root a tot
 class DockerCustom  implements Serializable {
 
     def step
@@ -15,12 +20,14 @@ class DockerCustom  implements Serializable {
         this.step = step  // aquest no es necesari en principi
     }
 
-    //TODO per culpa del jenkinsDocker fa falta posar --user root a tot
-    
     //TODO dins utils pasa totes les versions dels dockers i fer utils.getNodeVersion()
 
     //Imagenes Docker
-    def imageNode(){ return dk.image("node:latest") }
+    def imageNode(){ 
+        step.echo "Image node creada"
+        return dk.image("node:latest") 
+    
+    }
 
 
 
