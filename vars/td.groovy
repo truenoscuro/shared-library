@@ -39,9 +39,7 @@ def testDocker(step,env,docker){
     step.echo " Test Docker "
     dk.init(step,docker,utils)
 
-    dk.imageNode().inside{
-        sh "npm -v"
-    }
+    dk.imageNode()
 
 }
 
