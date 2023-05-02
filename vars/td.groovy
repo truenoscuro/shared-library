@@ -70,7 +70,7 @@ def testAngular2(step,env,docker){
     //esto furula
     //Test
     String workSpace = utils.env['WORKSPACE'];
-    node.inside("-u root -v prod:/'${workSpace}'/dist"){
+    node.inside("-u root -v prod:'${workSpace}'/dist"){
         
         angular.install()
         utils.git()
@@ -79,7 +79,7 @@ def testAngular2(step,env,docker){
         step.sh "pwd"
     }
     //apache RUn
-    //def apacheContainer = apache.run("-p 80:80 -v prod:/var/www/html/.") 
+    //def apacheContainer = apache.run("-p 80:80 -v prod:${workSpace}/var/www/html/.") 
     
 }
 
