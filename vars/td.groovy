@@ -65,6 +65,8 @@ def testAngular2(step,env,docker){
 
 
     // base de dades fer-la correr
+    //TODO 
+
     //esto furula
     //Test
     String workSpace = utils.env['WORKSPACE'];
@@ -77,7 +79,7 @@ def testAngular2(step,env,docker){
         step.sh "pwd"
     }
     //apache RUn
-    def apacheContainer = apache.run("-p 80:80 -v prod:/var/www/html/.") 
+    //def apacheContainer = apache.run("-p 80:80 -v prod:/var/www/html/.") 
     
 }
 
