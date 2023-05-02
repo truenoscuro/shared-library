@@ -75,7 +75,7 @@ def testAngular2(step,env,docker){
         angular.build()
         step.sh "ls"
 
-    }
+    }.run()
     
 }
 
