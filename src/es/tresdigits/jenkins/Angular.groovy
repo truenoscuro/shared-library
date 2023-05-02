@@ -23,6 +23,10 @@ class Angular  implements Serializable {
         step.sh "ng build"
     }
 
+    def package(){
+        step.sh "npm i"
+    }
+
 
     /** 
     PIPELINE
