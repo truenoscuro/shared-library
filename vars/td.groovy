@@ -63,8 +63,7 @@ def testAngular2(step,env,docker){
     def node = dk.image("node")   
     def apache = dk.image("php:7.2-apache")
 
-    //apache RUn
-    def apacheContainer = apache.run("-p 80:80 -v prod:/var/www/html/.") 
+
     // base de dades fer-la correr
     //esto furula
     //Test
@@ -77,6 +76,8 @@ def testAngular2(step,env,docker){
         angular.build()
         step.sh "pwd"
     }
+    //apache RUn
+    def apacheContainer = apache.run("-p 80:80 -v prod:/var/www/html/.") 
     
 }
 
