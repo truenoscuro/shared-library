@@ -2,7 +2,7 @@ package es.tresdigits.jenkins
 
 class Utils  implements Serializable {
 
-    def step
+    def script
     def env
 
     //git
@@ -10,9 +10,9 @@ class Utils  implements Serializable {
     String credentials
 
     
-    def init( step , env ){
-        step.echo "Init Utils ..."
-        this.step =step
+    def init( script , env ){
+        script.echo "Init Utils ..."
+        this.script =script
         this.env = env // ENV se poden afegir posat env.[nom dalgo] = [String]
     }
 
@@ -26,18 +26,18 @@ class Utils  implements Serializable {
     def git(){
         //TODO credentials se treura del java 
         if(credentials.length() == 0)
-            step.git url: "${gitUrl}"
+            script.git url: "${gitUrl}"
         else
-            step.git credentialsId: "${credentials}", withSonarQubeEnvurl: "${gitUrl}"
+            script.git credentialsId: "${credentials}", withSonarQubeEnvurl: "${gitUrl}"
     }
 
 
 
     def emailSent( toVar, subjectVar, bodyVar=" "){
 
-        step.echo "Sent mail..."
+        script.echo "Sent mail..."
     
-        step.emailext  subject: "${subjectVar}" ,body: "${bodyVar}" , to: "${toVar}"
+        script.emailext  subject: "${subjectVar}" ,body: "${bodyVar}" , to: "${toVar}"
                     
     }
 

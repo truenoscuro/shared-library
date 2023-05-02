@@ -3,13 +3,13 @@
 package es.tresdigits.jenkins
 class Sonar  implements Serializable {
 
-    def step
+    def script
     def env
    
 
-    def init( step,env ){
-        step.echo "Init Sonar..."
-        this.step = step
+    def init( script,env ){
+        script.echo "Init Sonar..."
+        this.script = script
         this.env = env
         
     }

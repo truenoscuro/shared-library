@@ -22,53 +22,52 @@ import es.tresdigits.jenkins.Spring
 
 
 // Test function
-def test(step,env){
-    init(step,env)
-    step.echo "Test utils"
+def test(script,env){
+    init(script,env)
+    script.echo "Test utils"
     utils.emailSent("nofreruizsalom@gmail.com","test prova")
 }
 
-def testAngular(step,env){
+def testAngular(script,env){
     
-    init(step,env)
-    step.echo " Test Angular"
-    angular.init(step,utils)
+    init(script,env)
+    script.echo " Test Angular"
+    angular.init(script,utils)
     angular.newProject("prova-1")
 
 }
 
-def testDocker(step,env,docker){
-    init(step,env)
-    step.echo " Test Docker "
-    dk.init(step,docker,utils)
+def testDocker(script,env,docker){
+    init(script,env)
+    script.echo " Test Docker "
+    dk.init(script,docker,utils)
 
     dk.image("node")
 
 }
 
-def testSonar(step,env){
+def testSonar(script,env){
     //TODO deixar per mes tard
-    init(step,env)
-    step.echo "Test Sonar"
-    sonar.init(step,env)
+    init(script,env)
+    script.echo "Test Sonar"
+    sonar.init(script,env)
 }
 
 // Test buildear en angular en Docker
-def testAngular2(step,env,docker){
-    utils.init(step,env)
+def testAngular2(script,env,docker){
+    utils.init(script,env)
     utils.initGit("https://github.com/angular-university/angular-testing-course.git") // git de prueba angular
     
-    dk.init(step,docker,utils)
+    dk.init(script,docker,utils)
     
-    angular.init(step,utils)
+    angular.init(script,utils)
 
     def node = dk.image("node")   
     // base de dades fer-la correr
-    //TODO 
-    String wS= env["WORKSPACE"]
+    //TODO  String wS= env["WORKSPACE"]
     //esto furula
     //Test
-    node.withRun("-u root "){
+    node.inside("-u root"){
         angular.install()
         utils.git()
         angular.iPackage()
@@ -77,13 +76,13 @@ def testAngular2(step,env,docker){
 
 }
 
-def testSpring2(step,env,docker){
-     utils.init(step,env)
+def testSpring2(script,env,docker){
+     utils.init(script,env)
     utils.initGit("https://github.com/Aravamudhan/spring-boot-app.git") // git de prueba angular
     
-    dk.init(step,docker,utils)
+    dk.init(script,docker,utils)
     
-    spring.init(step,utils)
+    spring.init(script,utils)
 
     def maven = dk.image("maven")   
     // base de dades fer-la correr
@@ -98,9 +97,9 @@ def testSpring2(step,env,docker){
 
 
 // inicialitzacio de utils
-def init(step,env,docker){
-    step.echo "Init pipeline... "
-    utils.init(step,env)
+def init(script,env,docker){
+    script.echo "Init pipeline... "
+    utils.init(script,env)
 }
 
 

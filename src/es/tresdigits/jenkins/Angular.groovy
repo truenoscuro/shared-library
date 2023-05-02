@@ -3,28 +3,28 @@ package es.tresdigits.jenkins
 
 class Angular  implements Serializable {
 
-    def step
+    def script
     def utils
 
 
     // init angular
-    def init(step,utils){
-        step.echo "Init angular..."
-        this.step = step
+    def init(script,utils){
+        script.echo "Init angular..."
+        this.script = script
         this.utils = utils
     }
 
     def install(){
-        step.sh "npm install -g @angular/cli"
+        script.sh "npm install -g @angular/cli"
     }
 
     def build(){
-        step.echo "Build angular"
-        step.sh "ng build"
+        script.echo "Build angular"
+        script.sh "ng build"
     }
 
     def iPackage(){
-        step.sh "npm i"
+        script.sh "npm i"
     }
 
 

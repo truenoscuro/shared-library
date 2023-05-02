@@ -3,19 +3,19 @@ package es.tresdigits.jenkins
 
 class Spring  implements Serializable {
 
-    def step
+    def script
     def utils
 
 
     // init angular
-    def init(step,utils){
-        step.echo "Init Spring..."
-        this.step = step
+    def init(script,utils){
+        script.echo "Init Spring..."
+        this.script = script
         this.utils = utils
     }
 
     def build(){
-        step.sh "mvn package"
+        script.sh "mvn package"
     }
 
 }

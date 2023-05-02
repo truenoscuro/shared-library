@@ -8,23 +8,23 @@ i en vers d'utilitzar la funcio image seria build
 //TODO per culpa del jenkinsDocker fa falta posar --user root a tot
 class DockerCustom  implements Serializable {
 
-    def step
+    def script
     def dk
     def utils
 
     //init docker
-    def init(step,docker,utils){
-        step.echo "Init Docker..."
+    def init(script,docker,utils){
+        script.echo "Init Docker..."
         this.dk  = docker
         this.utils = utils
-        this.step = step  // aquest no es necesari en principi
+        this.script = script  // aquest no es necesari en principi
     }
 
     //TODO dins utils pasa totes les versions dels dockers i fer utils.getNodeVersion()
 
     //Imagenes Docker
     def image(nameImage){ 
-        step.echo "Image ${nameImage} creada"
+        script.echo "Image ${nameImage} creada"
         return dk.image( "${nameImage}" ) 
     
     }
