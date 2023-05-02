@@ -68,14 +68,13 @@ def testAngular2(step,env,docker){
     //esto furula
     //Test
 
-    node.inside("-u root"){
+    node.inside("-u root -v prod:/prod"){
         
         angular.install()
         utils.git()
         angular.iPackage()
         angular.build()
         step.sh "pwd"
-
     }
     
 }
