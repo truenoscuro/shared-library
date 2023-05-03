@@ -34,6 +34,7 @@ class DockerCustom  implements Serializable {
         String workspace=script.WORKSPACE
         String gitUrl = utils.gitUrl
         DockerFile.generateAngular( workspace, gitUrl ,  tagNode, tagApache)
+        script.sh "cat Dockerfile"
         runDockerFile("angular-apache${utils.env.ID}",args)
     }
     def runDockerFile(String name,String args =""){
