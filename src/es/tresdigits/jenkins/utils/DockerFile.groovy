@@ -17,7 +17,7 @@ class DockerFile {
     
     static String contentAngular(String gitUrl , String tagNode,String tagApache){
         def regex1 = /\/(\w|-|\d)+\.(?=(git))/
-        def regex2 = /?<dir>(\w|-|\d)+/
+        def regex2 = /(?<dir>(\w|-|\d)+)/
     
         def directoryAux = (gitUrl =~ regex1).findAll()
         String directory = (directoryAux =~ regex2).group("dir")
