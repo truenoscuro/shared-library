@@ -98,7 +98,7 @@ def testDockerFile(script,env,docker){
     dk.init(script,docker,utils)
     script.echo "Test DockerFile"
     dk.generate("node")
-    script.sh "ls ${script.WORKSPACE}"
+    script.ls "${script.WORKSPACE}"
 
 }
 
