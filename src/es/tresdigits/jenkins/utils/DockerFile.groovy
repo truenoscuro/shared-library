@@ -14,7 +14,7 @@ class DockerFile {
         generate( workspace, content )
     }
 
-    @
+    
     static String contentAngular(String gitUrl , String tagNode,String tagApache){
        
         String directory = (gitUrl =~ /\/(\w|-|\d)+\.(?=(git))/).findAll()*.first()
