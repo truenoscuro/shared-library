@@ -1,4 +1,9 @@
 package es.tresdigits.jenkins.utils
+
+import java.io.File 
+
+
+
 class DockerFile {
 
     //generador de Dockerfile
