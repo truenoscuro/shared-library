@@ -17,10 +17,8 @@ class DockerFile {
     
     static String contentAngular(String gitUrl , String tagNode,String tagApache){
        
-        def firstMatch = (gitUrl =~ /\/(\w|-|\d)+\.(?=(git))/)
-        String directoryAux = firstMatch.get(0)
-        def secondMatch = (directoryAux =~ /(\w|-|\d)+/)
-        String directory = secondMatch[0]
+        String directory = (gitUrl =~ /\/(\w|-|\d)+\.(?=(git))/).first()
+        directory = (directory =~ /(\w|-|\d)+/).first()
         String directoryBuilder = "/node/${directory}/dist/."
         String content= 
         """
@@ -51,7 +49,7 @@ class DockerFile {
 
         USER root
         WORKDIR /var/www/html
-
+        ARG directory_builder=/node/angular-testing-course/dist/.
         COPY --from=builder  ${directoryBuilder} ./
 
         """
