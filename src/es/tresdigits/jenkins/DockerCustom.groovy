@@ -37,8 +37,11 @@ class DockerCustom  implements Serializable {
         DockerFile.generate(workspace,image)
 
     }
-    def runDockerFile(){
-        def img = dk.build("./DockerFile")
+    def runDockerFile(String args =""){
+        def imgDockerFile = dk.build("./DockerFile")
+        def container = imgDockeFile.run(args)
+
+        
     }
 
     
