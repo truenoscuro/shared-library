@@ -19,8 +19,8 @@ class DockerFile {
         def regex1 = /\/(\w|-|\d)+\.(?=(git))/
         def regex2 = /(\w|-|\d)+/
     
-        def directory = (gitUrl =~ regex1).findAll()
-        directory = (directory =~ regex2).findAll()
+        def directory = (gitUrl =~ regex1)[0][1]
+        directory = (directory =~ regex2)[0][1]
         String directoryBuilder = "/node/${directory}/dist/."
         String content= 
         """
