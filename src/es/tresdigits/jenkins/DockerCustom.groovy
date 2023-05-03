@@ -41,7 +41,7 @@ class DockerCustom  implements Serializable {
         script.sh "pwd"
         script.sh "${script.WORKSPACE}"
 
-        def imgDockerFile = dk.build("http","${script.WORKSPACE}/Dockerfile")
+        def imgDockerFile = dk.build("http","${script.WORKSPACE}")
         //def container = imgDockeFile.run(args)
 
 
