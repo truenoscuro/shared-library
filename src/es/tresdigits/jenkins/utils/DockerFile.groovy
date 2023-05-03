@@ -10,6 +10,7 @@ class DockerFile {
     static void generate( String workspace, String content ){
         // TODO A vegades funciona a vegades no . Eliminar workspace por si acaso
         File dockerFile = new File("${workspace}/Dockerfile") 
+        dockerFile.mkdir()
         dockerFile.write(content)
     }
 
