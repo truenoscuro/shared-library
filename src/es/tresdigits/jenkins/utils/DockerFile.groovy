@@ -23,8 +23,8 @@ class DockerFile {
         String content = contentAngular( gitUrl , tagNode, tagApache)
         generate( workspace, content )
     }
-    static void generateSpring(String workspace,String gitUrl , String tagNode,String tagTomcat){
-        String content = contentSpring( gitUrl , tagNode, tagTomcat)
+    static void generateSpring(String workspace,String gitUrl , String tagMaven,String tagTomcat){
+        String content = contentSpring( gitUrl , tagMaven, tagTomcat)
         generate( workspace, content )
     }
 
