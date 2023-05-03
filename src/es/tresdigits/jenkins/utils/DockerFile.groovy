@@ -17,8 +17,9 @@ class DockerFile {
     
     static String contentAngular(String gitUrl , String tagNode,String tagApache){
        
-        String directory = (gitUrl =~ /\/(\w|-|\d)+\.(?=(git))/)findAll().getAt(0)
-        directory = (directory =~ /(\w|-|\d)+/).findAll().getAt(0)
+        def directoryList = (gitUrl =~ /\/(\w|-|\d)+\.(?=(git))/)findAll()
+        directoryList = (directoryList[0] =~ /(\w|-|\d)+/).findAll()
+        String directory = directoryList[0]
         String directoryBuilder = "/node/${directory}/dist/."
         String content= 
         """
