@@ -57,13 +57,13 @@ class DockerFile {
 
 
     static String contentSpring(String gitUrl, String tagMaven, String tagTomcat ){
-
+        // TODO ara per defecta esta en tomcat
         String directory = getDirectoryGit( gitUrl )
 
         String directoryBuilder = "/maven/${directory}/target/*.war"
         content=
         """
-        FROM maven:${maven_version} AS builder
+        FROM maven:${tagMaven} AS builder
 
         USER root
         WORKDIR /maven
@@ -72,10 +72,11 @@ class DockerFile {
         WORKDIR /maven/${directory}
         RUN mvn package
 
+        ${contentApache(directoryBuilder,tagTomcat)}
         """
 
-        content += contentApache(directoryBuilder,tagTomcat)
-        // TODO ara per defecta esta en tomcat
+       
+    
 
 
         return content
@@ -98,7 +99,7 @@ class DockerFile {
         return content
     }
 
-    
+
 
     static String contentTomcat(String directoryBuilder,String tagTomcat){
 
