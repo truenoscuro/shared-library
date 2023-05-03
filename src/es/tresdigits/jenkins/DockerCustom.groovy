@@ -1,10 +1,11 @@
 package es.tresdigits.jenkins
 
+import es.tresdigits.jenkins.utils.DockerFile
 /*
 Aquesta clase nomes retorna ses images contruides per ara no utiltiza dockerFiles pero se podrien fer 
 i en vers d'utilitzar la funcio image seria build
 */
-
+/
 //TODO per culpa del jenkinsDocker fa falta posar --user root a tot
 class DockerCustom  implements Serializable {
 
@@ -28,6 +29,15 @@ class DockerCustom  implements Serializable {
         return dk.image( "${nameImage}" ) 
     
     }
+    
+    def generate(String image){
+        script.echo "Generate Dockerfile"
+        DockerFile.generate(env.WORKSPACE,image)
+    }
+    
+
+    
+    
 
 
 

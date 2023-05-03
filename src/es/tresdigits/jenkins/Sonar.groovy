@@ -13,10 +13,12 @@ class Sonar  implements Serializable {
         this.env = env
         
     }
-    def test(){
 
+    def sonar(){
+        script.withSonarQubeEnv("Sonar "){
+            // lo que hagui de sonar
+        }
     }
-
 
 
 

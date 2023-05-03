@@ -1,5 +1,6 @@
 package vars
 
+//import @Field
 import groovy.transform.Field
 
 //import clases
@@ -8,9 +9,6 @@ import es.tresdigits.jenkins.Angular
 import es.tresdigits.jenkins.DockerCustom
 import es.tresdigits.jenkins.Sonar
 import es.tresdigits.jenkins.Spring
-
-//docker ve de docker-workflow
-
 
 
 // Field de clases
@@ -77,7 +75,7 @@ def testAngular2(script,env,docker){
 }
 
 def testSpring2(script,env,docker){
-     utils.init(script,env)
+    utils.init(script,env)
     utils.initGit("https://github.com/Aravamudhan/spring-boot-app.git") // git de prueba angular
     
     dk.init(script,docker,utils)
@@ -95,11 +93,21 @@ def testSpring2(script,env,docker){
     }
 }
 
+def testDockerFile(script,env,docker){
+    utils.init(script,env)
+    dk.init(script,docker,utils)
+    script.echo "Test DockerFile"
+    dk.generate("node")
+    script.sh "ls"
+
+}
+
 
 // inicialitzacio de utils
-def init(script,env,docker){
+def init(script,env){
     script.echo "Init pipeline... "
     utils.init(script,env)
+    
 }
 
 
