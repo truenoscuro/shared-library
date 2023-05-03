@@ -19,8 +19,8 @@ class DockerFile {
         def regex1 = /\/(\w|-|\d)+\.(?=(git))/
         def regex2 = /(\w|-|\d)+/
     
-        def directory = (gitUrl =~ regex1)[0][1]
-        directory = (directory =~ regex2)[0][1]
+        def directory = (gitUrl =~ regex1)[0][0]
+        directory = (directory =~ regex2)[0][0]
         String directoryBuilder = "/node/${directory}/dist/."
         String content= 
         """
@@ -51,7 +51,6 @@ class DockerFile {
 
         USER root
         WORKDIR /var/www/html
-        ARG directory_builder=/node/angular-testing-course/dist/.
         COPY --from=builder  ${directoryBuilder} ./
 
         """
