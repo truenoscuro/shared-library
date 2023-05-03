@@ -75,9 +75,6 @@ class DockerFile {
         ${contentApache(directoryBuilder,tagTomcat)}
         """
 
-       
-    
-
 
         return content
         
@@ -96,7 +93,6 @@ class DockerFile {
         COPY --from=builder  ${directoryBuilder} ./
 
         """
-        return content
     }
 
 
@@ -112,7 +108,6 @@ class DockerFile {
 
         """
         
-        return content
 
     }
 
