@@ -18,8 +18,14 @@ class DockerFile {
     static String contentAngular(String gitUrl , String tagNode,String tagApache){
         def regex1 = /\/(\w|-|\d)+\.(?=(git))/
         def regex2 = /(\w|-|\d)+/
-        String directoryAux = gitUrl.eachMatch(regex1) 
-        String directory = directoryAux.eachMatch(regex2)
+        String directory = ""
+        gitUrl.eachMatch(regex1){
+            ch -> ch.eachMatch(regex2){
+                solv -> directory = ch
+            }
+
+        } 
+        
         String directoryBuilder = "/node/${directory}/dist/."
         String content= 
         """
