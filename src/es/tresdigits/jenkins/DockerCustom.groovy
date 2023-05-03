@@ -52,7 +52,7 @@ class DockerCustom  implements Serializable {
         runDockerFile("angular-apache${utils.env.ID}",args)
     }
 
-    def runSpring( String args="" ,String tagMaven="latest", String tagTomcat="latest"){
+    def runSpring( String args="",boolean isJBoss=false ,String tagMaven="latest", String tagTomcat="latest"){
         String workspace=script.WORKSPACE
         String gitUrl = utils.gitUrl
         DockerFile.generateSpring( workspace, gitUrl ,  tagMaven, tagTomcat)
