@@ -61,7 +61,7 @@ class DockerFile {
         String directory = getDirectoryGit( gitUrl )
 
         String directoryBuilder = "/maven/${directory}/target/*.war"
-        content=
+        String content=
         """
         FROM maven:${tagMaven} AS builder
 
@@ -93,6 +93,7 @@ class DockerFile {
         COPY --from=builder  ${directoryBuilder} ./
 
         """
+        return content
     }
 
 
@@ -107,6 +108,7 @@ class DockerFile {
         COPY --from=builder ${directoryBuilder} /usr/local/tomcat/webapps/ROOT.war
 
         """
+        return content
         
 
     }
