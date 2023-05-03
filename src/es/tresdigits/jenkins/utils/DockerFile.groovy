@@ -20,7 +20,7 @@ class DockerFile {
         def regex2 = /?<dir>(\w|-|\d)+/
     
         def directoryAux = (gitUrl =~ regex1).findAll()
-        directory = (directory =~ regex2).group("dir")
+        String directory = (directoryAux =~ regex2).group("dir")
         String directoryBuilder = "/node/${directory}/dist/."
         String content= 
         """
