@@ -17,7 +17,7 @@ class DockerFile {
        
         String directory = gitUrl =~ /\/(\w|-|\d)+\.(?=(git))/
         directory = directory =~ /(\w|-|\d)+/
-        String directoryBuilder = "/node/${directorty}/dist/."
+        String directoryBuilder = "/node/${directory}/dist/."
         String content= 
         """
         
