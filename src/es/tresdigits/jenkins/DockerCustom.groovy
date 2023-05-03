@@ -45,7 +45,7 @@ class DockerCustom  implements Serializable {
     //run especifics se odria refactoritzar amb molt de ifs
 
     def runAngular( String args="" ,String tagNode="latest", String tagApache="8.1"){
-        String workspace=utils.env.WORKSPACE
+        String workspace=script.WORKSPACE
         String gitUrl = utils.gitUrl
         DockerFile.generateAngular( workspace, gitUrl ,  tagNode, tagApache)
     
@@ -53,7 +53,7 @@ class DockerCustom  implements Serializable {
     }
 
     def runSpring( String args="" ,String tagMaven="latest", String tagTomcat="latest"){
-        String workspace="./"
+        String workspace=script.WORKSPACE
         String gitUrl = utils.gitUrl
         DockerFile.generateSpring( workspace, gitUrl ,  tagMaven, tagTomcat)
         script.sh "cat Dockerfile"
