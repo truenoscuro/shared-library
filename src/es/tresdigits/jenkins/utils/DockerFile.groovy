@@ -30,7 +30,7 @@ class DockerFile {
         generate( workspace, content )
     }
     static void generateSpring(String workspace,String gitUrl ,boolean isJBoss, String tagMaven,String tagTomcat){
-        String content = contentSpring( gitUrl ,isJBoss tagMaven, tagTomcat)
+        String content = contentSpring( gitUrl ,isJBoss, tagMaven, tagTomcat)
         generate( workspace, content )
     }
 
