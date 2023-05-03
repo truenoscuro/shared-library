@@ -55,7 +55,7 @@ class DockerCustom  implements Serializable {
     def runSpring( String args="",boolean isJBoss=false ,String tagMaven="latest", String tagTomcat="latest"){
         String workspace=script.WORKSPACE
         String gitUrl = utils.gitUrl
-        DockerFile.generateSpring( workspace, gitUrl ,  tagMaven, tagTomcat)
+        DockerFile.generateSpring( workspace, gitUrl ,isJBoss,  tagMaven, tagTomcat)
         script.sh "cat Dockerfile"
         runDockerFile("tomcat${utils.env.ID}",args)
     }
