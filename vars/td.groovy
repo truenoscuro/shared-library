@@ -97,8 +97,9 @@ def testDockerFile(script,env,docker){
     utils.init(script,env)
     dk.init(script,docker,utils)
     script.echo "Test DockerFile"
-    dk.generate("node")
-    script.sh "ls *"
+    dk.generate("httpd")
+    script.sh "cat Dockerfile"
+    dk.runDockerFile("-u user -p 80:80")
 
 }
 
