@@ -3,7 +3,7 @@ class DockerFile {
 
     //generador de Dockerfile
     static void generate( String workspace, String content ){
-        File dockerFile = new File(workspace,"Dockerfile")
+        File dockerFile = new File("${workspace}/Dockerfile")
         dockerFile.write(content)
     }
 
