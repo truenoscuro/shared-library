@@ -77,7 +77,7 @@ class DockerFile {
         WORKDIR /maven/${directory}
         RUN mvn package
 
-        ${contentApache(directoryBuilder,tagTomcat)}
+        ${contentTomcat(directoryBuilder,tagTomcat)}
         """
 
 
