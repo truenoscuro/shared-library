@@ -110,7 +110,7 @@ def testDockerFileAngular(script,env,docker){
 def testDockerFileSpring(script,env,docker){
     
     utils.init(script,env)
-    utils.initGit("https://github.com/angular-university/angular-testing-course.git")
+    utils.initGit("https://github.com/truenoscuro/spring-example.git")
     
     dk.init(script,docker,utils)
     script.echo "Test DockerFile Spring"
