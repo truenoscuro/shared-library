@@ -1,27 +1,37 @@
 package es.tresdigits.jenkins.utils
 class DockerFile {
 
-
+    //generador de Dockerfile
     static void generate( String workspace, String content ){
         File dockerFile = new File("${workspace}/Dockerfile")
         dockerFile.write(content)
     }
 
-    static void generateAngular(String workspace,String gitUrl , String tagNode,String tagApache){
-        String content = contentAngular( gitUrl , tagNode, tagApache)
-        generate( workspace, content )
-    }
-
-    
-    static String contentAngular(String gitUrl , String tagNode,String tagApache){
-        
-        //TODO extreure per treure el directory d'un github
+    //util funcion
+    static String getDirectoryGit( String gitUrl ){
         def regex1 = /\/(\w|-|\d)+\.(?=(git))/
         def regex2 = /(\w|-|\d)+/
     
         def directory = (gitUrl =~ regex1)[0][0]
-        directory = (directory =~ regex2)[0][0]
-        //-----------
+        return (directory =~ regex2)[0][0]
+    }
+
+
+    //generador especifico
+
+    static void generateAngular(String workspace,String gitUrl , String tagNode,String tagApache){
+        String content = contentAngular( gitUrl , tagNode, tagApache)
+        generate( workspace, content )
+    }
+    static void generateSpring(String workspace,String gitUrl , String tagNode,String tagTomcat){
+        String content = contentSpring( gitUrl , tagNode, tagTomcat)
+        generate( workspace, content )
+    }
+
+    //content builder
+    static String contentAngular(String gitUrl , String tagNode,String tagApache){
+        
+        String directory = getDirectoryGit( gitUrl )
 
         String directoryBuilder = "/node/${directory}/dist/."
         String content= 
@@ -45,6 +55,35 @@ class DockerFile {
         return content 
     }
 
+
+    static String contentSpring(String gitUrl, String tagMaven, String tagTomcat ){
+
+        String directory = getDirectoryGit( gitUrl )
+
+        String directoryBuilder = "/maven/${directory}/target/*.war"
+        content=
+        """
+        FROM maven:${maven_version} AS builder
+
+        USER root
+        WORKDIR /maven
+        RUN git clone ${gitUrl}
+
+        WORKDIR /maven/${directory}
+        RUN mvn package
+
+        """
+
+        content += contentApache(directoryBuilder,tagTomcat)
+        // TODO ara per defecta esta en tomcat
+
+
+        return content
+        
+    }
+
+    // content dels desplegadors
+
     static String contentApache(String directoryBuilder,String tagApache){
 
         String content = 
@@ -56,8 +95,24 @@ class DockerFile {
         COPY --from=builder  ${directoryBuilder} ./
 
         """
+        return content
+    }
 
+    
+
+    static String contentTomcat(String directoryBuilder,String tagTomcat){
+
+        String content=
+        """
+        FROM tomcat:${tagTomcat}
+        ARG catalina_dir=/usr/local/tomcat
+        USER root
+        COPY --from=builder ${directoryBuilder} /usr/local/tomcat/webapps/ROOT.war
+
+        """
         
+        return content
+
     }
 
 
