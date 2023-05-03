@@ -8,7 +8,8 @@ class DockerFile {
 
     //generador de Dockerfile
     static void generate( String workspace, String content ){
-        File dockerFile = new File("${workspace}/Dockerfile")
+        // TODO A vegades funciona a vegades no . Eliminar workspace por si acaso
+        File dockerFile = new File("${workspace}/Dockerfile") 
         dockerFile.write(content)
     }
 
@@ -61,11 +62,16 @@ class DockerFile {
     }
 
 
-    static String contentSpring(String gitUrl, String tagMaven, String tagTomcat ){
+    static String contentSpring(String gitUrl, String isJBoss String tagMaven, String tagTomcat ){
         // TODO ara per defecta esta en tomcat
         String directory = getDirectoryGit( gitUrl )
 
         String directoryBuilder = "/maven/${directory}/target/*.war"
+        
+        String contentPort=contentTomcat(directoryBuilder,tagTomcat)
+        if(isJBoss) contentPort = contentJboss(directoryBuilder)
+
+
         String content=
         """
         FROM maven:${tagMaven} AS builder
@@ -108,10 +114,33 @@ class DockerFile {
         String content=
         """
         FROM tomcat:${tagTomcat}
-        ARG catalina_dir=/usr/local/tomcat
         USER root
         COPY --from=builder ${directoryBuilder} /usr/local/tomcat/webapps/ROOT.war
+        CMD [ "catalina.sh","run"]
+        """
+        return content
+        
 
+    }
+
+    static String contentJboss(String directoryBuilder){
+        String content=
+        """
+        FROM jboss/wildfly
+        COPY --from=builder ${directoryBuilder} /opt/jboss/wildfly/standalone/deployments/ROOT.war
+
+        """
+    }
+
+
+    static String contentTomee(String directoryBuilder,String tagTomee){
+
+        String content=
+        """
+        FROM tomee:${tagTomee}
+        USER root
+        COPY --from=builder ${directoryBuilder} /usr/local/tomee/webapps/ROOT.war
+        CMD [ "catalina.sh","run"]
         """
         return content
         
