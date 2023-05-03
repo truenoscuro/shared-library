@@ -7,13 +7,14 @@ class DockerFile {
 
         File dockerFile = new File("${workspace}/Dockerfile.${image}")
         dockerFile.createNewFile()
-        
+        /*
         String content=
         """
         FROM ${image}
 
         """
         dockerFile.write(content)
+        */
     }
 
 
