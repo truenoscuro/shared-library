@@ -7,7 +7,7 @@ class DockerFile {
 
         File dockerFile = new File("${workspace}/Dockerfile.${image}")
 
-        content=
+        String content=
         """
         FROM ${image}
 
