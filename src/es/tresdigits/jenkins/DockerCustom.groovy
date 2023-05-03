@@ -38,7 +38,7 @@ class DockerCustom  implements Serializable {
 
     }
     def runDockerFile(String args =""){
-        def imgDockerFile = dk.build("Dockerfile")
+        def imgDockerFile = dk.build("http","./Dockerfile")
         def container = imgDockeFile.run(args)
 
 
