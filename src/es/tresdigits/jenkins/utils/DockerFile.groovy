@@ -5,7 +5,7 @@ class DockerFile {
 
     static void generate( String workspace, String image ){
 
-        File dockerFile = new File(workspace,"Dockerfile.${image}")
+        File dockerFile = new File("Dockerfile.${image}")
         dockerFile.createNewFile()
         /*
         String content=
