@@ -94,12 +94,16 @@ def testSpring2(script,env,docker){
 }
 
 def testDockerFile(script,env,docker){
+    
     utils.init(script,env)
+    utils.initGit("https://github.com/angular-university/angular-testing-course.git")
+    
     dk.init(script,docker,utils)
-    script.echo "Test DockerFile"
-    dk.generate("httpd")
-    script.sh "cat Dockerfile"
-    dk.runDockerFile("-u root -p 80:80")
+    script.echo "Test DockerFile Angular"
+ 
+    dk.runAngular("-u root -p 80:80")
+
+
 
 }
 
