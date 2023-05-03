@@ -29,18 +29,18 @@ class DockerCustom  implements Serializable {
         return dk.image( "${nameImage}" ) 
     
     }
-    
-    def generate(String image){
-        String workspace = script.WORKSPACE
-        script.echo "${workspace}"
-        script.echo "Generate Dockerfile"
-        DockerFile.generate(workspace,image)
 
+    def runAngular( String args="" ,String tagNode="latest",String tagApache="8.1",){
+        String workspace=script.WORKSPACE
+        String gitUrl = utils.gitUrl
+        DockerFile.generateAngular( workspace, gitUrl ,  tagNode, tagApache)
+        runDockerFile("angular-apache${utils.env.ID}",args)
     }
-    def runDockerFile(String args =""){
-        def imgDockerFile = dk.build("http",".")
+    def runDockerFile(String name,String args =""){
+        def imgDockerFile = dk.build(name,".")
         def container = imgDockerFile.run(args)
-        int totalMin = 5
+        int totalMin = 1
+        //TODO aixo s'ha de llevar
         script.echo "sleep de ${totalMin} min"
         utils.sleepMin(totalMin)
         container.stop()
