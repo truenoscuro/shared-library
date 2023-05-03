@@ -5,7 +5,7 @@ import es.tresdigits.jenkins.utils.DockerFile
 Aquesta clase nomes retorna ses images contruides per ara no utiltiza dockerFiles pero se podrien fer 
 i en vers d'utilitzar la funcio image seria build
 */
-/
+
 //TODO per culpa del jenkinsDocker fa falta posar --user root a tot
 class DockerCustom  implements Serializable {
 
