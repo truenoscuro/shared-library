@@ -29,8 +29,8 @@ class DockerFile {
         String content = contentAngular( gitUrl , tagNode, tagApache)
         generate( workspace, content )
     }
-    static void generateSpring(String workspace,String gitUrl , String tagMaven,String tagTomcat){
-        String content = contentSpring( gitUrl , tagMaven, tagTomcat)
+    static void generateSpring(String workspace,String gitUrl ,boolean isJBoss, String tagMaven,String tagTomcat){
+        String content = contentSpring( gitUrl ,isJBoss, tagMaven, tagTomcat)
         generate( workspace, content )
     }
 
@@ -62,7 +62,7 @@ class DockerFile {
     }
 
 
-    static String contentSpring(String gitUrl, String isJBoss String tagMaven, String tagTomcat ){
+    static String contentSpring(String gitUrl, boolean isJBoss, String tagMaven, String tagTomcat ){
         // TODO ara per defecta esta en tomcat
         String directory = getDirectoryGit( gitUrl )
 
