@@ -31,7 +31,7 @@ class DockerCustom  implements Serializable {
     }
     
     def generate(String image){
-        String workspace = utils.env.WORKSPACE
+        String workspace = script.WORKSPACE
         script.echo "Generate Dockerfile"
         DockerFile.generate(workspace,image)
     }
