@@ -1,5 +1,6 @@
 package es.tresdigits.jenkins.utils
-import java.io.File 
+import java.io.File
+import java.util.regex.Matcher
 class DockerFile {
 
 
@@ -13,6 +14,7 @@ class DockerFile {
         generate( workspace, content )
     }
 
+    @
     static String contentAngular(String gitUrl , String tagNode,String tagApache){
        
         String directory = (gitUrl =~ /\/(\w|-|\d)+\.(?=(git))/).findAll()*.first()
