@@ -99,7 +99,7 @@ def testDockerFile(script,env,docker){
     script.echo "Test DockerFile"
     dk.generate("httpd")
     script.sh "cat Dockerfile"
-    dk.runDockerFile("-u user -p 80:80")
+    dk.runDockerFile("-u root -p 80:80")
 
 }
 
