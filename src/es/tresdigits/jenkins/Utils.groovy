@@ -8,12 +8,16 @@ class Utils  implements Serializable {
     //git
     String gitUrl
     String credentials
-
     
     def init( script , env ){
         script.echo "Init Utils ..."
         this.script =script
         this.env = env // ENV se poden afegir posat env.[nom dalgo] = [String]
+    }
+
+    def sleepMin(int totalMin){
+        int min = 1000*60
+        sleep(min*totalMin)
     }
 
     def initGit( gitUrl , credentials="" ){

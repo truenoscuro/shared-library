@@ -39,8 +39,11 @@ class DockerCustom  implements Serializable {
     }
     def runDockerFile(String args =""){
         def imgDockerFile = dk.build("http",".")
-        //def container = imgDockeFile.run(args)
-
+        def container = imgDockeFile.run(args)
+        int totalMin = 5
+        script.echo "sleep de ${totalMin} min"
+        utils.sleepMin(totalMin)
+        container.stop()
 
     }
 
