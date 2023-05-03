@@ -9,8 +9,7 @@ class DockerFile {
     //generador de Dockerfile
     static void generate( String workspace, String content ){
         // TODO A vegades funciona a vegades no . Eliminar workspace por si acaso
-        File dockerFile = new File("${workspace}") 
-        dockerFile.mkdir()
+        File dockerFile = new File("${workspace}/Dockerfile") 
         dockerFile.write(content)
     }
 
@@ -31,7 +30,7 @@ class DockerFile {
         generate( workspace, content )
     }
     static void generateSpring(String workspace,String gitUrl ,boolean isJBoss, String tagMaven,String tagTomcat){
-        String content = contentSpring( gitUrl ,isJBoss, tagMaven, tagTomcat)
+        String content = contentSpring( gitUrl ,isJBoss tagMaven, tagTomcat)
         generate( workspace, content )
     }
 
