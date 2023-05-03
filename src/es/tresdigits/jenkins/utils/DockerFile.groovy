@@ -39,13 +39,13 @@ class DockerFile {
         RUN npm i
         RUN ng build
 
-        ${contentApache(tagApache,directoryBuilder)}
+        ${contentApache(directoryBuilder,tagApache)}
         """
 
         return content 
     }
 
-    static String contentApache(String tagApache,String directoryBuilder){
+    static String contentApache(String directoryBuilder,String tagApache){
 
         String content = 
         """

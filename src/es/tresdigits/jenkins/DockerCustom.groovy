@@ -30,7 +30,7 @@ class DockerCustom  implements Serializable {
     
     }
 
-    def runAngular( String args="" ,String tagNode="latest",String tagApache="8.1"){
+    def runAngular( String args="" ,String tagNode="latest", String tagApache="8.1"){
         String workspace=script.WORKSPACE
         String gitUrl = utils.gitUrl
         DockerFile.generateAngular( workspace, gitUrl ,  tagNode, tagApache)
