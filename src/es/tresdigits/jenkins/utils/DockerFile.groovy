@@ -69,7 +69,7 @@ class DockerFile {
         String directoryBuilder = "/maven/${directory}/target/*.war"
         
         String contentPort=contentTomcat(directoryBuilder,tagTomcat)
-        if(isJBoss) contentPort = contentJboss(directoryBuilder)
+        if(isJBoss) contentPort = contentJboss(directoryBuilder,tagTomcat)
 
 
         String content=
@@ -123,10 +123,10 @@ class DockerFile {
 
     }
 
-    static String contentJboss(String directoryBuilder){
+    static String contentJboss(String directoryBuilder,String tagJboss){
         String content=
         """
-        FROM jboss/wildfly
+        FROM quay.io/wildfly/wildfly:${tagJboss}
         COPY --from=builder ${directoryBuilder} /opt/jboss/wildfly/standalone/deployments/ROOT.war
 
         """
