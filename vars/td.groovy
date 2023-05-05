@@ -9,6 +9,7 @@ import es.tresdigits.jenkins.Angular
 import es.tresdigits.jenkins.DockerCustom
 import es.tresdigits.jenkins.Sonar
 import es.tresdigits.jenkins.Spring
+import es.tresdigits.jenkins.Pipeline
 
 
 // Field de clases
@@ -17,6 +18,7 @@ import es.tresdigits.jenkins.Spring
 @Field DockerCustom dk = new DockerCustom()
 @Field Sonar sonar = new Sonar()
 @Field Spring spring = new Spring()
+@Field Pipeline pipe = new Pipeline()
 
 
 // Test function
@@ -130,18 +132,19 @@ def init(script,env,docker){
     }
 }
 
-def pipeline(script,env,docker){
-    def job = [:]
-    job["init"] = init(script,env,docker)
-    for( stage in job ){
-        stage
-    }
+def addPipeline()
+
+def initPipeline(script,env,docker){
+    pipe.add("init",init(script,env,docker))
+    pipe.run()
+   
     /*
     for (stage in stages){
         stage.call(
     }
     */
 }
+
 
 
 
