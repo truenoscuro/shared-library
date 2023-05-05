@@ -75,8 +75,8 @@ def switchFunction(String key, funct){
 }
 //TODO cambia el nom a tot igual sonar
 def setSonar(String nameTool="",String sonarName=""){
-    sonar.setSonarName(sonarName)
-    sonar.setNameTool(nameTool)
+    if(nameTool != "") sonar.setNameTool(nameTool)
+    if(sonarName != "") sonar.setSonarName(sonarName)
 }
 
 def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" ,Map jobs){
