@@ -81,7 +81,7 @@ def setSonar(nameTool="",sonarName=""){
 
 def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" ,Map jobs){
     
-    sonar.setSonar(nameTool="",sonarName="")
+    setSonar(nameTool,sonarName)
     
     String extra=""
     if(binaries) extra = "Binaries"
