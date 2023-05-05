@@ -137,7 +137,9 @@ def addPipeline(){
 }
 
 def initPipeline(script,env,docker){
+    pipe.init(script)
     pipe.add("init",init(script,env,docker))   
+
     /*
     for (stage in stages){
         stage.call(
