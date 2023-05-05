@@ -141,7 +141,7 @@ def git(String gitUrl="",String credentialsId=''){
         script.stage("clone git"){
             utils.git()
         }
-    }cath(Exception ex){
+    }catch(Exception ex){
         script.echo "Falta el url del git"
     }
     
