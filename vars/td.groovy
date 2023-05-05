@@ -61,7 +61,9 @@ def switchFunction(String key, funct){
     switch(key.toLowerCase()){
         case "${mvn.toString()}":
             //funct =  mvn."${funct}"()
-            stage = mvn."${funct}"
+            stage = {
+                mvn."${funct}"()
+            }
             break
         case "${sonar.toString()}":
             stage = {
