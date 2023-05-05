@@ -129,6 +129,16 @@ def init(script,env,docker){
         dk.init(script,docker,utils)   
     }   
 }
+def pipeline(script,env,docker){
+    def stages = [:]
+    stages["init"] = {
+        utils.init(script,env)
+        dk.init(script,docker,utils)   
+    }
+    for (stage in stages){
+        stage.call()
+    }
+}
 
 
 // funcions de templades
