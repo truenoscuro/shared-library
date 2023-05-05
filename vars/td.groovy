@@ -132,7 +132,9 @@ def init(script,env,docker){
     }
 }
 
-def addPipeline()
+def addPipeline(){
+    
+}
 
 def initPipeline(script,env,docker){
     pipe.add("init",init(script,env,docker))
