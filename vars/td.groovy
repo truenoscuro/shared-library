@@ -126,7 +126,6 @@ def testDockerFileSpring(script,env,docker){
 
 // inicialitzacio de utils
 def init(script,env,docker){
-
     script.stage("Init"){
         utils.init(script,env) // aqui crida
         dk.init(script,docker,utils)  
@@ -134,12 +133,15 @@ def init(script,env,docker){
 
 }
 def git(String gitUrl,String credentialsId=''){
+    
     def script = utils.script
+    
     if(gitUrl.length() == "" ) {
         script.stage("no url git"){
             script.error "falta url git"
         }
     }
+
     utils.initGit( gitUrl , credentialsId )
 
     script.stage("clone git"){
