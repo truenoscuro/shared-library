@@ -65,7 +65,7 @@ def parallel(Map jobs){
     */
     // crees els jobs --> els he fas abaix
     
-    script().parallel(jobs)
+    script().parallel(stages)
 
 
 
