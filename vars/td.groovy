@@ -45,7 +45,7 @@ def setSonar(String nameTool="",String sonarName=""){
 def script(){ return utils.script }
 
 def switchClass(String key){
-    def class = null
+    def class 
     switch(key.toLowerCase()){
          case "${maven.toString()}":
             //funct =  maven."${funct}"()
