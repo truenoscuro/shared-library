@@ -18,4 +18,9 @@ class Maven  implements Serializable {
         script.sh "mvn package"
     }
 
+    @Override
+    String toString() {
+        return "maven"
+    }
+
 }

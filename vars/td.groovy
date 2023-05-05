@@ -47,16 +47,19 @@ def git(String gitUrl="",String credentialsId=''){
     }   
 }
 
-def switchFunction(String key, fucnt){
+def switchFunction(String key, funct){
 
-    switch(key){
-
-        case "algo":
-
-        break
+    switch(key.toLowerCase()){
+        def stage = {}
+        case "${mvn}":
+            stage = { echo "hello word" }
+            break
         default:
-        
+            // pararlel normal
+            stage = { funct() }
     }
+    
+    return stage
 
 }
 
@@ -67,6 +70,9 @@ def parallel(Map jobs){
     //value-- > ["maven", "funcio" ]
     jobs.each{
         key,funct ->
+            //TODO mira el nom a posar
+            stages["${key}-${funct}"] = switchFunction(key,funct)
+            /*
             // pararlel normal
             if("personal" == key ){
                 stages["personal"] = {
@@ -78,6 +84,7 @@ def parallel(Map jobs){
                 echo "hello world"
                 }
             }
+            */
            
     }
     /*
