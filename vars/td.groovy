@@ -46,7 +46,7 @@ def git(String gitUrl="",String credentialsId=''){
     }   
 }
 // 
-def parallel(String[String[]] jobs){
+def parallel(List<List[]>[] jobs){
     // crees els jobs --> els he fas abaix
     
     script().parallel([
