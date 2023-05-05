@@ -134,7 +134,7 @@ def init(script,env,docker){
 
 }
 
-
+def git = script.error "Falta el url del git"
 def git(String gitUrl="",String credentialsId=''){
     def script = script()
     try{
@@ -143,7 +143,7 @@ def git(String gitUrl="",String credentialsId=''){
         script.stage("clone git"){
             utils.git()
         }
-        
+
     }catch(Exception ex){
         script.error "Falta el url del git"
     }
