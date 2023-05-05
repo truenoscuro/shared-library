@@ -90,7 +90,7 @@ def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" 
 }
 
 //  
-def parallelCustom(Map jobs){
+def parallel(Map jobs){
     def stages = [:]
 
     def indx = 0
