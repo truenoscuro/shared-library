@@ -53,11 +53,11 @@ def switchFunction(String key, funct){
 
     switch(key.toLowerCase()){
         case "${mvn.toString()}":
-            funct =  mvn."${funct}"() 
+            funct =  mvn."${funct}"()
             break       
     }
      // pararlel normal
-    stage = { funct() }
+    stage = funct
     return stage
 
 }
