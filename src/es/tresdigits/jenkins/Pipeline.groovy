@@ -1,5 +1,5 @@
 package es.tresdigits.jenkins
-
+// No sirve de na
 class Pipeline implements Serializable{
 
     def stages
