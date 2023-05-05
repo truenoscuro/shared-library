@@ -16,9 +16,6 @@ class Sonar  implements Serializable {
         this.utils = utils
         this.scannerTool = script.tool "${nameTool}"
 
-        script.echo "${scannerTool}"
-        script.echo "${name}"
-
         
     }
    
