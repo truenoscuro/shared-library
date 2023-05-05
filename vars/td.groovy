@@ -69,10 +69,8 @@ def parallel(Map jobs){
     def indx = 0
     jobs.each{
         key,funct ->
-            String name;
-            if(funct instanceof String ) name = "${key}-${funct}"
-            else name ="default-${indx++}"
-            
+            String name = "${key}";
+            if(funct instanceof String ) name = "name-${funct}"
             stages["${name}"] = switchFunction(key,funct)
             /*
             // pararlel normal
