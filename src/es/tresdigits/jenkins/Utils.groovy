@@ -20,7 +20,7 @@ class Utils  implements Serializable {
         sleep(min*totalMin)
     }
 
-    def initGit( gitUrl , credentials="" ){
+    def initGit( gitUrl , credentials ){
         this.gitUrl = gitUrl
         this.credentials = credentials
     }
@@ -39,6 +39,12 @@ class Utils  implements Serializable {
             script.git url: "${gitUrl}"
         else
             script.git credentialsId: "${credentials}", withSonarQubeEnvurl: "${gitUrl}"
+    }
+
+    def stage(name,Clousure body){
+        script.stage(name){
+            body()
+        }
     }
 
 
