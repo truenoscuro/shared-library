@@ -29,6 +29,7 @@ def init(script,env,docker){
     script.stage("Init"){
         utils.init(script,env) // aqui crida
         dk.init(script,docker,utils) 
+        //Tod init de ses funcions!
         mvn.init(script,utils)
     }
 
