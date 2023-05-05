@@ -58,6 +58,7 @@ def parallel(Map jobs){
             }
         
     }
+    script().echo "${stages}"
     /*
     stages["mac"] = {
             echo "build for mac"
