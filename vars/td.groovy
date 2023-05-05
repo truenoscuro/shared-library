@@ -132,7 +132,7 @@ def init(script,env,docker){
     }
 
 }
-def git(String gitUrl,String credentialsId=''){
+def git(String gitUrl="",String credentialsId=''){
     
     def script = utils.script
     
