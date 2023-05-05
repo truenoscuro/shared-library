@@ -45,13 +45,25 @@ def git(String gitUrl="",String credentialsId=''){
         script.error "Falta el url del git"
     }   
 }
-// 
-def parallel(){
-    // crees els jobs --> els he fas abaix
-    def jobs = [:]
-    jobs["hello"] = {
-        echo "hello"
+//  
+def parallel(Map jobs){
+    def stages = [:]
+    //key --> nom del stage 
+    //value-- > ["maven", "funcio" ]
+    jobs.each{
+        key,value -> {
+            stage["${key}"] = {
+                echo "hello world"
+            }
+        }
     }
+    /*
+    stages["mac"] = {
+            echo "build for mac"
+        }
+    */
+    // crees els jobs --> els he fas abaix
+    
     script().parallel(jobs)
 
 
