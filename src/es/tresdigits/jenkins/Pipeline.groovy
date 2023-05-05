@@ -10,13 +10,13 @@ class Pipeline implements Serializable{
         stages=[:]
     }
 
-    add(String name, stage){
+    def add(String name, stage){
         stages[name] = stage
     }
 
 
 
-    run(){
+    def run(){
         for( stage in stages ){ stage }
     }
 
