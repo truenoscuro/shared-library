@@ -66,10 +66,17 @@ def parallel(Map jobs){
     def stages = [:]
     //key --> nom del stage 
     //value-- > ["maven", "funcio" ]
+    def indx = 0
     jobs.each{
         key,funct ->
-            //TODO mira el nom a posar
-            stages["${key}"] = switchFunction(key,funct)
+            String name;
+            if(funct.toString().lenght >= 6){
+                name ="default-${indx++}"
+            }else{
+                name = "${key}-${funct}"
+            }
+
+            stages["${name}"] = switchFunction(key,funct)
             /*
             // pararlel normal
             if("personal" == key ){
