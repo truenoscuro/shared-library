@@ -49,13 +49,16 @@ def git(String gitUrl="",String credentialsId=''){
 
 def switchFunction(String key, funct){
     def stage = {}
-    switch(key.toLowerCase()){
+    /*switch(key.toLowerCase()){
         case "${mvn}":
             stage = { echo "hello word" }
             break
         default:
             // pararlel normal
             stage = { funct() }
+    }*/
+    stage = {
+        echo "${mvn}"
     }
     
     return stage
