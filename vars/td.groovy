@@ -139,7 +139,7 @@ def git(String gitUrl,String credentialsId=''){
             script.error "falta url git"
         }
     }
-    if(utils.gitUrl.length() == "") utils.initGit( gitUrl , credentialsId )
+    utils.initGit( gitUrl , credentialsId )
 
     script.stage("clone git"){
         utils.git()
