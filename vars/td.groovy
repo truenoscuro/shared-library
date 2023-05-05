@@ -79,7 +79,7 @@ def setSonar(nameTool="",sonarName=""){
     sonar.setNameTool(nameTool)
 }
 
-def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" ,Map jobs={}){
+def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" ,Map jobs){
     
     sonar.setSonar(nameTool="",sonarName="")
     
