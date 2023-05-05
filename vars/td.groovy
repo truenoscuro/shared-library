@@ -28,7 +28,8 @@ def script(){ return utils.script }
 def init(script,env,docker){
     script.stage("Init"){
         utils.init(script,env) // aqui crida
-        dk.init(script,docker,utils)  
+        dk.init(script,docker,utils) 
+        mvn.init(script,utils)
     }
 
 }
