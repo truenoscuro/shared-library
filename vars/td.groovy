@@ -137,7 +137,7 @@ def pipeline(script,env,docker){
     }
     for( stage in stages){
         script.stage("hola"){
-            stage.call()
+            stage()
         }
     }
     /*
