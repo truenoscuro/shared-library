@@ -88,7 +88,9 @@ def stage(Map job,String nameStage="stage"){
     def script = script()
     script.stage("${nameStage}"){
         job.each{ key,funct ->
-         script(switchFunction(key,funct)) 
+         script{
+            switchFunction(key,funct)
+            } 
          }
     }
 }
