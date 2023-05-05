@@ -20,8 +20,14 @@ import es.tresdigits.jenkins.Pipeline
 @Field Maven mvn = new Maven()
 @Field Pipeline pipe = new Pipeline()
 
-
+//script
 def script(){ return utils.script }
+
+// switch
+
+
+
+
 
 // inicialitzacio de utils
 def init(script,env,docker){
@@ -51,9 +57,9 @@ def parallel(Map jobs){
     //key --> nom del stage 
     //value-- > ["maven", "funcio" ]
     jobs.each{
-        key,funct -> 
+        key,body -> 
             stages["${key}-${funct}"] = {
-                echo "hello world"
+                body()
             }
         
     }
