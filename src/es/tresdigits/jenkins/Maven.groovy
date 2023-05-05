@@ -14,7 +14,7 @@ class Maven  implements Serializable {
         this.utils = utils
     }
 
-    def package(){ script.sh "mvn clean package" }
+    def pack(){ script.sh "mvn clean package" } //TODO package es una paraula reservada
     def install(){ script.sh "mvn clean install" }
 
     def compile(){ script.sh "mvn clean compile" }
