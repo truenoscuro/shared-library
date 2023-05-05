@@ -80,7 +80,8 @@ def setSonar(nameTool="",sonarName=""){
 }
 
 def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" ,Map jobs){
-    
+    script().echo "${nameTool}"
+    script().echo "${sonarName}"
     setSonar(nameTool,sonarName)
     
     String extra=""
