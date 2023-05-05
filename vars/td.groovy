@@ -53,7 +53,7 @@ def parallel(Map jobs){
     //value-- > ["maven", "funcio" ]
     jobs.each{
         key,value -> 
-            stage["${key}"] = {
+            stages["${key}"] = {
                 echo "hello world"
             }
         
