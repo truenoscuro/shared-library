@@ -58,23 +58,12 @@ def git(String gitUrl="",String credentialsId=''){
 def switchFunction(String key, funct){
     def stage = {}
     try{
-
-
-    }cath(Exection ex){
-
+        if( funct instanceof String ) stage = { "${key}"."${funct}"() }
+        else stage = { funct() }
+    } cath( Exception ex ){
+        script().error "El compilador no funciona o la funcion no existe"
     }
-    switch(key.toLowerCase()){
-        case "${maven.toString()}":
-            //funct =  maven."${funct}"()
-            stage = { maven."${funct}"() }
-            break
-        case "${sonar.toString()}":
-            stage = { sonar.scanner() }
-            break
-        default:
-           // pararlel normal
-            stage = { funct() }       
-    }
+    
     return stage
 
 }
