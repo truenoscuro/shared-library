@@ -20,20 +20,25 @@ import es.tresdigits.jenkins.Pipeline
 @Field Maven mvn = new Maven()
 @Field Pipeline pipe = new Pipeline()
 
+// parametros default
+String sonarName = "prueba"
+String nameTool = "sonar"
 //script
 def script(){ return utils.script }
 
 
 // inicialitzacio de utils
-def init(script,env,docker){
+def init(script,env,docker,sonarName="${sonarName}"){
     script.stage("Init"){
-        utils.init(script,env) // aqui crida
+        utils.init(script,env) 
         dk.init(script,docker,utils) 
         //Tod init de ses funcions!
         mvn.init(script,utils)
-        sonar.init(script,utils)
+        sonar.init(script,sonarName,utils)
     }
-
+}
+def setNameSonar(String sonarName){
+    sonar.name = sonarName
 }
 
 def git(String gitUrl="",String credentialsId=''){
@@ -58,51 +63,49 @@ def switchFunction(String key, funct){
             //funct =  mvn."${funct}"()
             stage = mvn."${funct}"
             break
+        case "${sonar.toString()}":
+            stage = sonar."${funct}"
+            break
         default:
-            stage = {
-                funct()
-            }       
+           // pararlel normal
+            stage = { funct() }       
     }
-     // pararlel normal
-
     return stage
 
+}
+//TODO cambia el nom a tot igual sonar
+def setSonar(nameTool="",sonarName=""){
+    sonar.setSonarName(sonarName)
+    sonar.setNameTool(nameTool)
+}
+
+def parallelSonar(boolean binaries=true,String nameTool="", Strings sonarName="" ,Map jobs={}){
+    
+    setSonar(nameTool="",sonarName="")
+    
+    Strign extra=""
+    if(binaries) extra = "Binaries"
+    jobs["sonar"]="scanner${extra}"
+
+    parallel(jobs)
 }
 
 //  
 def parallel(Map jobs){
     def stages = [:]
-    //key --> nom del stage 
-    //value-- > ["maven", "funcio" ]
+
     def indx = 0
     jobs.each{
         key,funct ->
             String name = "${key}";
             if(funct instanceof String ) name = "${name}-${funct}"
             stages["${name}"] = switchFunction(key,funct)
-            /*
-            // pararlel normal
-            if("personal" == key ){
-                stages["personal"] = {
-                    funct()
-                }
-            // es personalitzat
-            }else{
-                stages["${key}-${funct}"] = {
-                echo "hello world"
-                }
-            }
-            */
            
     }
-    /*
-    stages["mac"] = {
-            echo "build for mac"
-        }
-    */
-    // crees els jobs --> els he fas abaix
     
-    script().parallel(stages)
+    script.stage("parallel"){
+        script().parallel(stages)
+    }
 
 
 

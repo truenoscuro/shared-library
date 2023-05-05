@@ -4,20 +4,37 @@ package es.tresdigits.jenkins
 class Sonar  implements Serializable {
 
     def script
-    def env
-   
+    def utils
+    def name
+    def scannerTool
 
-    def init( script,env ){
+    def init( script,name,utils, nameTool){
         script.echo "Init Sonar..."
-        this.script = script
-        this.env = env
+        this.script = script 
+        this.name= name
+        this.utils = utils
+        this.scannerTool = script.tool "${nameTool}"
+
         
     }
+    def setSonarName(name){
+        if(name.length() > 0) this.name = name
+        
+    }
+    def scannerTool(scannerTool){
+        if(scannerTool.length() > 0) this.scannerTool = scannerTool
+    }
 
-    def sonar(){
-        script.withSonarQubeEnv("Sonar "){
-            // lo que hagui de sonar
+
+    def scannerBinaries = {
+        script.withSonarQubeEnv("${name}"){
+           sh "${scannerTool}/bin/sonar-scanner -Dproject.settings=sonar-project.properties -Dsonar.java.binaries=."
         }
+    }
+
+    @Override
+    String toString() {
+        return "sonar"
     }
 
 
