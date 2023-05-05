@@ -125,7 +125,7 @@ def testDockerFileSpring(script,env,docker){
 // inicialitzacio de utils
 def init(script,env,docker){
     script.stage("Init"){
-        hola
+        echo "hello world"
     }
 }
 def pipeline(script,env,docker){
