@@ -73,7 +73,7 @@ def parallel(Map jobs){
     jobs.each{
         key,funct ->
             //TODO mira el nom a posar
-            stages["${key}-${funct}"] = switchFunction(key,funct)
+            stages["${key}"] = switchFunction(key,funct)
             /*
             // pararlel normal
             if("personal" == key ){
