@@ -49,14 +49,14 @@ def git(String gitUrl="",String credentialsId=''){
 
 def switchFunction(String key, funct){
     def stage = {}
+
     switch(key.toLowerCase()){
         case "${mvn.toString()}":
-            stage = { (mvn."${funct}"())() }
-            break
-        default:
-            // pararlel normal
-            stage = { funct() }
+            funct =  mvn."${funct}"() 
+            break       
     }
+     // pararlel normal
+    stage = { funct() }
     return stage
 
 }
