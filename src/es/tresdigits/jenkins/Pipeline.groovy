@@ -1,6 +1,6 @@
 package es.tresdigits.jenkins
 
-class Pipeline implements Serializable (){
+class Pipeline implements Serializable{
 
     def stages
 
