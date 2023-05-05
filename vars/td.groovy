@@ -51,7 +51,7 @@ def switchFunction(String key, funct){
     def stage = {}
     switch(key.toLowerCase()){
         case "${mvn.toString()}":
-            stage = { echo "hello word" }
+            stage = { mvn."${funct}"() }
             break
         default:
             // pararlel normal
