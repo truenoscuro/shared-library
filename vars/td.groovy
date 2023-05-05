@@ -67,7 +67,7 @@ def switchFunction(String key, funct){
             stage = { sonar."${funct}"() }
             break
         default:
-           // pararlel normal
+           // pararlel normal hi ha una error si no existeix el cas i no es una funct()
             stage = { funct() }       
     }
     return stage
