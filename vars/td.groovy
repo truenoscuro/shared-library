@@ -58,10 +58,12 @@ def parallel(Map jobs){
     //value-- > ["maven", "funcio" ]
     jobs.each{
         key,funct ->
+            // pararlel normal
             if("personal" == key ){
                 stages["personal"] = {
                     funct()
                 }
+            // es personalitzat
             }else{
                 stages["${key}-${funct}"] = {
                 echo "hello world"
