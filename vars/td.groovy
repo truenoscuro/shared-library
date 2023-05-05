@@ -134,9 +134,6 @@ def init(script,env,docker){
 
 }
 
-def git(){
-    script().error "Falta el url del git"
-    } 
 def git(String gitUrl="",String credentialsId=''){
     def script = script()
     try{
