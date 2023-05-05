@@ -93,7 +93,7 @@ def scanner(boolean binaries=true,String nameTool="", String sonarName=""){
     def script = script()
 
     script.stage("sonarTest"){
-        sonar.scannerBinaries
+        sonar.scannerBinaries()
     }
 
 }
