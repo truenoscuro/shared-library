@@ -142,7 +142,7 @@ def git(String gitUrl="",String credentialsId=''){
             utils.git()
         }
     }catch(Exception ex){
-        script.echo "Falta el url del git"
+        script.error "Falta el url del git"
     }
     
 }
