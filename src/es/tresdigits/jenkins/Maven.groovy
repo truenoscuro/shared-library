@@ -19,8 +19,7 @@ class Maven  implements Serializable {
     }
 
     def compile(){
-        Closure closure = { sh "mvn clean compile" }
-        return closure
+        return 
     }
 
     @Override
