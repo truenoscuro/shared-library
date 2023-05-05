@@ -58,7 +58,7 @@ def switchFunction(String key, funct){
             stage = { funct() }
     }*/
     stage = {
-        echo "${mvn}"
+        echo "${mvn.toString()}"
     }
     
     return stage
