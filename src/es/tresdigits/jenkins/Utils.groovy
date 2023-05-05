@@ -43,7 +43,7 @@ class Utils  implements Serializable {
 
     def stage(String name,Closure  body){
         script.stage(name){
-            body()
+            body
         }
     }
 
