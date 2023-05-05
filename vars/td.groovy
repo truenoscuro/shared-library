@@ -46,7 +46,7 @@ def git(String gitUrl="",String credentialsId=''){
     }   
 }
 // 
-def parallel(String[String[script().error "Falta el url del git"]] jobs){
+def parallel(String[String[]] jobs){
     // crees els jobs --> els he fas abaix
     
     script().parallel([
