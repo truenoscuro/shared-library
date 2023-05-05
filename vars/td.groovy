@@ -89,7 +89,7 @@ def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" 
     parallel(jobs)
 }
 
-def sonar(boolean binaries=true,String nameTool="", String sonarName=""){
+def scanner(boolean binaries=true,String nameTool="", String sonarName=""){
     def script = script()
 
     script.stage("sonarTest"){
