@@ -3,11 +3,11 @@ package es.tresdigits.jenkins
 class Pipeline implements Serializable{
 
     def stages
+    def script
 
-
-
-    Pipeline(){
-        stages=[:]
+    def init(script){
+        stages = [:]
+        this.script = script
     }
 
     def add(String name, stage){
@@ -17,7 +17,7 @@ class Pipeline implements Serializable{
 
 
     def run(){
-        for( stage in stages ){ stage }
+        for( stage in stages ){ script.stage }
     }
 
 
