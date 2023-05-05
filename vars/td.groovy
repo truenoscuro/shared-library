@@ -74,7 +74,7 @@ def switchFunction(String key, funct){
 
 }
 //TODO cambia el nom a tot igual sonar
-def setSonar(nameTool="",sonarName=""){
+def setSonar(String nameTool="",String sonarName=""){
     sonar.setSonarName(sonarName)
     sonar.setNameTool(nameTool)
 }
@@ -82,6 +82,7 @@ def setSonar(nameTool="",sonarName=""){
 def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" ,Map jobs){
     script().echo "${nameTool}"
     script().echo "${sonarName}"
+
     setSonar(nameTool,sonarName)
     
     String extra=""
