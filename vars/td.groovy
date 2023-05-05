@@ -24,7 +24,6 @@ import es.tresdigits.jenkins.Pipeline
 @Field  String sonarName = "prueba"
 @Field  String nameTool = "sonar"
 //script
-def script(){ return utils.script }
 
 
 // inicialitzacio de utils
@@ -37,10 +36,38 @@ def init(script,env,docker,sonarName="${sonarName}",nameTool="${nameTool}"){
         sonar.init(script,utils,sonarName,nameTool)
     }
 }
-def setNameSonar(String sonarName){
-    sonar.name = sonarName
+//Stes i geters
+def setSonar(String nameTool="",String sonarName=""){
+    if(nameTool != "") sonar.scannerTool = nameTool
+    if(sonarName != "") sonar.name = sonarName
+}
+// funcions utils
+def script(){ return utils.script }
+
+def switchClass(String key){
+    def class = null
+    switch(key.toLowerCase()){
+         case "${maven.toString()}":
+            //funct =  maven."${funct}"()
+            class = maven
+            break
+        case "${sonar.toString()}":
+            class = sonar
+            break 
+    }
+
+    return class
 }
 
+
+
+
+
+//TODO cambia el nom a tot igual sonar
+
+
+
+//funcions modificades
 def git(String gitUrl="",String credentialsId=''){
     def script = script()
     try{
@@ -49,77 +76,29 @@ def git(String gitUrl="",String credentialsId=''){
         script.stage("clone git"){
             utils.git()
         }
-
     }catch(Exception ex){
         script.error "Falta el url del git"
     }   
 }
 
-def switchFunction(String key, funct){
-    def stage = {}
 
-    switch(key.toLowerCase()){
-        case "${maven.toString()}":
-            //funct =  maven."${funct}"()
-            stage = { maven."${funct}"() }
-            break
-        case "${sonar.toString()}":
-            stage = { sonar."${funct}"() }
-            break
-        default:
-           // pararlel normal hi ha una error si no existeix el cas i no es una funct()
-            stage = { funct() }       
-    }
-    return stage
 
-}
-//TODO cambia el nom a tot igual sonar
-def setSonar(String nameTool="",String sonarName=""){
-    if(nameTool != "") sonar.scannerTool = nameTool
-    if(sonarName != "") sonar.name = sonarName
-}
 
-def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" ,Map jobs){
 
-    setSonar(nameTool,sonarName)
-    
-    String funct="scanner"
-    if(binaries) funct= "${funct}Binaries"
-    jobs["sonar"]= funct
-    parallel(jobs)
-}
 
-def scanner(boolean binaries=true,String nameTool="", String sonarName=""){
-    def script = script()
-
-    script.stage("sonarTest"){
-        sonar.scanner() //TODO aqui posar lo de binaries
-    }
-
-}
-
-//  
 def parallel(Map jobs){
     def stages = [:]
-
-    def indx = 0
     jobs.each{
         key,funct ->
             String name = "${key}"
             if(funct instanceof String ) name = "${name}-${funct}"
-            stages["${name}"] = switchFunction(key,funct)
-           
+            def class = switchClass(key)
+            def stage
+            if(class != null){ stage = { class."${funct}"() }
+            } else{ stage = { funct() } }
+            stages["${name}"] = stage
     }
-
-
-
-    
     script().parallel(stages)
-    
-    
-
-
-
 }
 
 
