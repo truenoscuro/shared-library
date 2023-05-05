@@ -21,7 +21,7 @@ class Sonar  implements Serializable {
 
     def scanner(){
          script.withSonarQubeEnv("${name}"){
-           sh "${scannerTool}/bin/sonar-scanner -Dproject.settings=sonar-project.properties -Dsonar.java.binaries=."
+           script.sh "${scannerTool}/bin/sonar-scanner -Dproject.settings=sonar-project.properties -Dsonar.java.binaries=."
         }
     }
    
