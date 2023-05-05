@@ -85,6 +85,7 @@ def git(String gitUrl="",String credentialsId=''){
 }
 
 def stage(Map job,String nameStage=""){
+    def script = script()
     if(nameStage == "" ) nameStage="${key}-${funct}"
     script.stage("${nameStage}"){
         job.each{ key,funct -> switchFunction(key,funct) }
