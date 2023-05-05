@@ -64,7 +64,7 @@ def switchFunction(String key, funct){
             stage = mvn."${funct}"
             break
         case "${sonar.toString()}":
-            stage = sonar."${funct}"
+            stage = sonar.scanner()
             break
         default:
            // pararlel normal
