@@ -59,7 +59,7 @@ def parallel(Map jobs){
     jobs.each{
         key,funct -> 
             stages["${key}-${funct}"] = {
-                funct
+                echo "hello world"
             }
         
     }
