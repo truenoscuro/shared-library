@@ -104,7 +104,7 @@ def parallel(Map jobs){
     }
 
 
-    echo "${stages.length()}"
+    script().echo "${stages.length()}"
     
 
     script().parallel(stages)
