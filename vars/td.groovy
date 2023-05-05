@@ -86,28 +86,26 @@ def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" 
     String funct="scanner"
     if(binaries) funct= "${funct}Binaries"
     jobs["sonar"]= funct
-    parallel(jobs)
+    parallelCustom(jobs)
 }
 
 //  
-def parallel(Map jobs){
+def parallelCustom(Map jobs){
     def stages = [:]
 
     def indx = 0
     jobs.each{
         key,funct ->
-            String name = "${key}";
+            String name = "${key}"
             if(funct instanceof String ) name = "${name}-${funct}"
             script().echo "${name}"
             stages["${name}"] = switchFunction(key,funct)
            
     }
 
-
-    script().echo "${stages.length()}"
-    
-
-    script().parallel(stages)
+    script.stages("paralel"){
+        parallel(stages)
+    }
     
 
 
