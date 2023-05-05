@@ -48,8 +48,11 @@ def git(String gitUrl="",String credentialsId=''){
 // 
 def parallel(){
     // crees els jobs --> els he fas abaix
-    
-    script().parallel()
+    def jobs = [:]
+    jobs["hello"] = {
+        echo "hello"
+    }
+    script().parallel(jobs)
 
 
 
