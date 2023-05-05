@@ -83,7 +83,7 @@ def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" 
     
     setSonar(nameTool="",sonarName="")
     
-    Strign extra=""
+    String extra=""
     if(binaries) extra = "Binaries"
     jobs["sonar"]="scanner${extra}"
 
