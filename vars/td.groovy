@@ -50,7 +50,7 @@ def git(String gitUrl="",String credentialsId=''){
 def switchFunction(String key, funct){
 
     switch(key.toLowerCase()){
-        def stage = {}
+        def stage
         case "${mvn}":
             stage = { echo "hello word" }
             break
