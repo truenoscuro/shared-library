@@ -103,7 +103,7 @@ def parallelCustom(Map jobs){
            
     }
 
-    script.stages("paralel"){
+    script().stages("paralel"){
         parallel(stages)
     }
     
