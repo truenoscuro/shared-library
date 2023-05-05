@@ -122,7 +122,7 @@ def testDockerFileSpring(script,env,docker){
 
 
 }
-def stage(name="step", Clousure body){
+def stage(name="step", Closure  body){
     utils.stage(name,body)
 }
 
