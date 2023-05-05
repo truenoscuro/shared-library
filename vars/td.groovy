@@ -46,7 +46,6 @@ def git(String gitUrl="",String credentialsId=''){
     }   
 }
 //  
-@NonCPS 
 def parallel(Map jobs){
     def stages = [:]
     //key --> nom del stage 
