@@ -28,7 +28,7 @@ def script(){ return utils.script }
 
 
 // inicialitzacio de utils
-def init(script,env,docker,sonarName="${sonarName}",nameTool="${nam}"){
+def init(script,env,docker,sonarName="${sonarName}",nameTool="${nameTool}"){
     script.stage("Init"){
         utils.init(script,env) 
         dk.init(script,docker,utils) 
