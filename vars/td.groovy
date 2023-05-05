@@ -136,11 +136,11 @@ def pipeline(script,env,docker){
         dk.init(script,docker,utils)   
     }
     for( stage in stages){
-        stage
+        scritp.build stage
     }
     /*
     for (stage in stages){
-        stage.call()
+        stage.call(
     }
     */
 }
