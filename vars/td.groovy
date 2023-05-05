@@ -57,11 +57,17 @@ def parallel(Map jobs){
     //key --> nom del stage 
     //value-- > ["maven", "funcio" ]
     jobs.each{
-        key,funct -> 
-            stages["${key}-${funct}"] = {
+        key,funct ->
+            if("personal" == key ){
+                stages["personal"] = {
+                    funct()
+                }
+            }else{
+                stages["${key}-${funct}"] = {
                 echo "hello world"
+                }
             }
-        
+           
     }
     /*
     stages["mac"] = {
