@@ -122,25 +122,19 @@ def testDockerFileSpring(script,env,docker){
 
 
 }
-def stage(String name="step", Closure  body){
+def stage(name="step", Clousure body){
     utils.stage(name,body)
 }
 
 
 // inicialitzacio de utils
 def init(script,env,docker){
-    stage("init",
-    {
-        utils.init(script,env)
-        dk.init(script,docker,utils)  
-    })
-    
-    /*
+
     script.stage("Init"){
-       utils.init(script,env)
-       dk.init(script,docker,utils)  
+        utils.init(script,env) // aqui crida
+        dk.init(script,docker,utils)  
     }
-    */
+
 }
 def git(String gitUrl,String credentialsId=''){
     if(gitUrl.length == "" ) {
