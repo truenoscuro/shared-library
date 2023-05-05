@@ -93,7 +93,9 @@ def scanner(boolean binaries=true,String nameTool="", String sonarName=""){
     def script = script()
 
     script.stage("sonarTest"){
-        sonar.scanner()
+        script.withSonarQubeEnv("${sonar.name}"){
+           script.sh "${sonar.scannerTool}/bin/sonar-scanner -Dproject.settings=sonar-project.properties -Dsonar.java.binaries=."
+        }
     }
 
 }
