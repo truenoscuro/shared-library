@@ -123,6 +123,7 @@ def testDockerFileSpring(script,env,docker){
 
 }
 
+def script(){ return utils.script }
 
 // inicialitzacio de utils
 def init(script,env,docker){
@@ -132,9 +133,10 @@ def init(script,env,docker){
     }
 
 }
+
+
 def git(String gitUrl="",String credentialsId=''){
-    
-    def script = utils.script
+    def script = script()
     try{
         utils.initGit( gitUrl , credentialsId )
 
