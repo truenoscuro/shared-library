@@ -9,7 +9,7 @@ class Sonar  implements Serializable {
     def name
     def scannerTool
 
-    def init( script,utils, name,nameTool){
+    def init( script,name,utils, name,nameTool){
         script.echo "Init Sonar..."
         this.script = script 
         this.name= name
@@ -18,11 +18,11 @@ class Sonar  implements Serializable {
 
         
     }
-    def setSonarName(name){
+    def setSonarName(String name){
         if(name.length() > 0) this.name = name
         
     }
-    def scannerTool(scannerTool){
+    def scannerTool(String scannerTool){
         if(scannerTool.length() > 0) this.scannerTool = scannerTool
     }
 
