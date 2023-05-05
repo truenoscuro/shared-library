@@ -17,7 +17,7 @@ import es.tresdigits.jenkins.Pipeline
 @Field Angular angular = new Angular()
 @Field DockerCustom dk = new DockerCustom()
 @Field Sonar sonar = new Sonar()
-@Field Maven mvn = new Maven()
+@Field Maven maven = new Maven()
 @Field Pipeline pipe = new Pipeline()
 
 // parametros default
@@ -33,7 +33,7 @@ def init(script,env,docker,sonarName="${sonarName}",nameTool="${nameTool}"){
         utils.init(script,env) 
         dk.init(script,docker,utils) 
         //Tod init de ses funcions!
-        mvn.init(script,utils)
+        maven.init(script,utils)
         sonar.init(script,utils,sonarName,nameTool)
     }
 }
@@ -57,18 +57,19 @@ def git(String gitUrl="",String credentialsId=''){
 
 def switchFunction(String key, funct){
     def stage = {}
+    try{
 
+
+    }cath(Exection ex){
+
+    }
     switch(key.toLowerCase()){
-        case "${mvn.toString()}":
-            //funct =  mvn."${funct}"()
-            stage = {
-                mvn."${funct}"()
-            }
+        case "${maven.toString()}":
+            //funct =  maven."${funct}"()
+            stage = { maven."${funct}"() }
             break
         case "${sonar.toString()}":
-            stage = {
-                sonar.scanner()
-            }
+            stage = { sonar.scanner() }
             break
         default:
            // pararlel normal
