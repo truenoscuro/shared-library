@@ -54,7 +54,9 @@ def switchFunction(String key, funct){
     switch(key.toLowerCase()){
         case "${mvn.toString()}":
             //funct =  mvn."${funct}"()
-            stage = { echo "hello world" }
+            stage = { 
+                echo "hello world" 
+                }
             break
         default:
             stage = {
