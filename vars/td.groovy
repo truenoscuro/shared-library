@@ -23,11 +23,6 @@ import es.tresdigits.jenkins.Pipeline
 //script
 def script(){ return utils.script }
 
-// switch
-
-
-
-
 
 // inicialitzacio de utils
 def init(script,env,docker){
@@ -51,6 +46,20 @@ def git(String gitUrl="",String credentialsId=''){
         script.error "Falta el url del git"
     }   
 }
+
+def switchFunction(String key, fucnt){
+
+    switch(key){
+
+        case "algo":
+
+        break
+        default:
+        
+    }
+
+}
+
 //  
 def parallel(Map jobs){
     def stages = [:]
