@@ -14,8 +14,11 @@ class Maven  implements Serializable {
         this.utils = utils
     }
 
-    def build(){
-        script.sh "mvn package"
+    def package(){
+        script.sh "mvn clean package"
+    }
+    def  install(){
+        script.sh "mvn clean install"
     }
 
     def compile(){
