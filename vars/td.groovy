@@ -57,13 +57,19 @@ def git(String gitUrl="",String credentialsId=''){
 
 def switchFunction(String key, funct){
     def stage = {}
-    try{
-        if( funct instanceof String ) stage = { "${key}"."${funct}"() }
-        else stage = { funct() }
-    } catch( Exception ex ){
-        script().error "El compilador no funciona o la funcion no existe"
+
+    switch(key.toLowerCase()){
+        case "${maven.toString()}":
+            //funct =  maven."${funct}"()
+            stage = { maven."${funct}"() }
+            break
+        case "${sonar.toString()}":
+            stage = { sonar."${funct}"() }
+            break
+        default:
+           // pararlel normal
+            stage = { funct() }       
     }
-    
     return stage
 
 }
@@ -73,7 +79,24 @@ def setSonar(String nameTool="",String sonarName=""){
     if(sonarName != "") sonar.name = sonarName
 }
 
+def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" ,Map jobs){
 
+    setSonar(nameTool,sonarName)
+    
+    String funct="scanner"
+    if(binaries) funct= "${funct}Binaries"
+    jobs["sonar"]= funct
+    parallel(jobs)
+}
+
+def scanner(boolean binaries=true,String nameTool="", String sonarName=""){
+    def script = script()
+
+    script.stage("sonarTest"){
+        sonar.scanner() //TODO aqui posar lo de binaries
+    }
+
+}
 
 //  
 def parallel(Map jobs){
