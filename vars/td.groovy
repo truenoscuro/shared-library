@@ -75,13 +75,11 @@ def switchFunction(String key, funct){
 }
 //TODO cambia el nom a tot igual sonar
 def setSonar(String nameTool="",String sonarName=""){
-    if(nameTool != "") sonar.setNameTool(nameTool)
-    if(sonarName != "") sonar.setSonarName(sonarName)
+    if(nameTool != "") sonar.scannerTool = nameTool
+    if(sonarName != "") sonar.name = sonarName
 }
 
 def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" ,Map jobs){
-    script().echo "${nameTool}"
-    script().echo "${sonarName}"
 
     setSonar(nameTool,sonarName)
     
@@ -101,6 +99,7 @@ def parallel(Map jobs){
         key,funct ->
             String name = "${key}";
             if(funct instanceof String ) name = "${name}-${funct}"
+            script().echo "${name}"
             stages["${name}"] = switchFunction(key,funct)
            
     }

@@ -18,14 +18,7 @@ class Sonar  implements Serializable {
 
         
     }
-    def setSonarName(String name){
-        if(name.length() > 0) this.name = name
-        
-    }
-    def scannerTool(String scannerTool){
-        if(scannerTool.length() > 0) this.scannerTool = scannerTool
-    }
-
+   
 
     def scannerBinaries = {
         script.withSonarQubeEnv("${name}"){
