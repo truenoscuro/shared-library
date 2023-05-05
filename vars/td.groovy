@@ -55,7 +55,7 @@ def switchFunction(String key, funct){
             break
         default:
             // pararlel normal
-            stage = { funct }
+            stage = { funct() }
     }
     return stage
 
