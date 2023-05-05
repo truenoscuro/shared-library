@@ -26,9 +26,15 @@ class Utils  implements Serializable {
     }
 
    // def setGitUrl( gitUrl ){ this.gitUrl = gitUrl }
-    
+    /*
+    heckout scmGit(
+    branches: [[name: 'master']],
+    extensions: [ lfs() ],
+    userRemoteConfigs: [[credentialsId: 'my-username-password-id, url: 'https://github.com/jenkinsci/git-plugin.git']])
+
+    */
     def git(){
-        //TODO credentials se treura del java 
+        //TODO credentials se treura del java //branch:
         if(credentials.length() == 0)
             script.git url: "${gitUrl}"
         else

@@ -42,7 +42,7 @@ class DockerCustom  implements Serializable {
 
     }
 
-    //run especifics se odria refactoritzar amb molt de ifs
+    //run especifics se odria refactoritzar amb molt de ifs o un swich
 
     def runAngular( String args="" ,String tagNode="latest", String tagApache="8.1"){
         String workspace=script.WORKSPACE

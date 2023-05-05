@@ -123,10 +123,10 @@ def testDockerFileSpring(script,env,docker){
 
 
 // inicialitzacio de utils
-def init(script,env){
+def init(script,env,docker){
     script.echo "Init pipeline... "
     utils.init(script,env)
-    
+    dk.init(script,docker,utils)   
 }
 
 
