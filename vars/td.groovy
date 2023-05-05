@@ -135,18 +135,16 @@ def init(script,env,docker){
 def git(String gitUrl="",String credentialsId=''){
     
     def script = utils.script
-    
-    if(gitUrl.length() == "" ) {
-        script.stage("no url git"){
-            script.error "falta url git"
+    try{
+        utils.initGit( gitUrl , credentialsId )
+
+        script.stage("clone git"){
+            utils.git()
         }
+    }cath(Exception ex){
+        script.echo "Falta el url del git"
     }
-
-    utils.initGit( gitUrl , credentialsId )
-
-    script.stage("clone git"){
-        utils.git()
-    }
+    
 }
 
 
