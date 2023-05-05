@@ -21,8 +21,8 @@ import es.tresdigits.jenkins.Pipeline
 @Field Pipeline pipe = new Pipeline()
 
 // parametros default
-String sonarName = "prueba"
-String nameTool = "sonar"
+@Field  String sonarName = "prueba"
+@Field  String nameTool = "sonar"
 //script
 def script(){ return utils.script }
 
