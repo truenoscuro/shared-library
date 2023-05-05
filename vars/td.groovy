@@ -98,7 +98,6 @@ def parallelCustom(Map jobs){
         key,funct ->
             String name = "${key}"
             if(funct instanceof String ) name = "${name}-${funct}"
-            script().echo "${name}"
             stages["${name}"] = switchFunction(key,funct)
            
     }
