@@ -84,7 +84,7 @@ def git(String gitUrl="",String credentialsId=''){
     }   
 }
 
-def step(Map job, String nameStage="stage"){
+def stages(Map job, String nameStage="stage"){
     def script = script()
     script.stage("${nameStage}"){
         job.each{ key,funct ->
