@@ -130,7 +130,7 @@ def init(script,env,docker){
     }
 }
 def pipeline(script,env,docker){
-    def stages = [:]
+    def job = [:]
     stages["init"] = {
         utils.init(script,env)
         dk.init(script,docker,utils)   
