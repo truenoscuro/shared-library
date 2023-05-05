@@ -41,11 +41,7 @@ class Utils  implements Serializable {
             script.git credentialsId: "${credentials}", withSonarQubeEnvurl: "${gitUrl}"
     }
 
-    def stage(String name,Closure  body){
-        script.stage(name){
-            body()
-        }
-    }
+  
 
 
 

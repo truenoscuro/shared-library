@@ -122,9 +122,6 @@ def testDockerFileSpring(script,env,docker){
 
 
 }
-def stage(name="step", Clousure body){
-    utils.stage(name,body)
-}
 
 
 // inicialitzacio de utils
