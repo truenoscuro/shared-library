@@ -14,7 +14,7 @@ class Utils  implements Serializable {
         this.script =script
         this.env = env // ENV se poden afegir posat env.[nom dalgo] = [String]
     }
-
+    //TODO sleep
     def sleepMin(int totalMin){
         int min = 1000*60
         sleep(min*totalMin)

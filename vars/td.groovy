@@ -17,111 +17,9 @@ import es.tresdigits.jenkins.Pipeline
 @Field Angular angular = new Angular()
 @Field DockerCustom dk = new DockerCustom()
 @Field Sonar sonar = new Sonar()
-@Field Spring spring = new Spring()
+@Field Maven mvn = new Maven()
 @Field Pipeline pipe = new Pipeline()
 
-
-// Test function
-def test(script,env){
-    init(script,env)
-    script.echo "Test utils"
-    utils.emailSent("nofreruizsalom@gmail.com","test prova")
-}
-
-def testAngular(script,env){
-    
-    init(script,env)
-    script.echo " Test Angular"
-    angular.init(script,utils)
-    angular.newProject("prova-1")
-
-}
-
-def testDocker(script,env,docker){
-    init(script,env)
-    script.echo " Test Docker "
-    dk.init(script,docker,utils)
-
-    dk.image("node")
-
-}
-
-def testSonar(script,env){
-    //TODO deixar per mes tard
-    init(script,env)
-    script.echo "Test Sonar"
-    sonar.init(script,env)
-}
-
-// Test buildear en angular en Docker
-def testAngular2(script,env,docker){
-    utils.init(script,env)
-    utils.initGit("https://github.com/angular-university/angular-testing-course.git") // git de prueba angular
-    
-    dk.init(script,docker,utils)
-    
-    angular.init(script,utils)
-
-    def node = dk.image("node")   
-    // base de dades fer-la correr
-    //TODO  String wS= env["WORKSPACE"]
-    //esto furula
-    //Test
-    node.inside("-u root"){
-        angular.install()
-        utils.git()
-        angular.iPackage()
-        angular.build()
-    }
-
-}
-
-def testSpring2(script,env,docker){
-    utils.init(script,env)
-    utils.initGit("https://github.com/Aravamudhan/spring-boot-app.git") // git de prueba angular
-    
-    dk.init(script,docker,utils)
-    
-    spring.init(script,utils)
-
-    def maven = dk.image("maven")   
-    // base de dades fer-la correr
-    //TODO 
-    //esto furula
-    //Test
-    maven.inside("-u root"){
-        utils.git()
-        spring.build()
-    }
-}
-
-def testDockerFileAngular(script,env,docker){
-    
-    utils.init(script,env)
-    utils.initGit("https://github.com/angular-university/angular-testing-course.git")
-    
-    dk.init(script,docker,utils)
-    script.echo "Test DockerFile Angular"
- 
-    dk.runAngular("-u root -p 80:80")
-
-
-
-}
-
-def testDockerFileSpring(script,env,docker){
-    
-    utils.init(script,env)
-    utils.initGit("https://github.com/truenoscuro/spring-example.git")
-    
-    dk.init(script,docker,utils)
-    script.echo "Test DockerFile Spring"
- 
-    dk.runSpring("-u root -p 8080:8080")
-
-
-
-}
 
 def script(){ return utils.script }
 
@@ -145,8 +43,18 @@ def git(String gitUrl="",String credentialsId=''){
 
     }catch(Exception ex){
         script.error "Falta el url del git"
-    }
+    }   
+}
+// 
+def parallel(String[]...){
+    // crees els jobs --> els he fas abaix
     
+    script().parallel([
+        
+    ])
+
+
+
 }
 
 

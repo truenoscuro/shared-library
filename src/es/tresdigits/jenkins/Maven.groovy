@@ -1,7 +1,7 @@
 package es.tresdigits.jenkins
 
 
-class Spring  implements Serializable {
+class Maven  implements Serializable {
 
     def script
     def utils
