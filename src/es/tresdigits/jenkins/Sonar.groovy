@@ -9,7 +9,7 @@ class Sonar  implements Serializable {
     def name
     def scannerTool
 
-    def init( script,name,utils, name,nameTool){
+    def init( script,utils, name,nameTool){
         script.echo "Init Sonar..."
         this.script = script 
         this.name= name

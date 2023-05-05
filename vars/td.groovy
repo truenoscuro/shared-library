@@ -28,13 +28,13 @@ def script(){ return utils.script }
 
 
 // inicialitzacio de utils
-def init(script,env,docker,sonarName="${sonarName}",nameTool="${nameTool}"){
+def init(script,env,docker,sonarName="${sonarName}",nameTool="${nam}"){
     script.stage("Init"){
         utils.init(script,env) 
         dk.init(script,docker,utils) 
         //Tod init de ses funcions!
         mvn.init(script,utils)
-        sonar.init(script,sonarName,utils)
+        sonar.init(script,utils,sonarName,nameTool)
     }
 }
 def setNameSonar(String sonarName){
