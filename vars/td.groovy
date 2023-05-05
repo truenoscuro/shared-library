@@ -44,21 +44,25 @@ def setSonar(String nameTool="",String sonarName=""){
 // funcions utils
 def script(){ return utils.script }
 
-def switchClass(String key){
+def switchFunction(String key, funct){
+    def stage = {}
+
     switch(key.toLowerCase()){
-         case "${maven.toString()}":
+        //TODO aqui necesita posar tots els casos
+        case "${maven.toString()}":
             //funct =  maven."${funct}"()
-            return maven
+            stage = { maven."${funct}"() }
             break
         case "${sonar.toString()}":
-            return sonar
-            break 
+            stage = { sonar."${funct}"() }
+            break
+        default:
+           // pararlel normal hi ha una error si no existeix el cas i no es una funct()
+            stage = { funct() }       
     }
 
-    return null
+    return stage
 }
-
-
 
 
 
@@ -91,11 +95,7 @@ def parallel(Map jobs){
         key,funct ->
             String name = "${key}"
             if(funct instanceof String ) name = "${name}-${funct}"
-            def class = switchClass(key)
-            def stage
-            if(class != null){ stage = { class."${funct}"() }
-            } else{ stage = { funct() } }
-            stages["${name}"] = stage
+            stages["${name}"] = switchFunction(key,funct)
     }
     script().parallel(stages)
 }
