@@ -138,10 +138,9 @@ def addPipeline(){
 
 def initPipeline(script,env,docker){
     pipe.add("init",init(script,env,docker))
-    pipe.add("hello",script.stage("hello world"){
-        script.echo "hello World"
-    } 
-    )
+    pipe.add("hello",script.stage("hello world"){ script.echo "hello World" } )
+    pipe.add("hello",script.stage("hello world"){ script.echo "hello World" } )
+    pipe.add("hello",script.stage("hello world"){ script.echo "hello World" } )s
     pipe.run()
    
     /*
