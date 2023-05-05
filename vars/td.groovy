@@ -135,6 +135,9 @@ def pipeline(script,env,docker){
         utils.init(script,env)
         dk.init(script,docker,utils)   
     }
+    for( stage in stages){
+        script.echo "hello world"
+    }
     /*
     for (stage in stages){
         stage.call()
