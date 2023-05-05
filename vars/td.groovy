@@ -57,9 +57,9 @@ def parallel(Map jobs){
     //key --> nom del stage 
     //value-- > ["maven", "funcio" ]
     jobs.each{
-        key,body -> 
+        key,funct -> 
             stages["${key}-${funct}"] = {
-                body()
+                funct
             }
         
     }
