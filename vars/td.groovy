@@ -113,9 +113,9 @@ def parallel(Map jobs){
 
 
 
-    script().stage("parallel"){
-        script().parallel(stages)
-    }
+    
+    script().parallel(stages)
+    
     
 
 
