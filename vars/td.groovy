@@ -8,7 +8,7 @@ import es.tresdigits.jenkins.Utils
 import es.tresdigits.jenkins.Angular
 import es.tresdigits.jenkins.DockerCustom
 import es.tresdigits.jenkins.Sonar
-import es.tresdigits.jenkins.Spring
+import es.tresdigits.jenkins.Maven
 import es.tresdigits.jenkins.Pipeline
 
 
