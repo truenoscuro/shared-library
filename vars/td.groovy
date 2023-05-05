@@ -129,10 +129,11 @@ def init(script,env,docker){
        dk.init(script,docker,utils)  
     }
 }
+
 def pipeline(script,env,docker){
     def job = [:]
     job["init"] = init(script,env,docker)
-    for( stage in job){
+    for( stage in job ){
         stage
     }
     /*
@@ -141,6 +142,7 @@ def pipeline(script,env,docker){
     }
     */
 }
+
 
 
 // funcions de templades
