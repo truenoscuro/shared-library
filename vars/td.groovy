@@ -73,24 +73,7 @@ def setSonar(String nameTool="",String sonarName=""){
     if(sonarName != "") sonar.name = sonarName
 }
 
-def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" ,Map jobs){
 
-    setSonar(nameTool,sonarName)
-    
-    String funct="scanner"
-    if(binaries) funct= "${funct}Binaries"
-    jobs["sonar"]= funct
-    parallel(jobs)
-}
-
-def scanner(boolean binaries=true,String nameTool="", String sonarName=""){
-    def script = script()
-
-    script.stage("sonarTest"){
-        sonar.scanner() //TODO aqui posar lo de binaries
-    }
-
-}
 
 //  
 def parallel(Map jobs){
