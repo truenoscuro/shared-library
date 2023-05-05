@@ -129,7 +129,8 @@ def stage(String name="step", Closure  body){
 
 // inicialitzacio de utils
 def init(script,env,docker){
-    stage("init",{
+    stage("init",
+    {
         utils.init(script,env)
         dk.init(script,docker,utils)  
     })
