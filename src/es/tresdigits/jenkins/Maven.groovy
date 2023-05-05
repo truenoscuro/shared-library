@@ -19,7 +19,7 @@ class Maven  implements Serializable {
     }
 
     def compile(){
-        return sh "mvn clean compile"
+        return script.sh "mvn clean compile"
     }
 
     @Override
