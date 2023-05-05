@@ -18,7 +18,7 @@ class Maven  implements Serializable {
         script.sh "mvn package"
     }
 
-    def compile = {script.echo "hello world"}
+    def compile = {script.sh "mvn clean compile"}
     
 
     @Override
