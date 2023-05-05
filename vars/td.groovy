@@ -102,10 +102,11 @@ def parallel(Map jobs){
             stages["${name}"] = switchFunction(key,funct)
            
     }
+
     
-    script.stage("parallel"){
-        script().parallel(stages)
-    }
+
+    script().parallel(stages)
+    
 
 
 
