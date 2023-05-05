@@ -86,7 +86,7 @@ def parallelSonar(boolean binaries=true,String nameTool="", String sonarName="" 
     String funct="scanner"
     if(binaries) funct= "${funct}Binaries"
     jobs["sonar"]= funct
-    parallelCustom(jobs)
+    parallel(jobs)
 }
 
 //  
@@ -102,7 +102,9 @@ def parallel(Map jobs){
            
     }
 
-    script().stage("paralel"){
+
+
+    script().stage("parallel"){
         script().parallel(stages)
     }
     
