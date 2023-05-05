@@ -60,7 +60,7 @@ def switchFunction(String key, funct){
     try{
         if( funct instanceof String ) stage = { "${key}"."${funct}"() }
         else stage = { funct() }
-    } cath( Exception ex ){
+    } catch( Exception ex ){
         script().error "El compilador no funciona o la funcion no existe"
     }
     
