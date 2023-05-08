@@ -116,7 +116,7 @@ def testDocker(){
     def script = script()
 
    docker.image("maven").inside{
-        sh "mvne -v"
+        sh "mvn -v"
     }
 }
 
