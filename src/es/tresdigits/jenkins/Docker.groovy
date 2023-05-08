@@ -36,7 +36,7 @@ class Docker  implements Serializable {
         def image = docker.build(name,".")
         def container = image.run("-u root ${args}")
         script.echo "sleep de ${totalMin} min"
-        utils.sleepMin(totalMin)
+        utils.sleepMin( 1 )
         container.stop()
 
     }
