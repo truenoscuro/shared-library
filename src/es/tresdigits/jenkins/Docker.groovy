@@ -7,7 +7,7 @@ i en vers d'utilitzar la funcio image seria build
 */
 
 //TODO per culpa del jenkinsDocker fa falta posar --user root a tot
-class DockerCustom  implements Serializable {
+class Docker  implements Serializable {
 
     def script
     def dk

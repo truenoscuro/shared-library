@@ -5,8 +5,8 @@ import groovy.transform.Field
 
 //import clases
 import es.tresdigits.jenkins.Utils
-import es.tresdigits.jenkins.Angular
-import es.tresdigits.jenkins.DockerCustom
+//import es.tresdigits.jenkins.Angular
+import es.tresdigits.jenkins.Docker
 import es.tresdigits.jenkins.Sonar
 import es.tresdigits.jenkins.Maven
 
@@ -14,8 +14,8 @@ import es.tresdigits.jenkins.Maven
 
 // Field de clases
 @Field Utils utils = new Utils()
-@Field Angular angular = new Angular()
-@Field DockerCustom dk = new DockerCustom()
+//@Field Angular angular = new Angular()
+@Field Docker docker = new Docker()
 @Field Sonar sonar = new Sonar()
 @Field Maven maven = new Maven()
 
@@ -30,7 +30,7 @@ import es.tresdigits.jenkins.Maven
 def init(script,env,sonarName="${sonarName}",nameTool="${nameTool}"){
     script.stage("Init"){
         utils.init(script,env) 
-        dk.init(script,this.docker,utils) 
+        docker.init(script,this.docker,utils) 
         //Tod init de ses funcions!
         maven.init(script,utils)
         sonar.init(script,utils,sonarName,nameTool)
@@ -112,7 +112,7 @@ def parallel(Map jobs){
 def testDocker(){
     def script = script()
 
-   dk.image("node").inside{
+   docker.image("node").inside{
         sh "npm -v"
     }
 }
