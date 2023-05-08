@@ -111,8 +111,9 @@ def parallel(Map jobs){
     }
     script().parallel(stages)
 }
-
-def dockerfileRun(String name="default-${utils.env.BUILD_NUMBER}",String path=".",args=""){
+//nombre obligatorio
+def dockerfileRun(String name,String path=".",args=""){
+    docker.remove(name)
     docker.run(name,path,args)
 }
 
