@@ -34,8 +34,7 @@ class Docker  implements Serializable {
 
     def remove( ){
         try{
-            script.sh 
-            """
+            script.sh """
             docker stop $ (docker ps -a -q)
             docker rm $ (docker ps -a -q)
             """
