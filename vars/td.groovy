@@ -112,14 +112,9 @@ def parallel(Map jobs){
     script().parallel(stages)
 }
 
-def testDocker(){
-    def script = script()
-
-   docker.image("maven").inside{
-        sh "mvn -v"
-    }
+def dockerfileRun(String name="default-${utils.env.BUILD_NUMBER}",String path="."){
+    docker.run(name,path)
 }
-
 
 
 

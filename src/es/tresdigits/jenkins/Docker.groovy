@@ -30,18 +30,16 @@ class Docker  implements Serializable {
     
     }
 
-    //Run dockerfile creat
-    def runDockerFile(String name,String args =""){
-        def imgDockerFile = docker.build(name,".")
-        def container = imgDockerFile.run(args)
-        int totalMin = 1
-        //TODO aixo s'ha de llevar
+    //Run dockerfile create
+
+    def run(String name,String path,String args =""){
+        def image = docker.build(name,".")
+        def container = image.run(args)
         script.echo "sleep de ${totalMin} min"
         utils.sleepMin(totalMin)
         container.stop()
 
     }
-
     
     
 
