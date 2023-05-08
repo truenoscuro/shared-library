@@ -9,7 +9,7 @@ import es.tresdigits.jenkins.Angular
 import es.tresdigits.jenkins.DockerCustom
 import es.tresdigits.jenkins.Sonar
 import es.tresdigits.jenkins.Maven
-import es.tresdigits.jenkins.Pipeline
+
 
 
 // Field de clases
@@ -18,7 +18,7 @@ import es.tresdigits.jenkins.Pipeline
 @Field DockerCustom dk = new DockerCustom()
 @Field Sonar sonar = new Sonar()
 @Field Maven maven = new Maven()
-@Field Pipeline pipe = new Pipeline()
+
 
 // parametros default
 @Field  String sonarName = "prueba"
@@ -107,6 +107,14 @@ def parallel(Map jobs){
             stages["${name}"] = switchFunction(key,funct)
     }
     script().parallel(stages)
+}
+
+def testDocker(){
+    def script = script()
+
+    script.docker.image("node").inside{
+        sh "npm -v"
+    }
 }
 
 

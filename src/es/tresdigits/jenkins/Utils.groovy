@@ -31,8 +31,11 @@ class Utils  implements Serializable {
     branches: [[name: 'master']],
     extensions: [ lfs() ],
     userRemoteConfigs: [[credentialsId: 'my-username-password-id, url: 'https://github.com/jenkinsci/git-plugin.git']])
-
     */
+
+
+
+
     def git(){
         //TODO credentials se treura del java //branch:
         if(credentials.length() == 0)
@@ -52,6 +55,7 @@ class Utils  implements Serializable {
         script.emailext  subject: "${subjectVar}" ,body: "${bodyVar}" , to: "${toVar}"
                     
     }
+
 
 
 

@@ -1,6 +1,6 @@
 package es.tresdigits.jenkins
 
-import es.tresdigits.jenkins.utils.DockerFile
+
 /*
 Aquesta clase nomes retorna ses images contruides per ara no utiltiza dockerFiles pero se podrien fer 
 i en vers d'utilitzar la funcio image seria build
