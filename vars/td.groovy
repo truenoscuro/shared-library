@@ -97,10 +97,6 @@ def stage(Map job,String nameStage="stage"){
 }
 
 
-
-
-
-
 def parallel(Map jobs){
     def stages = [:]
     jobs.each{
@@ -111,6 +107,8 @@ def parallel(Map jobs){
     }
     script().parallel(stages)
 }
+
+
 
 
 //nombre obligatorio
