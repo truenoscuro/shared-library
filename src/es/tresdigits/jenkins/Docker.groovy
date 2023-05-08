@@ -35,7 +35,7 @@ class Docker  implements Serializable {
     def remove( ){
         try{
             script.sh "docker stop $(docker ps -a -q)"
-            script.sh " docker rm $(docker ps -a -q)"
+            script.sh "docker rm $(docker ps -a -q)"
         }catch(Exception ex){
             script.echo "primera vez en ejecucion"
         }
