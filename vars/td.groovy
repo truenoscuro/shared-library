@@ -30,7 +30,7 @@ import es.tresdigits.jenkins.Maven
 def init(script,env,sonarName="${sonarName}",nameTool="${nameTool}"){
     script.stage("Init"){
         utils.init(script,env) 
-        docker.init(script,this.docker,utils) 
+        docker.init(script,utils) 
         //Tod init de ses funcions!
         maven.init(script,utils)
         sonar.init(script,utils,sonarName,nameTool)
