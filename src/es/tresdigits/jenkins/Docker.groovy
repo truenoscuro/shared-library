@@ -10,13 +10,13 @@ i en vers d'utilitzar la funcio image seria build
 class Docker  implements Serializable {
 
     def script
-    def dk
+    def docker
     def utils
 
     //init docker
-    def init(script,docker,utils){
+    def init(script,utils){
         script.echo "Init Docker..."
-        this.dk  = docker
+        this.docker  = script.docker
         this.utils = utils
         this.script = script  // aquest no es necesari en principi
     }
@@ -26,13 +26,13 @@ class Docker  implements Serializable {
     //Imagenes Docker
     def image(nameImage){ 
         script.echo "Image ${nameImage} creada"
-        return dk.image( "${nameImage}" ) 
+        return docker.image( "${nameImage}" ) 
     
     }
 
     //Run dockerfile creat
     def runDockerFile(String name,String args =""){
-        def imgDockerFile = dk.build(name,".")
+        def imgDockerFile = docker.build(name,".")
         def container = imgDockerFile.run(args)
         int totalMin = 1
         //TODO aixo s'ha de llevar
@@ -42,23 +42,7 @@ class Docker  implements Serializable {
 
     }
 
-    //run especifics se odria refactoritzar amb molt de ifs o un swich
-
-    def runAngular( String args="" ,String tagNode="latest", String tagApache="8.1"){
-        String workspace=script.WORKSPACE
-        String gitUrl = utils.gitUrl
-        DockerFile.generateAngular( workspace, gitUrl ,  tagNode, tagApache)
     
-        runDockerFile("angular-apache${utils.env.ID}",args)
-    }
-
-    def runSpring( String args="",boolean isJBoss=false ,String tagMaven="latest", String tagTomcat="latest"){
-        String workspace=script.WORKSPACE
-        String gitUrl = utils.gitUrl
-        DockerFile.generateSpring( workspace, gitUrl ,isJBoss,  tagMaven, tagTomcat)
-        script.sh "cat Dockerfile"
-        runDockerFile("tomcat${utils.env.ID}",args)
-    }
     
 
     
