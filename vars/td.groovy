@@ -114,8 +114,13 @@ def parallel(Map jobs){
 //nombre obligatorio
 // convertir los arg en un mapa
 def dockerfileRun(String imageName="default ${utils.env.BUILD_NUMBER}",String dockerfile="Dockerfile", String path=".",args=""){
-    docker.remove()
-    docker.run(imageName,dockerfile,path,args)
+    
+    
+    script().stage("Build dockerfile"){
+        docker.remove()
+        docker.run(imageName,dockerfile,path,args)
+    }
+
 }
 
 
