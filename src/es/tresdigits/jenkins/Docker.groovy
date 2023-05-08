@@ -33,6 +33,7 @@ class Docker  implements Serializable {
     //Run dockerfile create
 
     def run(String name,String path,String args =""){
+        
         def image = docker.build(name,".")
         def container = image.run("-u root ${args}")
         script.echo "sleep de ${totalMin} min"
