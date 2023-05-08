@@ -115,8 +115,8 @@ def parallel(Map jobs){
 def testDocker(){
     def script = script()
 
-   docker.image("node").inside{
-        sh "npm -v"
+   docker.image("maven").inside{
+        sh "mvne -v"
     }
 }
 
