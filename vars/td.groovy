@@ -41,9 +41,12 @@ def setSonar(String nameTool="",String sonarName=""){
     if(nameTool != "") sonar.scannerTool = nameTool
     if(sonarName != "") sonar.name = sonarName
 }
+
 // funcions utils
 def script(){ return utils.script }
 
+// funcio clau per seleccionar clase 
+// TODO magradiria que creas se clase la inicialitzes i tires la funcio
 def switchFunction(String key, funct){
     def stage = {}
 
