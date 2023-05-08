@@ -112,6 +112,7 @@ def parallel(Map jobs){
     script().parallel(stages)
 }
 //nombre obligatorio
+// convertir los arg en un mapa
 def dockerfileRun(String name,String path=".",args=""){
     docker.remove(name)
     docker.run(name,path,args)
