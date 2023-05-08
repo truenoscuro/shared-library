@@ -27,10 +27,10 @@ import es.tresdigits.jenkins.Maven
 
 
 // inicialitzacio de utils
-def init(script,env,docker,sonarName="${sonarName}",nameTool="${nameTool}"){
+def init(script,env,sonarName="${sonarName}",nameTool="${nameTool}"){
     script.stage("Init"){
         utils.init(script,env) 
-        dk.init(script,docker,utils) 
+        dk.init(script,this.docker,utils) 
         //Tod init de ses funcions!
         maven.init(script,utils)
         sonar.init(script,utils,sonarName,nameTool)
@@ -112,7 +112,7 @@ def parallel(Map jobs){
 def testDocker(){
     def script = script()
 
-    script.docker.image("node").inside{
+   dk.image("node").inside{
         sh "npm -v"
     }
 }
