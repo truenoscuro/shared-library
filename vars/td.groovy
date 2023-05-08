@@ -114,7 +114,7 @@ def parallel(Map jobs){
 //nombre obligatorio
 // convertir los arg en un mapa
 def dockerfileRun(String imageName,String dockerfile="Dockerfile", String path=".",args=""){
-    docker.remove(imageName)
+    //docker.remove(imageName)
     docker.run(imageName,dokerfile,path,args)
 }
 
