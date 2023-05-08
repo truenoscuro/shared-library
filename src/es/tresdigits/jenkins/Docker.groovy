@@ -42,7 +42,7 @@ class Docker  implements Serializable {
 
     def run(String name,String path,String args =""){
 
-
+        script.echo "${path}"
         def image = docker.build(name, path )
         def container = image.run( args )
         //TODO slep quitar
