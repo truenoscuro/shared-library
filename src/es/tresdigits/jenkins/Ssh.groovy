@@ -93,8 +93,9 @@ class Ssh  implements Serializable {
                     com("mkdir ${path}")
                     script.sh "zip -r dist.zip dist"
                     put("dist.zip",path)
+                    script.sh "rm zip dist.zip" //TODO continaur dema qui
                     put("Dockerfile",path)
-                    com("unzip ${path}/dist.zip")
+                    com("unzip ${path}/dist.zip ${path}")
                     //com("docker build ${path} -t ${name}",isSudo)
                     //com("docker run ${name} -p 80:6000",isSudo)   
                 }
