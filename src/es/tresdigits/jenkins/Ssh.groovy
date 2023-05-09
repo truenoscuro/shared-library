@@ -34,7 +34,7 @@ class Ssh  implements Serializable {
                 keyFileVariable: 'keyFile',
                 passphraseVariable: '', 
                 usernameVariable: 'userName')]) {
-                body()
+                body
         }
 
 
