@@ -20,7 +20,7 @@ class Ssh  implements Serializable {
         remote.name =  "server" ?: conf.name 
         remote.host = conf?.host 
         remote.allowAnyHosts = true
-        credentialsId = cont?.credentialsId 
+        credentialsId = conf?.credentialsId 
         if(credentialsId == null){
             remote.user = conf?.user
             remote.password = conf?.password
