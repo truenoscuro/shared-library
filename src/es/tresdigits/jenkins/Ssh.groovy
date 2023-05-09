@@ -91,7 +91,7 @@ class Ssh  implements Serializable {
                 sshCom = {
                     com("rm -fr ${path}") // eliminacion de carpeta
                     com("mkdir ${path}")
-                    script.sh "zip -r dist.zip ./dist ./"
+                    script.sh "zip -r dist.zip dist ./"
                     put("dist.zip",path)
                     put("Dockerfile",path)
                     com("unzip ${path}/dist.zip",isSudo)
