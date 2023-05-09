@@ -78,7 +78,7 @@ class Ssh  implements Serializable {
         switch(language) {
             case "maven":
                 sshCom = {
-                    com("rm -fr ${path}",isSudo) // eliminacion de carpeta
+                    //com("rm -fr ${path}",isSudo) // eliminacion de carpeta
                     com("mkdir ${path}")
                     put("Dockerfile","${path}")  
                     com("mkdir ${path}/target")
