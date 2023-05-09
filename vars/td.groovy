@@ -138,7 +138,7 @@ def ficheros(){
     File carpeta = new File("${utils.env.WORKSPACE}")
     String[] listado = carpeta.list()
     listado.each{key,value ->
-        script().echo "$value"
+        script().echo "$key"
     }
 
 }
