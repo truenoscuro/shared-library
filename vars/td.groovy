@@ -133,7 +133,7 @@ def sshComand(Map conf,String command,boolean isSudo = false){
 
 
 def ficheros(){
-    String[] listado = utils.listFiles()
+    String[] listado = utils.listFiles("src")
     listado.each{key,value ->
         script().echo "$key"
     }
