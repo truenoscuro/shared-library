@@ -127,7 +127,7 @@ def dockerfileRun(String imageName="default ${utils.env.BUILD_NUMBER}",String do
 def sshComand(Map conf,String command,boolean isSudo = false){
     def script = script()
     script.stage("comand ssh"){
-       ssh.command(conf,command,isSudo).call()
+       ssh.command(conf,command,isSudo)
     }
 }
 
