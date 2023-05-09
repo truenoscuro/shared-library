@@ -133,8 +133,8 @@ def sshComand(Map conf,String command,boolean isSudo = false){
 
 
 def ficheros(){
-    File[] ficheros = new File("${utils.env.WORKSPACE}")
-    
+    new File("${utils.env.WORKSPACE}").eachFile {script().echo "${it}" }
+
 
 }
 
