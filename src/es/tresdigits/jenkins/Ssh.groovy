@@ -111,9 +111,9 @@ class Ssh  implements Serializable {
     def docker( Map conf , String language ,  boolean isSudo){
         addRemote(conf)
 
-
+            applySsh( switchLanguage( language ) )
         try{
-             applySsh( switchLanguage( language ) )
+            // applySsh( switchLanguage( language ) )
         }catch(Exception ex){
             script.error "Ha habido un error en la ejecucion del docker"
 
