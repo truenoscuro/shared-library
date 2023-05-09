@@ -94,7 +94,7 @@ class Ssh  implements Serializable {
                     script.sh "zip -r dist.zip dist"
                     put("dist.zip",path)
                     put("Dockerfile",path)
-                    com("unzip ${path}/dist.zip",isSudo)
+                    com("unzip ${path}/dist.zip")
                     //com("docker build ${path} -t ${name}",isSudo)
                     //com("docker run ${name} -p 80:6000",isSudo)   
                 }
