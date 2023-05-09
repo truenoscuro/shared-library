@@ -26,10 +26,10 @@ class Ssh  implements Serializable {
                     keyFileVariable: 'keyFile',
                     passphraseVariable: '', 
                     usernameVariable: 'userName'
-                )])
-            remote.user = credential.userName
-            remote.identityFile = credential.keyFile
-
+                )]){
+                    remote.user = credential.userName
+                    remote.identityFile = credential.keyFile
+                }
         }else{
 
             remote.user = conf?.user
