@@ -63,6 +63,13 @@ class Ssh  implements Serializable {
 
     def docker(Map conf,String compiler){
         addRemote(conf)
+
+        dockerScript = {
+            put("Dockerfile",".")
+            put("")
+        }
+
+
         if( credentialsId == null ){
             script.sshPut remote: this.remote, from:'Dockerfile'
         }
