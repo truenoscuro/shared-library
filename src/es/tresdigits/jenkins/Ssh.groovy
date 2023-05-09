@@ -79,6 +79,7 @@ class Ssh  implements Serializable {
 
         def sshCom = { 
             put("Dockerfile",".")  // esto 
+            com("mkdir /target",isSudo)
             put( pack ,"./target") // esto cambia
             com("docker build .",isSudo)
             com("docker run  -p 8080:8080",isSudo) // esto cambia
