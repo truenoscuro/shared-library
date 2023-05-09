@@ -31,8 +31,10 @@ class Ssh  implements Serializable {
             remote.identityFile = credential.keyFile
 
         }else{
+
             remote.user = conf?.user
             remote.password = conf?.password
+            
         }
 
     }
