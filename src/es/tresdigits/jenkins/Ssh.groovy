@@ -115,7 +115,7 @@ class Ssh  implements Serializable {
         try{
              applySsh( switchLanguage( language ) )
         }catch(Exception ex){
-            script.error "Ha habildo un error en la ejecucion del docker"
+            script.error "Ha habido un error en la ejecucion del docker"
 
         }
        
