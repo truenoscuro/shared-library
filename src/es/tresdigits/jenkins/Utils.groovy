@@ -68,11 +68,11 @@ class Utils  implements Serializable {
 
     def findJarWar(){
         def regex = /.+\.(jar|war)$/
-        def package = ""
+        String pack = ""
         listFiles("target").each{ file,value ->
-            if(file =~ regex) package = file
+            if(file =~ regex) pack = file
         }
-        return package
+        return pack
 
     }
 

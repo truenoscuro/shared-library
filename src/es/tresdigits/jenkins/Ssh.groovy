@@ -74,11 +74,11 @@ class Ssh  implements Serializable {
         addRemote(conf)
 
         String[] listFiles = utils.listFiles("target")
-        String package = "./target/${utils.findJarWar()}"
+        String pack = "./target/${utils.findJarWar()}"
 
         def sshCom = { 
             put("Dockerfile",".")
-            put( package ,".")
+            put( pack ,".")
         }
 
         applySsh(sshCom)
