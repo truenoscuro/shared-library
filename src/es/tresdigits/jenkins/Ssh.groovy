@@ -71,23 +71,29 @@ class Ssh  implements Serializable {
 
 
     //TODO args docker 
-    def docker(Map conf,String language, boolean isSudo){
+    def docker(String name="dockerTest"Map conf,String language, boolean isSudo){
         addRemote(conf)
 
         String[] listFiles = utils.listFiles("target")
         String pack = "./target/${utils.findJarWar()}"
         String path ="./docker"
+        name = "dockerTest-${language}"
         def sshCom = {
-            com("rm -fr ${path}",isSudo)
+            com("rm -fr ${path}",isSudo) // eliminacion de carpeta
             com("mkdir ${path}")
-            put("Dockerfile","${path}")  // esto 
+            put("Dockerfile","${path}")  
             com("mkdir ${path}/target")
-            put( pack ,"${path}/target") // esto cambia
-            com("docker build ${path}",isSudo)
-            com("docker run  -p 8080:8080",isSudo) // esto cambia
+            put( pack ,"${path}/target") 
+            com("docker build ${path} -t ${name} ",isSudo)
+            com("docker run ${name} -p 8080:8080",isSudo) // esto cambia
         }
+        try{
+             applySsh( sshCom )
+        }catch(Exception ex){
+            script.error "Ha habildo un error en la ejecucion del docker"
 
-        applySsh( sshCom )
+        }
+       
     }
 
 
