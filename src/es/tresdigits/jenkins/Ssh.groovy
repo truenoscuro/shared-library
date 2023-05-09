@@ -28,7 +28,7 @@ class Ssh  implements Serializable {
                     usernameVariable: 'userName'
                 )])
             remote.user = credential.userName
-            remote.
+            remote.identityFile = credential.keyFile
 
         }else{
             remote.user = conf?.user
