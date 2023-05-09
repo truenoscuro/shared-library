@@ -16,6 +16,7 @@ class Ssh  implements Serializable {
 
 
     def addRemote(Map conf){
+        remote = [:]
         remote.name =  "server" ?: conf.name 
         remote.host = conf.host ?:"localhost" 
         remote.allowAnyHosts = true
