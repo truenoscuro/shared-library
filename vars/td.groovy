@@ -11,6 +11,8 @@ import es.tresdigits.jenkins.Sonar
 import es.tresdigits.jenkins.Maven
 import es.tresdigits.jenkins.Ssh
 
+//file
+import java.io.File;
 
 // Field de clases
 @Field Utils utils = new Utils()
@@ -131,10 +133,13 @@ def sshComand(Map conf,String command,boolean isSudo = false){
     }
 }
 
-@NonCPS
-def ficheros(){
-    new File("${utils.env.WORKSPACE}").eachFile {script().echo "${it}" }
 
+def ficheros(){
+    File carpeta = new File("${utils.env.WORKSPACE}")
+    String[] listado = carpeta.list()
+    listado.each{key,value ->
+        script().echo "$value"
+    }
 
 }
 
