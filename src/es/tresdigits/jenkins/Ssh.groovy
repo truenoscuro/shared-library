@@ -52,11 +52,11 @@ class Ssh  implements Serializable {
         
         //TODO te configuracion --> no afegir
         addRemote(conf)
-        def com = scriptC(command)
+        def com = {scriptC(command)}
         if(credentialsId == null){
-            com()
+            com.call()
         }else{
-            credentials({com()})
+            credentials(com)
         }
     }
 
