@@ -1,5 +1,9 @@
 package es.tresdigits.jenkins
 
+
+//Files
+import java.io.File
+
 class Utils  implements Serializable {
 
     def script
@@ -54,6 +58,12 @@ class Utils  implements Serializable {
     
         script.emailext  subject: "${subjectVar}" ,body: "${bodyVar}" , to: "${toVar}"
                     
+    }
+
+    def listFiles(String relativePath ="."){
+
+        new File("${script().WORKSPACE}/${relativePath}").list()
+
     }
 
 
