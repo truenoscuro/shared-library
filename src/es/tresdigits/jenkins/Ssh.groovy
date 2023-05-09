@@ -14,7 +14,7 @@ class Ssh  implements Serializable {
         this.utils = utils
     }
     //TODO Podria cojer el script o no
-    def scriptC = { String ls ->  script.sshCommand([remote: this.remote , command: "${c}",sudo: false])}
+    def scriptC = { String c ->  script.sshCommand([remote: this.remote , command: "${c}",sudo: false])}
     def put = { String f,String i ->  script.sshCommand([remote: this.remote , from: "${f}",into:"${i}",sudo: false])}
     def get = { String f,String i ->  script.sshCommand([remote: this.remote , from: "${f}",into:"${i}",sudo: false, override: true])}
     def remove = { String p ->  script.sshCommand([remote: remote , path: "${p}",sudo: false])}
