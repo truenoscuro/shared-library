@@ -46,6 +46,15 @@ class Ssh  implements Serializable {
 
 
     }
+    
+    def applySsh(Closure command){
+        if(credentialsId == null){
+            command.call()
+        }else{
+            credentials(command)
+        }
+
+    }
 
 
     def command(Map conf, String command,boolean isSudo){
@@ -58,14 +67,7 @@ class Ssh  implements Serializable {
        
     }
 
-    def applySsh(Closure command){
-        if(credentialsId == null){
-            command.call()
-        }else{
-            credentials(command)
-        }
-
-    }
+    
 
 
     def docker(Map conf,String language){
