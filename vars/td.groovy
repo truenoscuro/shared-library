@@ -133,10 +133,8 @@ def sshComand(Map conf,String command,boolean isSudo = false){
 
 
 def ficheros(){
-    new File('/var/lib/jenkins/workspace/provaServer/').eachFile{
-        f -> script().echo "$f"
-
-    }
+    File[] ficheros = new File("${utils.env.WORKSPACE}")
+    
 
 }
 
