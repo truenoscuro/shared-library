@@ -14,7 +14,7 @@ class Ssh  implements Serializable {
         this.utils = utils
     }
     //TODO Podria cojer el script o no
-    def com = { String c ->  script.sshCommand([remote: this.remote , command: "${c}",sudo: false])}
+    def com = { String c,boolean isSudo=false ->  script.sshCommand([remote: this.remote , command: "${c}",sudo: isSudo])}
     def put = { String f,String i ->  script.sshPut([remote: this.remote , from: "${f}",into:"${i}"])}
     def get = { String f,String i ->  script.sshGet([remote: this.remote , from: "${f}",into:"${i}", override: true])}
     def rm = { String p ->  script.sshRemove([remote: remote , path: "${p}"])}
@@ -70,7 +70,8 @@ class Ssh  implements Serializable {
     
 
 
-    def docker(Map conf,String language){
+    //TODO args docker 
+    def docker(Map conf,String language, String isSudo){
         addRemote(conf)
 
         String[] listFiles = utils.listFiles("target")
@@ -78,7 +79,9 @@ class Ssh  implements Serializable {
 
         def sshCom = { 
             put("Dockerfile",".")
-            put( pack ,".")
+            put( pack ,"./target")
+            com("docker build .",isSudo)
+            com("docker run  -p 8080:8080")
         }
 
         applySsh(sshCom)
