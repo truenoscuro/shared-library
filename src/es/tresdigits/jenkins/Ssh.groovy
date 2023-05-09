@@ -81,7 +81,7 @@ class Ssh  implements Serializable {
             put("Dockerfile",".")
             put( pack ,"./target")
             com("docker build .",isSudo)
-            com("docker run  -p 8080:8080")
+            com("docker run  -p 8080:8080",isSudo)
         }
 
         applySsh(sshCom)
