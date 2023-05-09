@@ -46,7 +46,7 @@ class Ssh  implements Serializable {
 
 
     }
-    
+
     def applySsh(Closure command){
         if(credentialsId == null){
             command.call()
@@ -73,8 +73,12 @@ class Ssh  implements Serializable {
     def docker(Map conf,String language){
         addRemote(conf)
 
+        String[] listFiles = utils.listFiles("target")
+        String fileJarWar = 
+
         def sshCom = { 
-            put("Dockerfile",".") 
+            put("Dockerfile",".")
+
         }
 
         applySsh(sshCom)

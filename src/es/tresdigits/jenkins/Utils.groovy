@@ -66,6 +66,13 @@ class Utils  implements Serializable {
 
     }
 
+    def searchJarWar(){
+        String[] list = listFiles("target")
+        
+        list.each{ file,value ->
+        }
+    }
+
 
 
 
