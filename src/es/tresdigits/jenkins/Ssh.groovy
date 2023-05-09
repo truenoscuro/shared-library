@@ -9,6 +9,7 @@ class Ssh  implements Serializable {
     def utils
 
     def init(script,utils){
+        script.echo "init service"
         this.script = script
         this.utils = utils
     }
