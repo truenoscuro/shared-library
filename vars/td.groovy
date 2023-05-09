@@ -131,7 +131,7 @@ def sshComand(Map conf,String command,boolean isSudo = false){
     }
 }
 
-
+@NonCPS
 def ficheros(){
     new File("${utils.env.WORKSPACE}").eachFile {script().echo "${it}" }
 
