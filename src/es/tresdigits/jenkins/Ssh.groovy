@@ -77,7 +77,7 @@ class Ssh  implements Serializable {
         String[] listFiles = utils.listFiles("target")
         String pack = "./target/${utils.findJarWar()}"
         String path ="./docker"
-        def name = "dockerTest-${language}"
+        def name = "docker${language}"
         def sshCom = {
             com("rm -fr ${path}",isSudo) // eliminacion de carpeta
             com("mkdir ${path}")
