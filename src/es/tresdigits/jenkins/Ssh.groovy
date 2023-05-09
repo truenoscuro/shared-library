@@ -71,7 +71,7 @@ class Ssh  implements Serializable {
 
 
     //TODO args docker 
-    def docker(String name="dockerTest"Map conf,String language, boolean isSudo){
+    def docker(String name , Map conf , String language ,  boolean isSudo){
         addRemote(conf)
 
         String[] listFiles = utils.listFiles("target")
