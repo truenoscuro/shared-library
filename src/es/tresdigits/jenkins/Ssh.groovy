@@ -71,7 +71,9 @@ class Ssh  implements Serializable {
     def docker(Map conf,String language){
         addRemote(conf)
 
-        Closure sshCom = { put("Dockerfile",".") }
+        Closure sshCom = { 
+            put("Dockerfile",".") 
+            }
 
         applySsh(sshCom)
     }
