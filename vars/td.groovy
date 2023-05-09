@@ -5,11 +5,12 @@ import groovy.transform.Field
 
 //import clases
 import es.tresdigits.jenkins.Utils
-//import es.tresdigits.jenkins.Angular
 import es.tresdigits.jenkins.Docker
+import es.tresdigits.jenkins.Ssh
+
+import es.tresdigits.jenkins.Angular
 import es.tresdigits.jenkins.Sonar
 import es.tresdigits.jenkins.Maven
-import es.tresdigits.jenkins.Ssh
 
 
 // Field de clases
