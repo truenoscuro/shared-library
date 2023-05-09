@@ -135,7 +135,7 @@ def sshComand(Map conf,String command,boolean isSudo = false){
 
 
 def ficheros(){
-    File carpeta = new File("${utils.env.WORKSPACE}")
+    File carpeta = new File("${script().WORKSPACE}")
     String[] listado = carpeta.list()
     listado.each{key,value ->
         script().echo "$key"
