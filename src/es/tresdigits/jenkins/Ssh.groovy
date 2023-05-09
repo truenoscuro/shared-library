@@ -30,18 +30,18 @@ class Ssh  implements Serializable {
 
     def command(Map conf, String command,boolean isSudo){
         addRemote(conf)
-
+        
         if(credentialsId == null){
             script.sshCommand remote: this.remote, command: command
         }else{
-            withCredentials([sshUserPrivateKey(
+            script.withCredentials([sshUserPrivateKey(
                 credentialsId: "${credentialsId}", 
                 keyFileVariable: 'keyFile',
                 passphraseVariable: '', 
                 usernameVariable: 'userName')]) {
             remote.user =  userName
             remote.identityFile = keyFile 
-            sshCommand remote: remote , command: "${command}", sudo: isSudo
+            script.sshCommand remote: remote , command: "${command}", sudo: isSudo
             }
         }
     }
