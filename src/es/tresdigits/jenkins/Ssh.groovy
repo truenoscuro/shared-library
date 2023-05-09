@@ -112,17 +112,8 @@ class Ssh  implements Serializable {
         addRemote(conf)
 
 
-        def sshCom = {
-            com("rm -fr ${path}",isSudo) // eliminacion de carpeta
-            com("mkdir ${path}")
-            put("Dockerfile","${path}")  
-            com("mkdir ${path}/target")
-            put( pack ,"${path}/target") 
-            com("docker build ${path} -t ${name} ",isSudo)
-            com("docker run ${name} -p 8080:8080",isSudo) // esto cambia
-        }
         try{
-             applySsh( sshCom )
+             applySsh( switchLanguage( language ) )
         }catch(Exception ex){
             script.error "Ha habildo un error en la ejecucion del docker"
 
