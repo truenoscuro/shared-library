@@ -132,12 +132,11 @@ def sshComand(Map conf,String command,boolean isSudo = false){
 }
 
 
-def ficheros(){
-    String[] listado = utils.listFiles("src")
-    listado.each{key,value ->
-        script().echo "$key"
+def sshRunDocker(Map conf,String language){
+    def script = script()
+    script.stage(" docker run ssh"){
+        ssh.docker(conf,language)
     }
-
 }
 
 

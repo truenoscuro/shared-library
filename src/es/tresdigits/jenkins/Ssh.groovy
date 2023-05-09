@@ -7,17 +7,17 @@ class Ssh  implements Serializable {
     def credentialsId
     def script
     def utils
-
+    def isSudo 
     def init(script,utils){
         script.echo "init service"
         this.script = script
         this.utils = utils
     }
     //TODO Podria cojer el script o no
-    def scriptC = { String c ->  script.sshCommand([remote: this.remote , command: "${c}",sudo: false])}
-    def put = { String f,String i ->  script.sshCommand([remote: this.remote , from: "${f}",into:"${i}",sudo: false])}
-    def get = { String f,String i ->  script.sshCommand([remote: this.remote , from: "${f}",into:"${i}",sudo: false, override: true])}
-    def remove = { String p ->  script.sshCommand([remote: remote , path: "${p}",sudo: false])}
+    def com = { String c ->  script.sshCommand([remote: this.remote , command: "${c}",sudo: false])}
+    def put = { String f,String i ->  script.sshPut([remote: this.remote , from: "${f}",into:"${i}"])}
+    def get = { String f,String i ->  script.sshPut([remote: this.remote , from: "${f}",into:"${i}", override: true])}
+    def rm = { String p ->  script.sshRemove([remote: remote , path: "${p}"])}
     
     
     def addRemote(Map conf){
@@ -52,27 +52,30 @@ class Ssh  implements Serializable {
         
         //TODO te configuracion --> no afegir
         addRemote(conf)
-        def com = {scriptC(command)}
+        def sshCom = {com(command)}
+
+        applySsh(sshCom)
+       
+    }
+
+    def applySsh(Closure command){
         if(credentialsId == null){
-            com.call()
+            command.call()
         }else{
-            credentials(com)
+            command(sshCom)
         }
+
     }
 
 
-    def docker(Map conf,String compiler){
+    def docker(Map conf,String language){
         addRemote(conf)
 
-        dockerScript = {
+        sshCom = {
             put("Dockerfile",".")
-            put("")
         }
 
-
-        if( credentialsId == null ){
-            script.sshPut remote: this.remote, from:'Dockerfile'
-        }
+        applySsh(sshCom)
     }
 
 
