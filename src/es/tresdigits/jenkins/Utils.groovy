@@ -62,7 +62,7 @@ class Utils  implements Serializable {
 
     def listFiles(String relativePath ="."){
 
-        new File("${script().WORKSPACE}/${relativePath}").list()
+        new File("${script.WORKSPACE}/${relativePath}").list()
 
     }
 
