@@ -16,9 +16,8 @@ class Ssh  implements Serializable {
 
 
     def addRemote(Map conf){
-        script.echo "${conf?.name}"
-        remote.name = (conf.name == null )? "server" : conf.name 
-        remote.host = conf?.host 
+        remote.name =  "server" ?: conf.name 
+        remote.host = conf.host ?:"localhost" 
         remote.allowAnyHosts = true
         credentialsId = cont?.credentialsId 
         if(credentialsId == null){
