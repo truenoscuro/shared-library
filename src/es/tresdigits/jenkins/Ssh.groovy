@@ -67,6 +67,41 @@ class Ssh  implements Serializable {
        
     }
 
+    def switchLanguage(String language){
+        def sshCom = {}
+
+        String[] listFiles = utils.listFiles("target")
+        String pack = "./target/${utils.findJarWar()}"
+        String path ="./docker"
+        def name = "docker-${language}"
+        //TODO cmabiar por una lista 
+        switch(language) {
+            case "maven":
+                sshCom = {
+                    com("rm -fr ${path}",isSudo) // eliminacion de carpeta
+                    com("mkdir ${path}")
+                    put("Dockerfile","${path}")  
+                    com("mkdir ${path}/target")
+                    put( pack ,"${path}/target") 
+                    com("docker build ${path} -t ${name} ",isSudo)
+                    com("docker run ${name} -p 8080:8080",isSudo) // esto cambia
+                }
+            break
+            case "angular":
+                sshCom = {
+                    com("rm -fr ${path}",isSudo) // eliminacion de carpeta
+                    com("mkdir ${path}")
+
+                    
+                }
+
+
+            break
+        }
+
+        return sshCom
+    }
+
     
 
 
@@ -74,10 +109,7 @@ class Ssh  implements Serializable {
     def docker( Map conf , String language ,  boolean isSudo){
         addRemote(conf)
 
-        String[] listFiles = utils.listFiles("target")
-        String pack = "./target/${utils.findJarWar()}"
-        String path ="./docker"
-        def name = "docker-${language}"
+
         def sshCom = {
             com("rm -fr ${path}",isSudo) // eliminacion de carpeta
             com("mkdir ${path}")

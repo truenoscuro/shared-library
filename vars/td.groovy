@@ -14,7 +14,7 @@ import es.tresdigits.jenkins.Ssh
 
 // Field de clases
 @Field Utils utils = new Utils()
-//@Field Angular angular = new Angular()
+@Field Angular angular = new Angular()
 @Field Docker docker = new Docker()
 @Field Sonar sonar = new Sonar()
 @Field Maven maven = new Maven()
@@ -34,6 +34,7 @@ def init(script,env,sonarName="${sonarName}",nameTool="${nameTool}"){
         utils.init(script,env) 
         docker.init(script,utils) 
         //Tod init de ses funcions!
+        angular.init(script,utils)
         ssh.init(script,utils)
         maven.init(script,utils)
         //sonar.init(script,utils,sonarName,nameTool)
@@ -61,6 +62,9 @@ def switchFunction(String key, funct){
             break
         case "${sonar.toString()}":
             stage = { sonar."${funct}"() }
+            break
+        case "${angular.toString()}":
+            stage = { angular."${funct}"() }
             break
         default:
            // pararlel normal hi ha una error si no existeix el cas i no es una funct()

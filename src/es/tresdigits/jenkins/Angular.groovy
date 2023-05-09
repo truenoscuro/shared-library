@@ -14,7 +14,7 @@ class Angular  implements Serializable {
         this.utils = utils
     }
 
-    def install(){
+    def angularInstall(){
         script.sh "npm install -g @angular/cli"
     }
 
@@ -23,15 +23,15 @@ class Angular  implements Serializable {
         script.sh "ng build"
     }
 
-    def iPackage(){
+    def install(){
         script.sh "npm i"
     }
 
 
-    /** 
-    PIPELINE
-    **/
-
+   @Override
+    String toString() {
+        return "angular"
+    }
 
 
 
