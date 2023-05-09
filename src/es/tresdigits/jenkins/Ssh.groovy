@@ -34,7 +34,7 @@ class Ssh  implements Serializable {
         if(credentialsId == null){
             script.sshCommand remote: this.remote, command: command
         }else{
-            script.withCredentials([sshUserPrivateKey(
+            script.withCredentials([script.sshUserPrivateKey(
                 credentialsId: "${credentialsId}", 
                 keyFileVariable: 'keyFile',
                 passphraseVariable: '', 
