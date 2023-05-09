@@ -11,6 +11,7 @@ class Docker  implements Serializable {
 
     def script
     def docker
+    
     def utils
 
     //init docker
