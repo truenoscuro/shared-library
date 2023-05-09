@@ -89,9 +89,9 @@ class Ssh  implements Serializable {
             break
             case "angular":
                 sshCom = {
-                    //com("rm -fr ${path}",isSudo) // eliminacion de carpeta
+                    com("rm -fr ${path}",isSudo) // eliminacion de carpeta
                     com("mkdir ${path}")
-                    script.sh "zip -r dist.zip /src/dist ./"
+                    script.sh "zip -r dist.zip ./dist ./"
                     put("dist.zip",path)
                     put("Dockerfile",path)
                     com("unzip ${path}/dist.zip",isSudo)
