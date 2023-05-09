@@ -78,12 +78,12 @@ class Ssh  implements Serializable {
         String pack = "./target/${utils.findJarWar()}"
         String path ="./docker"
         def sshCom = {
-            com("mkdir ${path}")
+            com("mkdir ${path}",isSudo)
             put("Dockerfile","${path}")  // esto 
-            com("mkdir ${path}/target")
+            com("mkdir ${path}/target",isSudo)
             put( pack ,"${path}/target") // esto cambia
-            //com("docker build ${path}",isSudo)
-            //com("docker run  -p 8080:8080",isSudo) // esto cambia
+            com("docker build ${path}",isSudo)
+            com("docker run  -p 8080:8080",isSudo) // esto cambia
         }
 
         applySsh( sshCom )
