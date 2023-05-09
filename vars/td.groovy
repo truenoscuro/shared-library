@@ -9,7 +9,7 @@ import es.tresdigits.jenkins.Utils
 import es.tresdigits.jenkins.Docker
 import es.tresdigits.jenkins.Sonar
 import es.tresdigits.jenkins.Maven
-
+import es.tresdigits.jenkins.Ssh
 
 
 // Field de clases
@@ -18,6 +18,8 @@ import es.tresdigits.jenkins.Maven
 @Field Docker docker = new Docker()
 @Field Sonar sonar = new Sonar()
 @Field Maven maven = new Maven()
+@Field Ssh ssh = new Ssh()
+
 
 
 // parametros default
@@ -32,6 +34,7 @@ def init(script,env,sonarName="${sonarName}",nameTool="${nameTool}"){
         utils.init(script,env) 
         docker.init(script,utils) 
         //Tod init de ses funcions!
+        ssh.init(script,utils)
         maven.init(script,utils)
         //sonar.init(script,utils,sonarName,nameTool)
     }
@@ -120,9 +123,13 @@ def dockerfileRun(String imageName="default ${utils.env.BUILD_NUMBER}",String do
     }
 }
 
-
-
-
+//ssh comand
+def sshComand(Map conf,String command,boolean isSudo = false){
+    def script = script()
+    script.stage("comand ssh"){
+       ssh.command(conf,command,isSudo)
+    }
+}
 
 
 // funcions de templades
