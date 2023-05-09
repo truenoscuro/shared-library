@@ -55,7 +55,7 @@ class Ssh  implements Serializable {
         if(credentialsId == null){
             scriptC(command)
         }else{
-            credentials(scriptC(command))
+            credentials({scriptC(command)})
         }
     }
 
