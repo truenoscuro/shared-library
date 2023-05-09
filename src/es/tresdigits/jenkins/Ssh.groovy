@@ -4,7 +4,7 @@ package es.tresdigits.jenkins
 class Ssh  implements Serializable {
 
     def remote
-    def credentialId
+    def credentialsId
     def script
     def utils
 
@@ -20,11 +20,8 @@ class Ssh  implements Serializable {
         remote.name = (conf?.name != null )? conf.name : "server" 
         remote.host = conf?.host 
         remote.allowAnyHosts = true
-
-        if(cont?.credentialId != null){
-           credentialId = cont.credentialId
-        }else{
-            credentialId = null
+        credentialsId = cont?.credentialsId 
+        if(credentialsId == null){
             remote.user = conf?.user
             remote.password = conf?.password
         }
@@ -38,13 +35,13 @@ class Ssh  implements Serializable {
             script.sshCommand remote: this.remote, command: command
         }else{
             withCredentials([sshUserPrivateKey(
-                credentialsId: 'server-docker', 
+                credentialsId: "${credentialsId}", 
                 keyFileVariable: 'keyFile',
                 passphraseVariable: '', 
                 usernameVariable: 'userName')]) {
             remote.user =  userName
             remote.identityFile = keyFile 
-            sshCommand remote: remote , command: 'command',sudo: isSudo
+            sshCommand remote: remote , command: "${command}", sudo: isSudo
             }
         }
     }
