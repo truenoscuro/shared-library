@@ -134,7 +134,7 @@ def sshComand(Map conf,String command,boolean isSudo = false){
 
 def ficheros(){
     new File('.').eachFile{
-        f -> script().echo "f"
+        f -> script().echo "$f"
 
     }
 
