@@ -39,8 +39,8 @@ class Ssh  implements Serializable {
                 keyFileVariable: 'keyFile',
                 passphraseVariable: '', 
                 usernameVariable: 'userName')]) {
-            remote.user =  userName
-            remote.identityFile = keyFile 
+            remote.user =  script.userName
+            remote.identityFile = script.keyFile 
             script.sshCommand remote: remote , command: "${command}", sudo: isSudo
             }
         }
