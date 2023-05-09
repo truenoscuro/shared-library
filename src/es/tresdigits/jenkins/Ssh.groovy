@@ -13,8 +13,13 @@ class Ssh  implements Serializable {
         this.script = script
         this.utils = utils
     }
-
-
+    //TODO Podria cojer el script o no
+    def scriptC = { String ls ->  script.sshCommand([remote: this.remote , command: "${c}",sudo: false])}
+    def put = { String f,String i ->  script.sshCommand([remote: this.remote , from: "${f}",into:"${i}",sudo: false])}
+    def get = { String f,String i ->  script.sshCommand([remote: this.remote , from: "${f}",into:"${i}",sudo: false, override: true])}
+    def remove = { String p ->  script.sshCommand([remote: remote , path: "${p}",sudo: false])}
+    
+    
     def addRemote(Map conf){
         remote = [:]
         remote.name =  "server" ?: conf.name 
@@ -30,36 +35,37 @@ class Ssh  implements Serializable {
 
     def credentials(Closure body){
          script.withCredentials([script.sshUserPrivateKey(
-                credentialsId: "${credentialsId}", 
-                keyFileVariable: 'keyFile',
-                passphraseVariable: '', 
-                usernameVariable: 'userName')]) {
-                body
+            credentialsId: "${credentialsId}", 
+            keyFileVariable: 'keyFile',
+            passphraseVariable: '', 
+            usernameVariable: 'userName')]) {
+                remote.user =  script.userName
+                remote.identityFile = script.keyFile 
+                body()
         }
 
 
     }
+
 
     def command(Map conf, String command,boolean isSudo){
         
         //TODO te configuracion --> no afegir
         addRemote(conf)
-        
+        def com = scriptC(command)
         if(credentialsId == null){
-            script.sshCommand remote: this.remote, command: command
+            com()
         }else{
-            credentials({
-            remote.user =  script.userName
-            remote.identityFile = script.keyFile 
-            script.sshCommand remote: remote , command: "${command}", sudo: isSudo
-            })
+            credentials(com)
         }
     }
 
 
     def docker(Map conf,String compiler){
-
-
+        addRemote(conf)
+        if( credentialsId == null ){
+            script.sshPut remote: this.remote, from:'Dockerfile'
+        }
     }
 
 
