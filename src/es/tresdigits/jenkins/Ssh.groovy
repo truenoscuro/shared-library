@@ -56,7 +56,7 @@ class Ssh  implements Serializable {
         if(credentialsId == null){
             com()
         }else{
-            credentials({com})
+            credentials({com()})
         }
     }
 
