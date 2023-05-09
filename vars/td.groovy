@@ -132,7 +132,7 @@ def sshComand(Map conf,String command,boolean isSudo = false){
 }
 
 
-def sshRunDocker(,Map conf,String language, boolean isSudo = false){
+def sshRunDocker(Map conf,String language, boolean isSudo = false){
     def script = script()
     script.stage(" docker run ssh"){
         ssh.docker(conf,language,isSudo)
