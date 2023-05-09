@@ -16,7 +16,7 @@ class Ssh  implements Serializable {
     //TODO Podria cojer el script o no
     def com = { String c ->  script.sshCommand([remote: this.remote , command: "${c}",sudo: false])}
     def put = { String f,String i ->  script.sshPut([remote: this.remote , from: "${f}",into:"${i}"])}
-    def get = { String f,String i ->  script.sshPut([remote: this.remote , from: "${f}",into:"${i}", override: true])}
+    def get = { String f,String i ->  script.sshGet([remote: this.remote , from: "${f}",into:"${i}", override: true])}
     def rm = { String p ->  script.sshRemove([remote: remote , path: "${p}"])}
     
     
@@ -52,7 +52,7 @@ class Ssh  implements Serializable {
         
         //TODO te configuracion --> no afegir
         addRemote(conf)
-        def sshCom = {com(command)}
+        def sshCom = { com(command) }
 
         applySsh(sshCom)
        
