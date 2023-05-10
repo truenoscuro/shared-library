@@ -12,9 +12,9 @@ import es.tresdigits.jenkins.Switcher
 @Field Switcher switcher
 
 //script
-def init( script , env , globalConfig ){
+def init( script , env , globalConfig ,systemConfig){
     script.echo "restructuring init"
-    utils = new Utils(script , env, globalConfig.systemConfig)
+    utils = new Utils(script , env, systemConfig)
     switcher = new Switcher( utils , globalConfig)
 }
 
