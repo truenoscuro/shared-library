@@ -14,7 +14,7 @@ class Maven {
     //def withMaven = { body -> utils.script.withMaven(conf){ body } }
     def mvnV = {
         def script = utils.script
-        script.withMaven{
+        script.withMaven(){
             utils.cmd "mvn -v"
         }
     }
