@@ -12,6 +12,8 @@ import es.tresdigits.jenkins.Switcher
 @Field Utils utils;
 
 
+//Variables globales
+@Field Map git
 //script
 def init( script , env , globalConfig ){
     script.echo "restructuring init"
@@ -19,7 +21,7 @@ def init( script , env , globalConfig ){
 }
 //nom a al stage
 @Field
-def gitF = { Map conf = utils.globalConfig.git  ->
+def gitF = { Map conf = git  ->
     def script = utils.script
     script.echo "hola caracola"
 
