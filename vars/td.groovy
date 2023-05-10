@@ -21,8 +21,7 @@ def init( script , env , globalConfig ){
 @Field
 def gitF = { Map conf = utils.globalConfig.git  ->
     def script = utils.script
-    def echo = script.echo
-    echo "hola caracola"
+    script.echo "hola caracola"
 
 }
 
