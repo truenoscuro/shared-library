@@ -52,8 +52,8 @@ def docker(Map conf){
     utils.image(conf.tag).inside(conf.arg){
         //if(conf.tag == "node")
             //switcher.returnClosureFunt("angular","iAngular").call()
-        conf.com.each{ ket ,funct ->
-            switcher.returnClosureFunt(key,funct).call()
+        conf.com.each{ lang ,funct ->
+            switcher.returnClosureFunt(lang,funct).call()
         }
     }
     
