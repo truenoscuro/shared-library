@@ -3,17 +3,13 @@ package es.tresdigits.jenkins.languages
 
 class Angular {
 
-    def script
     def utils
 
+    Angular( utils ){ this.utils =  utils }
 
-    // init angular
-    def init(script,utils){
-        script.echo "Init angular..."
-        this.script = script
-        this.utils = utils
-    }
 
+    def version = {  -> utils.cmd "npm -v" }
+    /*
     def angularInstall(){
         script.sh "npm install -g @angular/cli"
     }
@@ -26,12 +22,9 @@ class Angular {
     def install(){
         script.sh "npm i"
     }
+    */
 
 
-   @Override
-    String toString() {
-        return "angular"
-    }
 
 
 
