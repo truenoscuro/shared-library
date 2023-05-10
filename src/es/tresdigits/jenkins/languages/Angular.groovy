@@ -6,12 +6,15 @@ class Angular {
     def utils
 
     Angular( utils ){ 
-        utils.script.echo "Init angular "
+        utils.echo "Init angular "
         this.utils =  utils 
     }
 
 
-    def version = {  utils.cmd "npm -v" }
+    def version = { 
+        utils.echo "NPM que version!"
+        utils.cmd "npm -v" 
+    }
     /*
     def angularInstall(){
         script.sh "npm install -g @angular/cli"
