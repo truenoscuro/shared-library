@@ -12,7 +12,7 @@ class Maven {
     }
     def withMaven(body){
         return {
-              utils.script.withMaven(this.conf){ body() } 
+              utils.script.withMaven{ body() } 
         }
     }
       
