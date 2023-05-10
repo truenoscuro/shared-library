@@ -15,8 +15,8 @@ import es.tresdigits.jenkins.configs.GlobalConfig
 
 @Field GlobalConfig globalConfig = new GlobalConfig(
     [
-        isWindows:isWindows
-        
+        isWindows: this.isWindows
+
 
     ]
 )
