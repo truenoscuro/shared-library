@@ -21,9 +21,10 @@ class Switcher  implements Serializable {
         if(languages.angular == null){
             languages["angular"] = new Angular( utils )
         }
-
+        
         return languages.angular
     }
+    
 
 
     
