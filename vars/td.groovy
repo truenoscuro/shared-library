@@ -33,6 +33,7 @@ def init(script,env){
 
 
 // inicialitzacio de utils
+/*
 def init(script,env,sonarName="${sonarName}",nameTool="${nameTool}"){
     script.stage("Init"){
         utils.init(script,env) 
@@ -44,6 +45,7 @@ def init(script,env,sonarName="${sonarName}",nameTool="${nameTool}"){
         //sonar.init(script,utils,sonarName,nameTool)
     }
 }
+*/
 //Stes i geters
 def setSonar(String nameTool="",String sonarName=""){
     if(nameTool != "") sonar.scannerTool = nameTool
