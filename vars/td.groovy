@@ -12,8 +12,7 @@ import es.tresdigits.jenkins.Switcher
 @Field Utils utils;
 
 
-//Variables globales
-@Field Map git
+
 //script
 def init( script , env , globalConfig ){
     script.echo "restructuring init"
