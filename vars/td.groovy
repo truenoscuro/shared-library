@@ -37,8 +37,8 @@ def stage = { Map jobs ->
         jobs.each{ key,funct ->
             utils.echo "${key} --- ${funct}"
             utils.echo "hola caracola"
-            switcher."${key}"()
-            utils.echo switcher.languages."${key}".imprimir()
+            def lang = switcher."${key}"()
+            utils.echo lang.imprimir()
             //utils.echo "${lang.imprimir()}"
             
                 
