@@ -19,7 +19,7 @@ import es.tresdigits.jenkins.configs.SystemConfig
 def init(){
     globalConfig = new GlobalConfig(
         [
-            isWindows: new SystemConfig(this.isWindows),
+            systemConfig: new SystemConfig(this.isWindows),
             git: this.git,
             sonar: this.sonar,
             maven: this.maven
