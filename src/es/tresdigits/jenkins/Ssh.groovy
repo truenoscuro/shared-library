@@ -68,7 +68,7 @@ class Ssh  implements Serializable {
     }
 
     def switchLanguage(String language){
-        def sshCom = {}
+        def sshCom = { script.error "Has escrito mal el language"}
         String name = "docker-${language}"
         String path ="./${name}"
         //TODO cmabiar por una lista 
