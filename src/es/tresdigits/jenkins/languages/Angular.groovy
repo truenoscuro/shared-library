@@ -4,7 +4,7 @@ package es.tresdigits.jenkins.languages
 class Angular  {
 
     def utils 
-    Angular( utils , conf ){  
+    Angular( utils  ){  
         this.utils =  utils  
     }
 
