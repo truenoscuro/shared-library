@@ -19,15 +19,7 @@ class GlobalConfig  implements Serializable {
         //
     }
 
-    def confSonar(){
-        if(sonar.haveBinaries == null) {
-            sonar["haveBinaries"] = true
-            sonar["binaries"] = "."
-        }
-        if(sonar.properties == null )
-            sonar["properties"] = "sonar-project.properties"
-
-    }
+    
 
 
 }
