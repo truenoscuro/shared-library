@@ -17,6 +17,8 @@ def init(script,env){
     script.echo "restructuring init"
     utils =  [script , env] 
 
+    utils.hello()
+
 }
 
 

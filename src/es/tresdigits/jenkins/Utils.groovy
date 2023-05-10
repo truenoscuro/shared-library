@@ -17,7 +17,9 @@ class Utils  implements Serializable {
         this.script = script
         this.env = env
     }
-
+    def hello(){
+        script.echo "hola mon"
+    }
     def init( script , env ){
         script.echo "Init Utils ..."
         this.script =script
