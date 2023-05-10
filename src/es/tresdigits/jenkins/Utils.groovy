@@ -21,37 +21,10 @@ class Utils  implements Serializable {
     def cmd = { String arg -> (systemConfig.isWindows)? script.bat(arg) : script.sh(arg) }
     def git = { Map conf  -> script.git(conf) }
     def tool = { String name -> script.tool(name)}
+    def docker = { String tag-> script.docker(tag)}
 
 
    /*
-
-    def initGit( gitUrl , credentials ){
-        this.gitUrl = gitUrl
-        this.credentials = credentials
-    }
-
-   // def setGitUrl( gitUrl ){ this.gitUrl = gitUrl }
-    /*
-    heckout scmGit(
-    branches: [[name: 'master']],
-    extensions: [ lfs() ],
-    userRemoteConfigs: [[credentialsId: 'my-username-password-id, url: 'https://github.com/jenkinsci/git-plugin.git']])
-    
-
-
-
-
-    def git(){
-        //TODO credentials se treura del java //branch:
-        if(credentials.length() == 0)
-            script.git url: "${gitUrl}"
-        else
-            script.git credentialsId: "${credentials}", withSonarQubeEnvurl: "${gitUrl}"
-    }
-
-  
-
-
 
     def emailSent( toVar, subjectVar, bodyVar=" "){
 
@@ -60,6 +33,7 @@ class Utils  implements Serializable {
         script.emailext  subject: "${subjectVar}" ,body: "${bodyVar}" , to: "${toVar}"
                     
     }
+*/
 
     def listFiles(String relativePath ="."){
 
@@ -76,7 +50,7 @@ class Utils  implements Serializable {
         return pack
 
     }
-    */
+ 
 
     
 

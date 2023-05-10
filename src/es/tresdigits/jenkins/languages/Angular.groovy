@@ -11,7 +11,7 @@ class Angular  {
     def npmV =  {  utils.cmd "npm -v" }
     def nodeV =  {  utils.cmd "node -v" }
     
-    def instAng = { utils.cmd "npm install -g @angular/cli"}
+    def iAngular = { utils.cmd "npm install -g @angular/cli"}
     
     //install package.json
     def install = {utils.cmd "npm i"}
