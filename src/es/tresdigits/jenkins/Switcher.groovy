@@ -17,11 +17,11 @@ class Switcher  implements Serializable {
         this.languages = [:]
     }
     
-    def angular(){
+    def Angular angular(){
         if(languages.angular == null){
             languages["angular"] = new Angular( utils )
         }
-        
+
         return languages.angular
     }
 
