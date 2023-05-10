@@ -26,12 +26,7 @@ def git ( Map conf = utils.globalConfig.git ){
     }
 }
 
-
-
-
-
-@Field 
-def stage = { Map jobs -> 
+def stage(Map jobs){
     def script = utils.script
     String name = jobs.name ?: "stage"
     script.stage(name){
@@ -40,8 +35,10 @@ def stage = { Map jobs ->
             switcher.searchFunct(key,funct)
         }
     }
-    
 }
+
+
+
 
 @Field 
 def parallel = { Map jobs -> 

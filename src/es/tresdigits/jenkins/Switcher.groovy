@@ -25,7 +25,6 @@ class Switcher  implements Serializable {
     }
 
     def searchFunct(language,funct){
-         utils.echo "${language}"
         if(language == "custom"){
             funct()
         }else{
@@ -34,7 +33,6 @@ class Switcher  implements Serializable {
             //lang."${funct}"().call()
         }
 
-        
     }
     
 
