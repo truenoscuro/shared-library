@@ -34,8 +34,8 @@ def git ( Map conf = utils.globalConfig.git ){
 
 @Field 
 def stage = { Map jobs -> 
-    String name = jobs.name ?: "stage"
     def script = utils.script
+    String name = jobs.name ?: "stage"
     script.stage(name){
         jobs.each{ key,funct ->
             if(key != name ) 
@@ -48,15 +48,16 @@ def stage = { Map jobs ->
 
 @Field 
 def parallel = { Map jobs -> 
+    def script = utils.script
     def stages = [:]
     jobs.each{
         key,funct ->
             String name = "${key}"
             if(funct instanceof String ) name = "${name}-${funct}"
-            stages["${name}"] = {funct()}
+            stages["${name}"] = { funct() }
             //stages["${name}"] = switchFunction(key,funct)
     }
-    script().parallel(stages)
+    script.parallel(stages)
     
 }
 
