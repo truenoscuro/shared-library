@@ -19,7 +19,7 @@ def init( script , env , globalConfig ){
 }
 //nom a al stage
 
-def stage = { Map jobs -> 
+@Field def stage = { Map jobs -> 
     String name = jobs.name ?: "stage"
     def script = utils.script
     /*
