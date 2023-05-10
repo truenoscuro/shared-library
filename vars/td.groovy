@@ -15,7 +15,11 @@ import es.tresdigits.jenkins.Switcher
 //script
 def init(script,env){
     script.echo "restructuring init"
-    utils = new Utils(script , env)
+    utils = new Utils(script , env,false)
+
+    def cmd = utils.cmd
+
+    cmd "ls"
 }
 
 

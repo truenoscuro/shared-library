@@ -8,28 +8,22 @@ class Utils  implements Serializable {
 
     def script
     def env
-
+    boolean isWindows
     //git
     String gitUrl
     String credentials
-    Utils (script,env){
+    Utils (script,env, boolean isWindows){
         script.echo "Init utils"
         this.script = script
         this.env = env
+        this.isWindows = isWindows
     }
-    def hello(){
-        script.echo "hola mon"
-    }
-    def init( script , env ){
-        script.echo "Init Utils ..."
-        this.script =script
-        this.env = env // ENV se poden afegir posat env.[nom dalgo] = [String]
-    }
-    //TODO sleep
-    def sleepMin(int totalMin){
-        int min = 1000*60
-        sleep(min*totalMin)
-    }
+
+
+    def cmd = {String arg -> (isWindows)? script.bat "${arg}" : script.sh "${arg}" }
+    def echo = { String arg -> script.echo "${arg}" }
+    
+   /*
 
     def initGit( gitUrl , credentials ){
         this.gitUrl = gitUrl
@@ -42,7 +36,7 @@ class Utils  implements Serializable {
     branches: [[name: 'master']],
     extensions: [ lfs() ],
     userRemoteConfigs: [[credentialsId: 'my-username-password-id, url: 'https://github.com/jenkinsci/git-plugin.git']])
-    */
+    
 
 
 
@@ -82,7 +76,9 @@ class Utils  implements Serializable {
         return pack
 
     }
+    */
 
+    
 
 
 
