@@ -17,10 +17,9 @@ class Maven {
     }
       
     }
-    def mvnV = { 
-        withMaven({ utils.cmd "mvn -v"} )
+    def mvnV =  withMaven({ utils.cmd "mvn -v"} )
        
-    }
+    
 
 
     /*
