@@ -24,7 +24,7 @@ def git ( Map conf = utils.globalConfig.git){
     def git = utils.git
     
     script.stage("git clone de ${conf.url}"){
-        git(conf).call()
+        utils.git(config)
     }
 
 }
