@@ -9,8 +9,13 @@ class GlobalConfig  implements Serializable {
         isWindows = conf.isWindows
         git = conf.git
         sonar = conf.sonar
-        confSonar()
-        
+        if(sonar.haveBinaries == null) {
+        sonar["haveBinaries"] = true
+        sonar["binaries"] = "."
+        }
+        if(sonar.properties == null )
+            sonar["properties"] = "sonar-project.properties"
+    
     }
 
     def confSonar(){
