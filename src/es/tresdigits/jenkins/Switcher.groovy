@@ -9,7 +9,7 @@ class Switcher  implements Serializable {
     def utils
 
 
-    Map languages
+    private Map languages
 
     Switcher( utils ){
         utils.script.echo "init switcher"
@@ -21,6 +21,16 @@ class Switcher  implements Serializable {
         if(languages.angular == null){
             languages["angular"] = new Angular( utils )
         }
+        return languages.angular
+    }
+
+    def searchFunct(language,funct){
+
+        def lang = "${language}"()
+        
+        return { lang."${funct}"() }
+
+
     }
     
 
