@@ -12,11 +12,15 @@ import es.tresdigits.jenkins.configs.GlobalConfig
 @Field boolean isWindows = false
 
 
+// init global config
+@Field GlobalConfig globalConfig
+def init(){
+    globalConfig = new GlobalConfig(
+        [
+            isWindows: isWindows
 
-@Field GlobalConfig globalConfig = new GlobalConfig(
-    [
-        isWindows: this.isWindows
 
+        ]
+    )
+}
 
-    ]
-)
