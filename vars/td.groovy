@@ -50,9 +50,9 @@ def parallel(Map jobs ){
 def docker(Map conf){ 
     if(conf.arg == null) conf["arg"] = ""
     utils.image(conf.tag).inside(conf.arg){
-        if(conf.tag == "node")
-            switcher.returnClosureFunt("angular","iAngular").call()
-        conf.com.each{
+        //if(conf.tag == "node")
+            //switcher.returnClosureFunt("angular","iAngular").call()
+        conf.com.each{ ket ,funct ->
             switcher.returnClosureFunt(key,funct).call()
         }
     }
