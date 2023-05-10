@@ -15,8 +15,8 @@ class Angular  {
     }
 
 
-    def version =  {  utils.cmd "npm -v" }
-    def nodeVersion =  {  utils.cmd "node -v" }
+    def npmV =  {  utils.cmd "npm -v" }
+    def nodeV =  {  utils.cmd "node -v" }
     /*
     def angularInstall(){
         script.sh "npm install -g @angular/cli"

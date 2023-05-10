@@ -26,6 +26,9 @@ class Switcher  implements Serializable {
 
 
     def returnClosureFunt(lang,funct){
+        if(funct instanceof List){
+            return { funct.each{ f -> "${lang}"()."${f}".call() } }
+        }
 
         return (lang =="custom")? funct:"${lang}"()."${funct}"
 

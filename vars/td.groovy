@@ -35,31 +35,18 @@ def stage(Map jobs){
         }
     }
 }
-
-
-
-
-@Field 
-def parallel = { Map jobs -> 
+def parallel(Map jobs ){
     def script = utils.script
     def stages = [:]
     jobs.each{
         key,funct ->
             String name = "${key}"
             if(funct instanceof String ) name = "${name}-${funct}"
-            stages["${name}"] =  funct
+            stages["${name}"] =  switcher.returnClosureFunt(key,funct)
             //stages["${name}"] = switchFunction(key,funct)
     }
     script.parallel(stages)
-    
 }
-
-
-
-
-
-
-
 
 
 
