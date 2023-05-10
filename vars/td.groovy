@@ -36,13 +36,13 @@ def stage = { Map jobs ->
     String name = jobs.name ?: "stage"
     script.stage(name){
         jobs.each{ key,funct ->
-            script.echo "${key} ---- ${funct}"
-            //if(key != name ) 
-               //def lang = switcher."${key}"()
+            if(key != name ) 
+                switcher."${key}"()."${funct}"()
 
                 //switchFunction(key,funct).call() // punt call per cridar les closures
         }
     }
+    
 }
 
 @Field 
