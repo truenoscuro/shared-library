@@ -9,7 +9,7 @@ class GlobalConfig  implements Serializable {
         isWindows = conf.isWindows
         git = conf.git
         sonar = conf.sonar
-        confSonar()
+        //confSonar()
         
     }
 
