@@ -9,12 +9,19 @@ class Maven {
     Maven( utils ,conf){
         this.utils = utils 
         this.conf = conf 
-        utils.script.echo "hello"
     }
 
-    def withMaven = { body -> utils.script.withMaven(conf){ body } }
+    //def withMaven = { body -> utils.script.withMaven(conf){ body } }
+    def mvnV ={
+        def script = utils.script
+        script.withMaven{
+            utils.cmd "mvn -v"
+        }
+    }
 
-    def mvnV = withMaven({utils.cmd "mvn -v"})
+
+
+    //def mvnV = withMaven(utils.cmd "mvn -v")
     def pack =  withMaven(  { utils.cmd "mvn clean package" } )
         
     def install = { utils.cmd "mvn clean install" }
