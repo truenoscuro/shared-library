@@ -19,10 +19,10 @@ def init( script , env , globalConfig ){
 }
 //nom a al stage
 
-@Field def stage = { Map jobs -> 
+@Field 
+def stage = { Map jobs -> 
     String name = jobs.name ?: "stage"
     def script = utils.script
-    /*
     script.stage(name){
         job.each{ key,funct ->
             if(key != name ) 
@@ -30,7 +30,7 @@ def init( script , env , globalConfig ){
                 //switchFunction(key,funct).call() // punt call per cridar les closures
         }
     }
-    */
+    
 }
 
 
