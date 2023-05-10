@@ -96,7 +96,7 @@ class Ssh  implements Serializable {
                     script.sh "rm dist.zip" //TODO continaur dema qui
                     com("unzip ${path}/dist -d ${path}")
                     com("docker build ${path} -t ${name}",isSudo)
-                    com("docker run -d -p 6000:80 ${name} ",isSudo)   
+                    com("docker run -d -p 6010:80 ${name} ",isSudo)   
                 }
             break
         }
