@@ -10,6 +10,10 @@ class Angular {
         this.utils =  utils 
     }
 
+    def imprimir(){
+        utils.echo "hola mon"
+    }
+
 
     def version() { 
         utils.echo "NPM que version!"
