@@ -13,10 +13,6 @@ import es.tresdigits.jenkins.Switcher
 
 
 
-
-// parametros default
-@Field  String sonarName = "prueba"
-@Field  String nameTool = "sonar"
 //script
 def init(script,env){
     script.echo "restructuring init"
