@@ -15,7 +15,6 @@ class Switcher  implements Serializable {
     private Map languages
 
     Switcher( utils ,globalConfig){
-        utils.script.echo "init switcher"
         this.utils = utils
         this.globalConfig = globalConfig
         this.languages = [:]

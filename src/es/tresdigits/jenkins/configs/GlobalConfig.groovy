@@ -2,13 +2,15 @@ package es.tresdigits.jenkins.configs
 
 class GlobalConfig  implements Serializable {
 
-    boolean isWindows
+    SystemConfig systemConfig
     Map git
     Map sonar
     Map maven
+    
+    
     GlobalConfig(Map conf){
-        //windows
-        isWindows = conf.isWindows
+        // system config
+        systemConfig = conf.systemConfig
         //-- git
         git = conf.git
         //-- sonar config

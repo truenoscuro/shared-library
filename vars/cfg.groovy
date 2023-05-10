@@ -4,7 +4,7 @@ import groovy.transform.Field
 //import configs
 //import clases
 import es.tresdigits.jenkins.configs.GlobalConfig
-
+import es.tresdigits.jenkins.configs.SystemConfig
 
 
 
@@ -19,7 +19,7 @@ import es.tresdigits.jenkins.configs.GlobalConfig
 def init(){
     globalConfig = new GlobalConfig(
         [
-            isWindows: this.isWindows,
+            isWindows: new SystemConfig(this.isWindows),
             git: this.git,
             sonar: this.sonar,
             maven: this.maven
