@@ -37,7 +37,7 @@ def stage = { Map jobs ->
     script.stage(name){
         jobs.each{ key,funct ->
             if(key != name ) 
-                switcher."${key}"()."${funct}"()
+               def lang = switcher."${key}"()
 
                 //switchFunction(key,funct).call() // punt call per cridar les closures
         }
