@@ -12,7 +12,7 @@ class GlobalConfig  implements Serializable {
         
     }
 
-    private def confSonar(Map conf){
+    def confSonar(Map conf){
         sonar = conf.sonar
         if(sonar.binaries == null) {
             sonar["haveBinaries"] = true
