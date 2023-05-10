@@ -12,7 +12,7 @@ class Maven {
     }
 
     //def withMaven = { body -> utils.script.withMaven(conf){ body } }
-    def mvnV ={
+    def mvnV = {
         def script = utils.script
         script.withMaven{
             utils.cmd "mvn -v"
@@ -20,13 +20,13 @@ class Maven {
     }
 
 
-
+    /*
     //def mvnV = withMaven(utils.cmd "mvn -v")
     def pack =  withMaven(  { utils.cmd "mvn clean package" } )
         
     def install = { utils.cmd "mvn clean install" }
     def compile = { utils.cmd "mvn clean compile" }
-    
+    */    
 
 
 
