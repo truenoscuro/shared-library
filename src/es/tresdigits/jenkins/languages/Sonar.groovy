@@ -3,36 +3,26 @@
 package es.tresdigits.jenkins.languages
 class Sonar  {
 
-    def script
-    def utils
+    
     //TODO cambiar nombre 
-    def name
-    def scannerTool
+    def utils
+    def conf
 
-    def init( script,utils, name,nameTool){
-        script.echo "Init Sonar..."
-        this.script = script 
-        this.name= name
+
+
+    Sonar( utils , conf ){ 
         this.utils = utils
-        this.scannerTool = script.tool "${nameTool}"
-
-        
+        this.conf = conf     
     }
+    
 
-    def scannerBinaries(){
-         script.withSonarQubeEnv("${name}"){
-           script.sh "${scannerTool}/bin/sonar-scanner -Dproject.settings=sonar-project.properties -Dsonar.java.binaries=."
+    def scanner = {
+        String path = conf.path ?: utils.tool(conf.tool)
+        String binaries = (conf.haveBinaries)? "-Dsonar.java.binaries=${conf.binaries}":""
+         script.withSonarQubeEnv("${conf.name}"){
+           utils.cmd "${path}/bin/sonar-scanner -Dproject.settings=${conf.properties} ${binaries}"
         }
     }
    
-
-
-    @Override
-    String toString() {
-        return "sonar"
-    }
-
-
-
 
 }

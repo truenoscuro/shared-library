@@ -3,27 +3,15 @@ package es.tresdigits.jenkins.languages
 
 class Maven {
 
-    def script
     def utils
 
-
-    // init angular
-    def init(script,utils){
-        script.echo "Init Spring..."
-        this.script = script
-        this.utils = utils
-    }
-
-    def pack(){ script.sh "mvn clean package" } //TODO package es una paraula reservada
-    def install(){ script.sh "mvn clean install" }
-
-    def compile(){ script.sh "mvn clean compile" }
+    Maven( utils ){ this.script = script }
+    
+    def pack = { utils.cmd "mvn clean package"}
+    def install = { utils.cmd "mvn clean install" }
+    def compile = { utils.cmd "mvn clean compile" }
     
 
-    @Override
-    String toString() {
-        return "maven"
-    }
 
 
 

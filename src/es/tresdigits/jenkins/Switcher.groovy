@@ -2,26 +2,36 @@ package es.tresdigits.jenkins
 
 // languages import
 import es.tresdigits.jenkins.languages.Angular
+import es.tresdigits.jenkins.languages.Maven
+import es.tresdigits.jenkins.languages.Sonar
 
 
 class Switcher  implements Serializable {
 
     def utils
+    def globalConfig
 
 
     private Map languages
 
-    Switcher( utils ){
+    Switcher( utils ,globalConfig){
         utils.script.echo "init switcher"
         this.utils = utils
+        this.globalConfig = globalConfig
         this.languages = [:]
     }
     
-    def Angular angular(){
+    def angular(){
         if(languages.angular == null){
             languages["angular"] = new Angular( utils )
         }
         return languages.angular
+    }
+
+    def sonar(){
+        if(languages.sonar == null){
+            languages["sonar"] = new Sonar(utils,)
+        }
     }
 
 

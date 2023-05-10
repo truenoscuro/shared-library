@@ -3,34 +3,23 @@ package es.tresdigits.jenkins.languages
 
 class Angular  {
 
-    def utils
-
-    Angular( utils ){ 
-        utils.echo "Init angular "
-        this.utils =  utils 
+    def utils 
+    Angular( utils , conf ){  
+        this.utils =  utils  
     }
-
-    def imprimir(){
-        "som el angular"
-    }
-
 
     def npmV =  {  utils.cmd "npm -v" }
     def nodeV =  {  utils.cmd "node -v" }
-    /*
-    def angularInstall(){
-        script.sh "npm install -g @angular/cli"
-    }
-
-    def build(){
-        script.echo "Build angular"
-        script.sh "ng build"
-    }
-
-    def install(){
-        script.sh "npm i"
-    }
-    */
+    
+    def instAng = { utils.cmd "npm install -g @angular/cli"}
+    
+    //install package.json
+    def install = {utils.cmd "npm i"}
+    def i = {utils.cmd "npm i"}
+    //ng funct
+    
+    def build = { utils.cmd "ng build"}
+   
 
 
 
