@@ -12,31 +12,25 @@ import es.tresdigits.jenkins.Switcher
 @Field Utils utils;
 
 
-
 //script
 def init( script , env , globalConfig ){
     script.echo "restructuring init"
     utils = new Utils(script , env , globalConfig )
 }
 //nom a al stage
-@Field
-def git = { Map conf = utils.globalConfig.git  ->
-    def git = utils.git
+
+
+def git ( Map conf = utils.globalConfig.git ){
+    
     def script = utils.script
+    def git = utils.git
+    
     script.stage("git clone de ${conf.url}"){
         git(conf)
     }
 
 }
 
-/*
-def git ( Map conf = utils.globalConfig.git ){
-    
-    
-    
-
-}
-*/
 
 @Field 
 def stage = { Map jobs -> 
