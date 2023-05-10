@@ -21,7 +21,6 @@ def init( script , env , globalConfig ){
 def git ( Map conf = utils.globalConfig.git){
     
     def script = utils.script
-    def git = utils.git
     
     script.stage("git clone de ${conf.url}"){
         utils.git(config)
