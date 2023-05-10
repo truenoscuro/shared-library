@@ -10,6 +10,7 @@ import es.tresdigits.jenkins.configs.GlobalConfig
 
 //parameters
 @Field boolean isWindows = false
+@Field Map git = [url:"urlgit",credentialsId:"credentialsIdT", branch:"default master"]
 
 
 // init global config
@@ -17,7 +18,8 @@ import es.tresdigits.jenkins.configs.GlobalConfig
 def init(){
     globalConfig = new GlobalConfig(
         [
-            isWindows: this.isWindows
+            isWindows: this.isWindows,
+            git: this.git
 
 
         ]

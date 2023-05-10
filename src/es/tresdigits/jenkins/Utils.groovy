@@ -8,19 +8,17 @@ class Utils  implements Serializable {
 
     def script
     def env
-    boolean isWindows
-    //git
-    String gitUrl
-    String credentials
-    Utils (script,env, boolean isWindows){
+    def globalConfig
+
+    Utils (script,env,  globalConfig){
         script.echo "Init utils"
         this.script = script
         this.env = env
-        this.isWindows = isWindows
+        this.globalConfig = globalConfig
     }
 
 
-    def cmd = { String arg -> (isWindows)? script.bat(arg) : script.sh(arg) }
+    def cmd = { String arg -> (globalConfig.isWindows)? script.bat(arg) : script.sh(arg) }
     
    /*
 
