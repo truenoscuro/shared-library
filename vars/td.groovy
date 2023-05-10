@@ -17,7 +17,7 @@ def init( script , env , globalConfig ){
     utils = new Utils(script , env , globalConfig )
     switcher = new Switcher( utils )
 }
-//nom a al stage
+
 def git ( Map conf = utils.globalConfig.git ){
     def script = utils.script
     def git = utils.git
@@ -31,8 +31,7 @@ def stage(Map jobs){
     String name = jobs.name ?: "stage"
     script.stage(name){
         jobs.each{ key,funct ->
-            utils.echo "${key}"
-            switcher.searchFunct(key,funct)
+            switcher.returnClosureFunt(key,funct).call()
         }
     }
 }
