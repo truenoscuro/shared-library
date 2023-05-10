@@ -34,16 +34,10 @@ def git ( Map conf = utils.globalConfig.git ){
 def stage = { Map jobs -> 
     def script = utils.script
     String name = jobs.name ?: "stage"
-    utils.echo "${jobs.custom}"
     script.stage(name){
         jobs.each{ key,funct ->
             utils.echo "${key} --- ${funct}"
-            switcher.searchFunct(key,funct)
-            //utils.echo "${lang.imprimir()}"
-            
-                
-
-                //switchFunction(key,funct).call() // punt call per cridar les closures
+            //switcher.searchFunct(key,funct)
         }
     }
     
