@@ -10,16 +10,15 @@ import es.tresdigits.jenkins.Switcher
 
 // Field de clases
 @Field Utils utils;
-
+@Field Switcher switcher
 
 //script
 def init( script , env , globalConfig ){
     script.echo "restructuring init"
     utils = new Utils(script , env , globalConfig )
+    switcher = new Switcher( utils )
 }
 //nom a al stage
-
-
 def git ( Map conf = utils.globalConfig.git ){
     def script = utils.script
     def git = utils.git
