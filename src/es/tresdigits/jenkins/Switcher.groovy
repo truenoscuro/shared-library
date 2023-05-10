@@ -26,7 +26,7 @@ class Switcher  implements Serializable {
 
     def searchFunct(language,funct){
         if(language =="custom"){
-            return funct()
+            return {funct()}.call()
         }
 
         def lang = "${language}"()
