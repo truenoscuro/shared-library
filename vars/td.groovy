@@ -19,7 +19,7 @@ import es.tresdigits.jenkins.Switcher
 @Field  String nameTool = "sonar"
 //script
 def init(script,env){
-    
+    script.echo "restructuring init"
     utils.init(script,step)
 
 }
