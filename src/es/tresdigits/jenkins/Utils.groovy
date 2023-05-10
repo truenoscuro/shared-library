@@ -21,7 +21,7 @@ class Utils  implements Serializable {
     def cmd = { String arg -> (systemConfig.isWindows)? script.bat(arg) : script.sh(arg) }
     def git = { Map conf  -> script.git(conf) }
     def tool = { String name -> script.tool(name)}
-    def docker = { -> script.docker }
+    def image = {String tag -> script.docker.image(tag) }
 
 
    /*
