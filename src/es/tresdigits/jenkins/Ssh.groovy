@@ -83,7 +83,7 @@ class Ssh  implements Serializable {
                     com("mkdir ${path}/target")
                     put( pack ,"${path}/target") 
                     com("docker build ${path} -t ${name} ",isSudo)
-                    com("docker run ${name} -p 8080:8080",isSudo) // esto cambia
+                    com("docker run -dp 8080:8080 ${name} ",isSudo) // esto cambia
                 }
             break
             case "angular":
@@ -95,8 +95,8 @@ class Ssh  implements Serializable {
                     put("Dockerfile",path)
                     script.sh "rm dist.zip" //TODO continaur dema qui
                     com("unzip ${path}/dist -d ${path}")
-                    //com("docker build ${path} -t ${name}",isSudo)
-                    //com("docker run ${name} -p 80:6000",isSudo)   
+                    com("docker build ${path} -t ${name}",isSudo)
+                    com("docker run -dp 6000:80 ${name} ",isSudo)   
                 }
             break
         }
