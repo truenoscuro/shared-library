@@ -17,7 +17,7 @@ class Angular  {
 
     def version() { 
         utils.echo "NPM que version!"
-        return utils.cmd "npm -v" 
+        return {utils.cmd "npm -v"} 
     }
     /*
     def angularInstall(){
