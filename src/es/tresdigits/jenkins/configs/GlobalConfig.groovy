@@ -8,6 +8,7 @@ class GlobalConfig  implements Serializable {
     GlobalConfig(Map conf){
         isWindows = conf.isWindows
         git = conf.git
+        //-- sonar config
         sonar = conf.sonar
         if(sonar.haveBinaries == null) {
         sonar["haveBinaries"] = true
@@ -15,7 +16,7 @@ class GlobalConfig  implements Serializable {
         }
         if(sonar.properties == null )
             sonar["properties"] = "sonar-project.properties"
-    
+        //
     }
 
     def confSonar(){
