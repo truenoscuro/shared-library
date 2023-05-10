@@ -11,7 +11,7 @@ import es.tresdigits.jenkins.configs.GlobalConfig
 //parameters
 @Field boolean isWindows = false
 @Field Map git = [url:"urlgit",credentialsId:"credentialsIdT", branch:"default master"]
-@Field Map sonar =[name:"",tool:"",pathScanner:"",haveBinaries=true,properties="sonar-project.properties",binaries="."]
+@Field Map sonar =[name:"",tool:"",pathScanner:"",haveBinaries:true, properties:"sonar-project.properties",binaries:"."]
 @Field Map maven =[toolJDK:"",toolMvan:""]
 
 // init global config
