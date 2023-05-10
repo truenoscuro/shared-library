@@ -9,14 +9,13 @@ import es.tresdigits.jenkins.Switcher
 //Aqui nomes ha daver ses funcions de dins node 
 
 // Field de clases
-@Field Utils utils = new Utils()
-
+@Field Utils utils;
 
 
 //script
 def init(script,env){
     script.echo "restructuring init"
-    utils.init  script , env 
+    utils = new Utils script , env 
 
 }
 

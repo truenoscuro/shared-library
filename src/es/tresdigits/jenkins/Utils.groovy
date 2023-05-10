@@ -12,7 +12,12 @@ class Utils  implements Serializable {
     //git
     String gitUrl
     String credentials
-    
+    Utils (script,env){
+        script.echo "Init utils"
+        this.script = script
+        this.env = env
+    }
+
     def init( script , env ){
         script.echo "Init Utils ..."
         this.script =script
