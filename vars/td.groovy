@@ -17,8 +17,22 @@ def init( script , env , globalConfig ){
     script.echo "restructuring init"
     utils = new Utils(script , env , globalConfig )
 }
+//nom a al stage
 
-def git(){ utils.git() }
+def stage = { Map jobs -> 
+    String name = jobs.name ?: "stage"
+    def script = utils.script
+    script.stage(name){
+        job.each{ key,funct ->
+            if(key != name ) 
+                funct.call()
+                //switchFunction(key,funct).call() // punt call per cridar les closures
+        }
+    }
+}
+
+
+
 
 
 
