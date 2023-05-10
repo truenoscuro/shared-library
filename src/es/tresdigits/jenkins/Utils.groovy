@@ -20,8 +20,8 @@ class Utils  implements Serializable {
     }
 
 
-    def cmd = {String arg -> (isWindows)? script.bat "${arg}" : script.sh "${arg}" }
-    def echo = { String arg -> script.echo "${arg}" }
+    def cmd = {String arg -> (isWindows)? script.bat(arg) : script.sh(arg) }
+    def echo = { String arg -> script.echo(arg) }
     
    /*
 
