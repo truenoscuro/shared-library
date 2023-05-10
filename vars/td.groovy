@@ -51,9 +51,6 @@ def docker(Map conf){
     utils.script.docker.image(conf.tag).inside{
        
         switcher.returnClosureFunt("angular","iAngular").call()
-        conf.com.each{
-            switcher.returnClosureFunt(key,funct).call()
-        }
     }
     
 }
