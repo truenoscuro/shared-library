@@ -9,7 +9,7 @@ import es.tresdigits.jenkins.configs.GlobalConfig
 
 
 //parameters
-@Field boolean isWindows = true
+@Field boolean isWindows = false
 
 
 
