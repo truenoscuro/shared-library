@@ -18,6 +18,7 @@ def init( script , env , globalConfig ){
     utils = new Utils(script , env , globalConfig )
 }
 //nom a al stage
+@Field
 def git ( Map conf = utils.globalConfig.git ){
     
     def script = utils.script
