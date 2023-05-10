@@ -24,7 +24,7 @@ def stage = { Map jobs ->
     String name = jobs.name ?: "stage"
     def script = utils.script
     script.stage(name){
-        job.each{ key,funct ->
+        jobs.each{ key,funct ->
             if(key != name ) 
                 funct.call()
                 //switchFunction(key,funct).call() // punt call per cridar les closures
