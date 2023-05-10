@@ -37,7 +37,7 @@ def stage = { Map jobs ->
     script.stage(name){
         jobs.each{ key,funct ->
            //utils.echo "${key} --- ${funct}"
-            (switcher.searchFunct(key,funct).call()).call()
+            switcher.searchFunct(key,funct)
             //utils.echo "${lang.imprimir()}"
             
                 
