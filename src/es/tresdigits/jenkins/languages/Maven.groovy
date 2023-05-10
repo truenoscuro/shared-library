@@ -9,6 +9,7 @@ class Maven {
     Maven( utils ,conf){
         this.utils = utils 
         this.conf = conf 
+        utils.script.echo "hello"
     }
 
     def withMaven = { body -> utils.script.withMaven(conf){ body } }
