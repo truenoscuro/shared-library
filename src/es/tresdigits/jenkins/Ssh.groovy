@@ -67,7 +67,7 @@ class Ssh  implements Serializable {
        
     }
 
-    def switchLanguage(String language){
+    def switchLanguage(String language,boolean isSudo){
         def sshCom = { script.error "Has escrito mal el language"}
         String name = "docker-${language}"
         String path ="./${name}"
@@ -95,8 +95,7 @@ class Ssh  implements Serializable {
                     put("Dockerfile",path)
                     script.sh "rm dist.zip" //TODO continaur dema qui
                     com("unzip ${path}/dist -d ${path}")
-                    
-                    //com("docker build ${path} -t ${name}",isSudo)
+                    com("docker build ${path} -t ${name}",isSudo)
                     //com("docker run -dp 6000:80 ${name} ",isSudo)   
                 }
             break
@@ -112,7 +111,7 @@ class Ssh  implements Serializable {
     def docker( Map conf , String language ,  boolean isSudo){
         addRemote(conf)
 
-            applySsh( switchLanguage( language ) )
+            applySsh( switchLanguage( language ,isSudo) )
         try{
             // applySsh( switchLanguage( language ) )
         }catch(Exception ex){
