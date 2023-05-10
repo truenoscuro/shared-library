@@ -16,7 +16,7 @@ class Docker  implements Serializable {
 
     //init docker
     def init(script,utils){
-        script.echo "Init Docker..."
+
         this.docker  = script.docker
         this.utils = utils
         this.script = script  // aquest no es necesari en principi
