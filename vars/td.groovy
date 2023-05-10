@@ -38,7 +38,7 @@ def stage = { Map jobs ->
         jobs.each{ key,funct ->
             utils.echo "${key} --- ${funct}"
            
-            switcher."${key}"()."${funct}"()
+            {switcher."${key}"()."${funct}"()}.call()
             
                 
 
