@@ -4,6 +4,7 @@ package es.tresdigits.jenkins
 //Files
 import java.io.File
 
+//utils va lo que se utiliza en varios lados
 class Utils  implements Serializable {
 
     def script
