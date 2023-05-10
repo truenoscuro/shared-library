@@ -17,7 +17,7 @@ import es.tresdigits.jenkins.configs.GlobalConfig
 def init(){
     globalConfig = new GlobalConfig(
         [
-            isWindows: isWindows
+            isWindows: this.isWindows
 
 
         ]
