@@ -18,7 +18,7 @@ def init( script , env , globalConfig ){
     utils = new Utils(script , env , globalConfig )
 }
 
-def git(){ utils.git }
+def git(){ utils.git() }
 
 
 
