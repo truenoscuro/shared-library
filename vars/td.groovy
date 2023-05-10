@@ -29,6 +29,7 @@ def git ( Map conf = utils.globalConfig.git ){
 
 
 
+
 @Field 
 def stage = { Map jobs -> 
     def script = utils.script
@@ -36,9 +37,7 @@ def stage = { Map jobs ->
     script.stage(name){
         jobs.each{ key,funct ->
             utils.echo "${key} --- ${funct}"
-            utils.echo "hola caracola"
-            switcher."${key}"
-            utils.echo "hello"
+            switcher.searchFunct(key,funct)
             //utils.echo "${lang.imprimir()}"
             
                 
