@@ -10,9 +10,12 @@ class Maven {
         this.utils = utils 
         this.conf = conf 
     }
-
-    def withMaven = { body -> 
-        utils.script.withMaven(this.conf){ body() } 
+    def withMaven(body){
+        return {
+              utils.script.withMaven(this.conf){ body() } 
+        }
+    }
+      
     }
     def mvnV = { 
         withMaven({ utils.cmd "mvn -v"} )
