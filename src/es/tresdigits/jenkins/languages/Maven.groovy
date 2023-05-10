@@ -6,7 +6,7 @@ class Maven {
     def utils
     def conf
 
-    Maven( utils){
+    Maven( utils ,conf){
         this.utils = utils 
         this.conf = conf 
     }
