@@ -54,7 +54,7 @@ def parallel = { Map jobs ->
         key,funct ->
             String name = "${key}"
             if(funct instanceof String ) name = "${name}-${funct}"
-            stages["${name}"] = { funct() }
+            stages["${name}"] =  funct
             //stages["${name}"] = switchFunction(key,funct)
     }
     script.parallel(stages)
