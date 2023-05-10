@@ -19,8 +19,8 @@ class GlobalConfig  implements Serializable {
         }
         if(sonar.properties == null )
             sonar["properties"] = "sonar-project.properties"
-        //-- maven
-        maven = conf.maven
+
+        
     }
 
     
