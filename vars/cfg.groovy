@@ -16,10 +16,13 @@ import es.tresdigits.jenkins.configs.SystemConfig
 
 // init global config
 @Field GlobalConfig globalConfig
+@Field SystemConfig systemConfig
 def init(){
+    systemConfig = new SystemConfig(this.isWindows)
+
     globalConfig = new GlobalConfig(
         [
-            systemConfig: new SystemConfig(this.isWindows),
+            systemConfig: systemConfig,
             git: this.git,
             sonar: this.sonar,
             maven: this.maven
