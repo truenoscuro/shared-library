@@ -13,7 +13,6 @@ import es.tresdigits.jenkins.Switcher
 
 //script
 def init( script , env , globalConfig ,systemConfig){
-    script.echo "restructuring init"
     utils = new Utils(script , env, systemConfig)
     switcher = new Switcher( utils , globalConfig)
 }

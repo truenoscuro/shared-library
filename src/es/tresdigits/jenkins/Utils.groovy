@@ -11,7 +11,7 @@ class Utils  implements Serializable {
     def env
     def systemConfig
 
-    Utils (script,env){
+    Utils (script,env,systemConfig){
         this.script = script
         this.env = env
         this.systemConfig = systemConfig
