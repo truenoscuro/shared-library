@@ -24,14 +24,17 @@ class Switcher  implements Serializable {
         return languages.angular
     }
 
-    def searchFunct = {language,funct ->
+    def searchFunct(language,funct){
         if(language == "custom"){
             utils.echo "custom "
-            return funct
+            funct()
         }else{
             def lang = "${language}"()
-            return lang."${funct}"()
+
+            lang."${funct}"().call()
         }
+
+        
     }
     
 
