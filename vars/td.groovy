@@ -45,7 +45,6 @@ def init(script,env,sonarName="${sonarName}",nameTool="${nameTool}"){
         //sonar.init(script,utils,sonarName,nameTool)
     }
 }
-*/
 //Stes i geters
 def setSonar(String nameTool="",String sonarName=""){
     if(nameTool != "") sonar.scannerTool = nameTool
@@ -151,3 +150,5 @@ def sshRunDocker(Map conf,String language, boolean isSudo = false){
 
 
 // funcions de templades
+
+*/
