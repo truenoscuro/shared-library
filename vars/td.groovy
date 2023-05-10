@@ -22,9 +22,9 @@ def init( script , env , globalConfig ){
 @Field
 def git = { Map conf = utils.globalConfig.git  ->
     def script = utils.script
-    def git = utils.git
+    def funct = { utils.git(conf) }
     script.stage("git clone de ${conf.url}"){
-        { git(conf) }
+        funct.call()
     }
 
 }
