@@ -11,7 +11,7 @@ import es.tresdigits.jenkins.Ssh
 import es.tresdigits.jenkins.Angular
 import es.tresdigits.jenkins.Sonar
 import es.tresdigits.jenkins.Maven
-
+//Aqui nomes ha daver ses funcions de dins node 
 
 // Field de clases
 @Field Utils utils = new Utils()

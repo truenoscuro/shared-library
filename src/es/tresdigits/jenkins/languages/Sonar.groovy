@@ -1,6 +1,6 @@
 // hi ha un paquet que te fa el sonar no fa falta utilitzarlo
 
-package es.tresdigits.jenkins
+package es.tresdigits.jenkins.languages
 class Sonar  implements Serializable {
 
     def script

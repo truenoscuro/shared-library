@@ -1,4 +1,4 @@
-package es.tresdigits.jenkins
+package es.tresdigits.jenkins.languages
 
 
 class Maven  implements Serializable {
