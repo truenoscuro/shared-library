@@ -13,7 +13,7 @@ import es.tresdigits.jenkins.Switcher
 
 
 //Variables globales
-@Field Map git =[default:true]
+@Field Map git
 //script
 def init( script , env , globalConfig ){
     script.echo "restructuring init"
@@ -21,9 +21,12 @@ def init( script , env , globalConfig ){
 }
 //nom a al stage
 @Field
-def gitF = { Map conf = this.git  ->
+def git = { Map conf = utils.globalConfig.git  ->
     def script = utils.script
-    script.echo "hola caracola"
+    def git = utils.git
+    script.stage("git clone de ${conf.url}"){
+        git(conf)
+    }
 
 }
 
@@ -31,11 +34,7 @@ def gitF = { Map conf = this.git  ->
 def git ( Map conf = utils.globalConfig.git ){
     
     
-    def git = utils.git
     
-    script.stage("git clone de ${conf.url}"){
-        git(conf)
-    }
 
 }
 */
