@@ -30,7 +30,7 @@ def stage(Map jobs){
     String name = jobs.name ?: "stage"
     script.stage(name){
         jobs.each{ key,funct ->
-            switcher.returnClosureFunt(key,funct).call()
+            if(key !="name") switcher.returnClosureFunt(key,funct).call()
         }
     }
 }
