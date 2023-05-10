@@ -19,14 +19,12 @@ def init( script , env , globalConfig ){
 }
 //nom a al stage
 
-
-def git ( Map conf = utils.globalConfig.git ){
-    
+@Field
+def git = { Map conf = utils.globalConfig.git ) ->
     def script = utils.script
     def git = utils.git
-    
     script.stage("git clone de ${conf.url}"){
-        git(conf)
+        { git(conf) }
     }
 
 }
