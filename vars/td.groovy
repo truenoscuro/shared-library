@@ -19,7 +19,7 @@ def init( script , env , globalConfig ){
 }
 //nom a al stage
 @Field
-def gitF = {  ->
+def gitF = { Map conf = utils.globalConfig.git  ->
     def script = utils.script
     def echo = script.echo
     echo "hola caracola"
