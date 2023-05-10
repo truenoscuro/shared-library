@@ -1,7 +1,7 @@
 package es.tresdigits.jenkins.languages
 
 
-class Maven  implements Serializable {
+class Maven {
 
     def script
     def utils

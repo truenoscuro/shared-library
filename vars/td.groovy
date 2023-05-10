@@ -5,21 +5,12 @@ import groovy.transform.Field
 
 //import clases
 import es.tresdigits.jenkins.Utils
-import es.tresdigits.jenkins.Docker
-import es.tresdigits.jenkins.Ssh
-
-import es.tresdigits.jenkins.Angular
-import es.tresdigits.jenkins.Sonar
-import es.tresdigits.jenkins.Maven
+import es.tresdigits.jenkins.Switcher
 //Aqui nomes ha daver ses funcions de dins node 
 
 // Field de clases
 @Field Utils utils = new Utils()
-@Field Angular angular = new Angular()
-@Field Docker docker = new Docker()
-@Field Sonar sonar = new Sonar()
-@Field Maven maven = new Maven()
-@Field Ssh ssh = new Ssh()
+
 
 
 
@@ -27,6 +18,18 @@ import es.tresdigits.jenkins.Maven
 @Field  String sonarName = "prueba"
 @Field  String nameTool = "sonar"
 //script
+def init(script,env){
+    
+    utils.init(script,step)
+
+}
+
+
+
+
+
+
+
 
 
 // inicialitzacio de utils
