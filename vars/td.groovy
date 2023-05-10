@@ -37,8 +37,7 @@ def stage = { Map jobs ->
     script.stage(name){
         jobs.each{ key,funct ->
             utils.echo "${key} --- ${funct}"
-           
-            {switcher."${key}"()."${funct}"()}.call()
+            def lang = switcher."${key}"()
             
                 
 
