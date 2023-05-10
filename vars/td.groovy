@@ -34,6 +34,7 @@ def git ( Map conf = utils.globalConfig.git ){
 def stage = { Map jobs -> 
     def script = utils.script
     String name = jobs.name ?: "stage"
+    utils.echo "${jobs.custom}"
     script.stage(name){
         jobs.each{ key,funct ->
             utils.echo "${key} --- ${funct}"
