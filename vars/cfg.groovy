@@ -22,7 +22,7 @@ def init(){
 
     globalConfig = new GlobalConfig(
         [
-            systemConfig: systemConfig,
+            systemConfig: this.systemConfig,
             git: this.git,
             sonar: this.sonar,
             maven: this.maven
