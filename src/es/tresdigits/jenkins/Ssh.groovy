@@ -69,14 +69,13 @@ class Ssh  implements Serializable {
 
     def switchLanguage(String language){
         def sshCom = {}
-
-        String[] listFiles = utils.listFiles("target")
-        String pack = "./target/${utils.findJarWar()}"
-        String path ="./docker"
-        def name = "docker-${language}"
+        String name = "docker-${language}"
+        String path ="./${name}"
         //TODO cmabiar por una lista 
         switch(language) {
             case "maven":
+                String[] listFiles = utils.listFiles("target")
+                String pack = "./target/${utils.findJarWar()}"
                 sshCom = {
                     //com("rm -fr ${path}",isSudo) // eliminacion de carpeta
                     com("mkdir ${path}")
