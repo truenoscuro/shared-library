@@ -48,7 +48,7 @@ def parallel(Map jobs ){
     script.parallel(stages)
 }
 def docker(Map conf){ 
-    utils.script.docker.image(conf.tag).inside{
+    utils.image(conf.tag).inside(tag.arg){
         if(conf.tag == "node")
             switcher.returnClosureFunt("angular","iAngular").call()
         conf.com.each{
