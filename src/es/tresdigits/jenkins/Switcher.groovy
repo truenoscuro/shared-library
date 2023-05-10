@@ -24,10 +24,12 @@ class Switcher  implements Serializable {
         return languages.angular
     }
 
-    def searchFunct = {language,funct ->
+    def searchFunct(language,funct){
+
         def lang = "${language}"()
         utils.echo "${lang.imprimir()}"
-        return { lang."${funct}"() } 
+        return {lang."${funct}"()}
+
     }
     
 
