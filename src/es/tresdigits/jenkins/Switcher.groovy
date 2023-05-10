@@ -36,7 +36,7 @@ class Switcher  implements Serializable {
     
     def maven(){
         if(languages.maven == null){
-            if(conf.maven == null ) globalConfig["maven"] = [:]
+            if(globalConfig.maven == null ) globalConfig["maven"] = [:]
             languages["maven"] = new Maven(utils,globalConfig.maven)
         }
         return languages.maven
