@@ -11,7 +11,7 @@ class Angular {
     }
 
     def imprimir(){
-        utils.echo "hola mon"
+       return "som el angular"
     }
 
 
