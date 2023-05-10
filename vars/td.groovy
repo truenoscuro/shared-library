@@ -7,7 +7,7 @@ import groovy.transform.Field
 import es.tresdigits.jenkins.Utils
 import es.tresdigits.jenkins.Switcher
 //Aqui nomes ha daver ses funcions de dins node 
-
+import es.tresdigits.jenkins.languages.Angular
 // Field de clases
 @Field Utils utils;
 @Field Switcher switcher
