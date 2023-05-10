@@ -27,10 +27,10 @@ class Switcher  implements Serializable {
     def searchFunct = {language,funct ->
         if(language == "custom"){
             utils.echo "custom "
-            funct
+            return funct
         }else{
             def lang = "${language}"()
-            lang."${funct}"().call()
+            return lang."${funct}"()
         }
     }
     
