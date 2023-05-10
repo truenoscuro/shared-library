@@ -13,9 +13,9 @@ import es.tresdigits.jenkins.Switcher
 
 
 //script
-def init(script,env){
+def init( script , env , globalConfig ){
     script.echo "restructuring init"
-    utils = new Utils(script , env , false )
+    utils = new Utils(script , env , globalConfig )
 }
 
 
