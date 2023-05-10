@@ -5,7 +5,10 @@ class Angular {
 
     def utils
 
-    Angular( utils ){ this.utils =  utils }
+    Angular( utils ){ 
+        utils.script.echo "Init angular "
+        this.utils =  utils 
+    }
 
 
     def version = {  -> utils.cmd "npm -v" }
