@@ -22,6 +22,7 @@ def init( script , env , globalConfig ){
 def stage = { Map jobs -> 
     String name = jobs.name ?: "stage"
     def script = utils.script
+    /*
     script.stage(name){
         job.each{ key,funct ->
             if(key != name ) 
@@ -29,6 +30,7 @@ def stage = { Map jobs ->
                 //switchFunction(key,funct).call() // punt call per cridar les closures
         }
     }
+    */
 }
 
 
