@@ -1,7 +1,7 @@
 package es.tresdigits.jenkins.languages
 
 
-class Angular {
+class Angular  implements Serializable {
 
     def utils
 

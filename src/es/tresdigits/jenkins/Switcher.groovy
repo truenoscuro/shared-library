@@ -21,8 +21,8 @@ class Switcher  implements Serializable {
         if(languages.angular == null){
             languages["angular"] = new Angular( utils )
         }
-        utils.echo "${languages.angular.imprimir()}"
-        return languages.angular 
+        
+        return languages.angular
     }
 
 
