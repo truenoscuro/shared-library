@@ -22,12 +22,11 @@ def init( script , env , globalConfig ){
 def gitF = {  ->
     def script = utils.script
     def echo = script.echo
-    echo "${conf.url}"
-
+    echo "hola caracola"
 
 }
 
-
+/*
 def git ( Map conf = utils.globalConfig.git ){
     
     
@@ -38,7 +37,7 @@ def git ( Map conf = utils.globalConfig.git ){
     }
 
 }
-
+*/
 
 @Field 
 def stage = { Map jobs -> 
