@@ -28,7 +28,7 @@ class Switcher  implements Serializable {
 
         def lang = "${language}"()
         utils.echo "${lang.imprimir()}"
-        return {lang."${funct}"()}
+        return lang."${funct}"()
 
     }
     
