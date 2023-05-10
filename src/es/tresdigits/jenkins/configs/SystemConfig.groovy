@@ -4,7 +4,7 @@ class SystemConfig  implements Serializable {
 
     boolean isWindows 
 
-    IsWindows(boolean isWindows = false ){
+    SystemConfig(boolean isWindows = false ){
         this.isWindows = isWindows
     }
 }
