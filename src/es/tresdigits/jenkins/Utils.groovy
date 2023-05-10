@@ -20,7 +20,7 @@ class Utils  implements Serializable {
 
 
     def cmd = { String arg -> (globalConfig.isWindows)? script.bat(arg) : script.sh(arg) }
-    def git = { Map conf=globalConfig.git -> script.git(conf) }
+    def git = {  -> script.git() }
    /*
 
     def initGit( gitUrl , credentials ){
