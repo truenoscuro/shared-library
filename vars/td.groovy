@@ -18,7 +18,7 @@ def init( script , env , globalConfig ){
     utils = new Utils(script , env , globalConfig )
 }
 
-def git( Map conf ){ utils.git(conf) }
+def git( Map conf=utils.globalConfig.git ){ utils.git(conf) }
 
 
 
