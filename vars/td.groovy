@@ -19,11 +19,10 @@ def init( script , env , globalConfig ){
 }
 //nom a al stage
 @Field
-def gitF = { Map conf = utils.globalConfig.git ->
+def gitF = { Map conf = null ->
     def script = utils.script
     def echo = script.echo
     echo "${conf.url}"
-
 
 
 }
