@@ -25,7 +25,7 @@ class Biblio{
 
 
     static String getLang(String lang){
-        def solv = "error"
+        def solv = "custom"
         String lowerLang = lang.toLowerCase()
         languages.each{ name,list ->
             if( list.contains(lowerLang) ) solv = name
