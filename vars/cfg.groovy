@@ -4,7 +4,6 @@ import groovy.transform.Field
 //import configs
 //import clases
 import es.tresdigits.jenkins.configs.GlobalConfig
-import es.tresdigits.jenkins.configs.SystemConfig
 
 
 
@@ -12,19 +11,19 @@ import es.tresdigits.jenkins.configs.SystemConfig
 @Field boolean isWindows = false
 @Field Map git = [url:"urlgit",credentialsId:"credentialsIdT", branch:"default master"]
 @Field Map sonar = [name:"",tool:"",pathScanner:"",haveBinaries:true, properties:"sonar-project.properties",binaries:"."]
-
+@Field Map ssh = [name:"server",host:"localhost",:true,credentialsId:"",user:"root",password:"admin"]
 
 // init global config
 @Field GlobalConfig globalConfig
-@Field SystemConfig systemConfig
+
 def init(){
-    systemConfig = new SystemConfig(this.isWindows)
 
     globalConfig = new GlobalConfig(
         [
-            systemConfig: this.systemConfig,
+            isWindows: this.isWindows,
             git: this.git,
             sonar: this.sonar,
+            ssh: this.ssh
           
 
         ]
