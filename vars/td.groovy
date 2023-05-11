@@ -81,7 +81,7 @@ def sshDocker( Map conf ){
 
 def maven(){
     def script = utils.script
-    def cmd = script.cmd
+    def cmd = utils.cmd
 
 
     script.withMaven{
