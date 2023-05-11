@@ -60,6 +60,7 @@ class Ssh{
                 String[] listFiles = utils.listFiles("target")
                 String pack = "./target/${utils.findJarWar()}"
                 String args = (argDocker == "")"-p 8080:8080":argDocker
+                return
                 sshCom = {
                     com("docker stop ${tag} || true ",isSudo)
                     com("mkdir ${path}")
@@ -75,12 +76,12 @@ class Ssh{
                 String args = (argDocker == "")"-p 80:80":argDocker
                 sshCom = {
                     com("docker stop ${tag} || true",isSudo)
-                    com("rm -fr ${path}") // eliminacion de carpeta
+                    com("rm -fr ${path}") 
                     com("mkdir ${path}")
                     utils.cmd "zip -r dist.zip dist"
                     put("dist.zip",path)
                     put("Dockerfile",path)
-                    utils.cmd "rm dist.zip" //TODO continaur dema qui
+                    utils.cmd "rm dist.zip" 
                     com("unzip ${path}/dist -d ${path}")
                     com("docker build ${path} -t ${tag}",isSudo)
                     com("docker run --name ${tag} -d ${args} ${tag} ",isSudo)   
@@ -100,7 +101,7 @@ class Ssh{
         }
         String tag = conf.tag ?: "docker-${conf.language}"
         boolean isSudo= conf.isSudo?:false
-        String argDocker = conf.arg ?: "-p"
+        String argDocker = conf.arg ?: ""
         utils.echo "${argDocker}"
         //applySsh( switchLanguage( tag ,conf.language ,isSudo,argDocker ) )
 
