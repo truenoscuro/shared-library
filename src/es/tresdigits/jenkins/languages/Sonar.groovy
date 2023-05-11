@@ -12,18 +12,18 @@ class Sonar  {
 
     Sonar( utils , conf ){ 
         this.utils = utils
-        this.conf = conf     
+        this.conf = [:]
+        this.conf["path"] = conf.path ?: "${utils.tool(conf.tool)}/bin/sonar-scanner"
+        this.conf["name"] = conf.name
+        this.conf["properties"] = conf.properties
+        if(conf.haveBinaries) this.conf["binaries"] = "-Dsonar.java.binaries=${conf.binaries}"
     }
     
 
-    def scanner  = {
-        String path = conf.path ?: utils.tool(conf.tool)
-        String binaries = (conf.haveBinaries)? "${conf.binaries}":"."
-        utils.echo "${conf.name}"
-        utils.script.withSonarQubeEnv("${conf.name}"){
-           utils.cmd "${path}/bin/sonar-scanner -Dproject.settings=${conf.properties} -Dsonar.java.binaries=${binaries}"
+    def scanner  = utils.script.withSonarQubeEnv("${conf.name}"){
+           utils.cmd "${conf.path} -Dproject.settings=${conf.properties} ${conf.binaries}"
         }
-    }
+    
    
 
 }
