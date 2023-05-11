@@ -52,7 +52,7 @@ class Ssh{
     }
 
 
-    def switchLanguage(String tag  , String language,boolean isSudo){
+    def switchLanguage(String tag  , String language, boolean isSudo){
         def sshCom = { }
         String path ="./${tag}"
         switch(language) {
@@ -60,18 +60,19 @@ class Ssh{
                 String[] listFiles = utils.listFiles("target")
                 String pack = "./target/${utils.findJarWar()}"
                 sshCom = {
-                    //com("rm -fr ${path}",isSudo) // eliminacion de carpeta
+                    com("docker stop ${tag}",isSudo)
                     com("mkdir ${path}")
                     put("Dockerfile","${path}")  
                     com("mkdir ${path}/target")
                     put( pack ,"${path}/target") 
                     com("docker build ${path} -t ${tag} ",isSudo)
-                    com("docker run -dp 8080:8080 ${tag} ",isSudo) // esto cambia
+                    com("docker run --name ${tag} -d -p 8080:8080 ${tag} ",isSudo) // esto cambia
                 }
             break
 
             case "angular":
                 sshCom = {
+                    com("docker stop ${tag}",isSudo)
                     com("rm -fr ${path}") // eliminacion de carpeta
                     com("mkdir ${path}")
                     utils.cmd "zip -r dist.zip dist"
@@ -80,7 +81,7 @@ class Ssh{
                     utils.cmd "rm dist.zip" //TODO continaur dema qui
                     com("unzip ${path}/dist -d ${path}")
                     com("docker build ${path} -t ${tag}",isSudo)
-                    com("docker run -d -p 80:80 ${tag} ",isSudo)   
+                    com("docker run --name ${tag} -d -p 80:80 ${tag} ",isSudo)   
                 }
             break
         }
