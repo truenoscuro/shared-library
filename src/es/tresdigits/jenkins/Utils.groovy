@@ -9,21 +9,28 @@ class Utils  implements Serializable {
 
     def script
     def env
-    def systemConfig
+    def isWindows
 
-    Utils (script,env,systemConfig){
+    Utils (script,env,isWindows){
         this.script = script
         this.env = env
-        this.systemConfig = systemConfig
+        this.isWindows = isWindows
     }
 
-    def echo = {String arg -> script.echo(arg)}
-    def cmd = { String arg -> (systemConfig.isWindows)? script.bat(arg) : script.sh(arg) }
+    def echo = {String arg -> script.echo(arg)} 
+    def error = {String arg -> script.error(arg)} 
+    def cmd = { String arg -> (isWindows)? script.bat(arg) : script.sh(arg) }
     def git = { Map conf  -> script.git(conf) }
     def tool = { String name -> script.tool(name)}
     def image = {String tag -> script.docker.image(tag) }
 
 
+    def isLinux(){
+        systemConfig.isWindows = false
+    }
+    def isWindows(){
+        systemConfig.isLinux = true
+    }
    /*
 
     def emailSent( toVar, subjectVar, bodyVar=" "){

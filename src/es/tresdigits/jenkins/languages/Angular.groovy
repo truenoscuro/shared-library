@@ -19,6 +19,8 @@ class Angular  {
     //ng funct
     
     def build = { utils.cmd "ng build"}
+
+    
    
 
 

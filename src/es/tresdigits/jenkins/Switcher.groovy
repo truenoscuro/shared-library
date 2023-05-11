@@ -4,6 +4,7 @@ package es.tresdigits.jenkins
 import es.tresdigits.jenkins.languages.Angular
 import es.tresdigits.jenkins.languages.Maven
 import es.tresdigits.jenkins.languages.Sonar
+import es.tresdigits.jenkins.languages.Ssh
 
 
 class Switcher  implements Serializable {
@@ -41,8 +42,15 @@ class Switcher  implements Serializable {
         return languages.maven
     }
 
+    def Ssh(){
+        if( languages.ssh == null ){
+            languages["ssh"] = new Ssh(utils,globalConfig.ssh)
+        }
+        return languages.ssh
+    }
 
-    def returnClosureFunt(lang,funct){
+
+    def getFunct(lang,funct){
         if(funct instanceof List){
             return { funct.each{ f -> "${lang}"()."${f}".call() } }
         }
