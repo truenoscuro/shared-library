@@ -13,7 +13,7 @@ class Ssh  implements Serializable {
         this.remote =[:]
         this.remote["name"] = conf.name
         this.remote["host"] = conf.host
-        this.remote["allowAnyHosts "] = conf.allowAnyHosts 
+        this.remote["allowAnyHosts"] = conf.allowAnyHosts 
         this.credentialsId = conf?.credentialsId
         if(conf.credentialsId == null){
             this.remote["user"] = conf.user
@@ -37,6 +37,8 @@ class Ssh  implements Serializable {
             usernameVariable: 'userName')]) {
                 remote.user =  script.userName
                 remote.identityFile = script.keyFile 
+                utils.echo "${remote.allowAnyHosts}"
+                utils.echo "${remote.host}"
                 body()
         }
     }
