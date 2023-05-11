@@ -35,7 +35,7 @@ def stage(Map jobs){
         }
     }
 }
-@NonCPS
+
 def parallel( Map jobs ){
     def script = utils.script
     def stages = [:]
@@ -46,7 +46,7 @@ def parallel( Map jobs ){
             stages["${name}"] =  switcher.getFunct(key,funct)
     }
 
-    script.parallel(stages)
+    {script.parallel(stages)}
     
    
   
