@@ -59,8 +59,7 @@ class Ssh{
             case "maven":
                 String[] listFiles = utils.listFiles("target")
                 String pack = "./target/${utils.findJarWar()}"
-                String args = (argDocker == "")"-p 8080:8080":argDocker
-                return
+                String args = (argDocker == "")?"-p 8080:8080":argDocker
                 sshCom = {
                     com("docker stop ${tag} || true ",isSudo)
                     com("mkdir ${path}")
@@ -73,7 +72,7 @@ class Ssh{
             break
 
             case "angular":
-                String args = (argDocker == "")"-p 80:80":argDocker
+                String args = (argDocker == "")?"-p 80:80":argDocker
                 sshCom = {
                     com("docker stop ${tag} || true",isSudo)
                     com("rm -fr ${path}") 
@@ -102,8 +101,7 @@ class Ssh{
         String tag = conf.tag ?: "docker-${conf.language}"
         boolean isSudo= conf.isSudo?:false
         String argDocker = conf.arg ?: ""
-        utils.echo "${argDocker}"
-        //applySsh( switchLanguage( tag ,conf.language ,isSudo,argDocker ) )
+        applySsh( switchLanguage( tag ,conf.language ,isSudo,argDocker ) )
 
        
        
