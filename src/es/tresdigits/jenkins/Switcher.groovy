@@ -65,9 +65,10 @@ class Switcher  implements Serializable {
                 language."${f}".call() 
             }}
         }
-        if(lang == "custom") return funct
+        return
+        //if(lang == "custom") return funct
 
-        return getClass( lang )."${funct}"
+        //return getClass( lang )."${funct}"
 
 
     }
