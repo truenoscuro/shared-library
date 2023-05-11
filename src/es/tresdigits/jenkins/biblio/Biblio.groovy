@@ -31,7 +31,6 @@ class Biblio{
             list.each{ alias ->
                 if(alias == lang) {
                     solv = name
-                    return
                 }
             }
         }
