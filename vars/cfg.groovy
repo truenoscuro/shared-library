@@ -24,7 +24,7 @@ def init(){
             git: this.git,
             sonar: this.sonar,
             ssh: this.ssh,
-            maven:this.maven
+            maven :this.maven
           
 
         ]
