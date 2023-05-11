@@ -16,7 +16,7 @@ class Sonar  {
     }
     
 
-    def scanner = {
+    def scanner(){
         String path = conf.path ?: utils.tool(conf.tool)
         String binaries = (conf.haveBinaries)? "${conf.binaries}":"."
         utils.script.withSonarQubeEnv("${conf.name}"){
