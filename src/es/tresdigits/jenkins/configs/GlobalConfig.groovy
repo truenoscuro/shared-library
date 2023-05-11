@@ -33,8 +33,9 @@ class GlobalConfig  implements Serializable {
             if(ssh.user == null ) ssh["user"] = "root"
             if(ssh.password == null ) ssh["password"] = "root"
         }
-        
-        
+
+        //maven
+        maven = conf.maven        
     }
 
     
