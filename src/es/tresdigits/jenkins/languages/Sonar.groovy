@@ -14,7 +14,7 @@ class Sonar  {
         this.utils = utils
         this.conf = [:]
         this.conf["path"] = conf.path ?: conf.tool
-        utils.echo "${ utils.tool(conf.path) }"
+        utils.echo "${ utils.tool(this.conf.path) }"
         this.conf["name"] = conf.name
         this.conf["properties"] = conf.properties
         if(conf.haveBinaries) this.conf["binaries"] = "-Dsonar.java.binaries=${conf.binaries}"
