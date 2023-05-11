@@ -18,8 +18,8 @@ def init( script , env , globalConfig ){
 
 
     //git 
-    script.stage("git clone de ${utils.getDirectoryGit( globalConfig.git )}"){
-        script.git(conf)
+    script.stage("git clone de ${utils.getDirectoryGit( globalConfig.git.url )}"){
+        script.git(globalConfig.git)
     }
 }
 
