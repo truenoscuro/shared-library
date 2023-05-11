@@ -32,7 +32,6 @@ class GlobalConfig  implements Serializable {
         if(ssh.credentialsId == null){
             if(ssh.user == null ) ssh["user"] = "root"
             if(ssh.password == null ) ssh["password"] = "root"
-
         }
         
         
