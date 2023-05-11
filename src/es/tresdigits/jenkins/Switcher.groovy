@@ -42,7 +42,7 @@ class Switcher  implements Serializable {
         return languages.maven
     }
 
-    def Ssh(){
+    def ssh(){
         if( languages.ssh == null ){
             languages["ssh"] = new Ssh(utils,globalConfig.ssh)
         }
