@@ -20,9 +20,6 @@ class Ssh{
             this.remote["user"] = conf.user
             this.remote["password"] = conf.admin
         }
-        remote.each{
-            k,n -> utils.echo "${k} ---- ${n} "
-        }
     }
     //TODO Podria cojer el script o no
     def com = { String c,boolean isSudo=false ->  utils.script.sshCommand([remote: this.remote , command: "${c}",sudo: isSudo])}
