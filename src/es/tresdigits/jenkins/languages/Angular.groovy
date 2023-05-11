@@ -8,13 +8,12 @@ class Angular  {
         this.utils =  utils  
     }
 
-    def iAngular = { utils.cmd "npm install -g @angular/cli"}
+    def iAngular() { utils.cmd "npm install -g @angular/cli"}
     
-    //install package.json
-    def install = {utils.cmd "npm i"}
-    //ng funct
+    def install() {utils.cmd "npm i"}
+   
     
-    def build = { utils.cmd "ng build"}
+    def build() { utils.cmd "ng build"}
 
     
    
