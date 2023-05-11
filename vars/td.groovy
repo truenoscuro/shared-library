@@ -49,7 +49,6 @@ def parallel( Map jobs ){
                 }
             }
     }
-    utils.echo "${stages.size()}"
     script.stage("parallel stage"){
         script.parallel(stages)
     }
