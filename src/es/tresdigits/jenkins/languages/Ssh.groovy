@@ -52,7 +52,7 @@ class Ssh  implements Serializable {
 
 
     def switchLanguage(String tag  , String language,boolean isSudo){
-        def sshCom = { utils.error "Has escrito mal el language"}
+        def sshCom = { }
         String path ="./${name}"
         switch(language) {
             case "maven":
@@ -96,12 +96,9 @@ class Ssh  implements Serializable {
         }
         String name = conf.tag ?: "docker-${conf.language}"
         boolean isSudo= conf.isSudo?:false
-        try{
-             applySsh( switchLanguage( name ,conf.language ,isSudo ) )
-            // applySsh( switchLanguage( language ) )
-        }catch(Exception ex){
-            utils.error "Ha habido un error en la ejecucion del docker en ssh"
-        }
+        applySsh( switchLanguage( name ,conf.language ,isSudo ) )
+
+       
        
     }
 
