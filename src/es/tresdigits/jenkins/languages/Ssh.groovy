@@ -72,7 +72,7 @@ class Ssh{
 
             case "angular":
                 sshCom = {
-                    com("docker stop ${tag}",isSudo)
+                    com("docker stop ${tag} || true",isSudo)
                     com("rm -fr ${path}") // eliminacion de carpeta
                     com("mkdir ${path}")
                     utils.cmd "zip -r dist.zip dist"
