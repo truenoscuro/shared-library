@@ -45,9 +45,9 @@ def parallel( Map jobs ){
             if(funct instanceof String ) name = "${name}-${funct}"
             stages["${name}"] =  switcher.getFunct(key,funct)
     }
-    script.stage("parallel stage"){
-         script.parallel(stages)
-    }
+   
+    script.parallel(stages)
+  
    
 }
 def docker(Map conf){ 
