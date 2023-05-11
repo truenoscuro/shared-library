@@ -52,8 +52,8 @@ class Switcher  implements Serializable {
     }
 
     def getLang(String lang){
-
-        return "${lang}"()
+        
+        return "${Biblio.getLang(lang)}"()
     }
 
 
