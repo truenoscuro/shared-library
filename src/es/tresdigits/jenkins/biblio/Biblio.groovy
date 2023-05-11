@@ -26,15 +26,13 @@ class Biblio{
 
 
     static String getLang(String lang){
-        String solv = ""
         languages.each{ name,list ->
             list.each{ alias ->
-                if(alias == lang) {
-                    solv = name
-                }
+                if(alias == lang) return name
+                
             }
         }
-        return solv
+        return "custom"
 
     }
 
