@@ -12,6 +12,8 @@ class Sonar  {
 
     Sonar( utils , conf ){ 
         this.utils = utils
+        def sonar = utils.tool(conf.path).call()
+        
         this.conf = [:]
         this.conf["path"] = conf.path ?: conf.tool
         this.conf["name"] = conf.name
@@ -22,7 +24,7 @@ class Sonar  {
 
     def scanner  = {
         utils.echo "$conf.path"
-        def sonar = utils.tool(conf.path).call()
+        
 
         /*
         String path = conf.path ?: "${utils.tool(conf.path)}/bin/sonar-scanner"
