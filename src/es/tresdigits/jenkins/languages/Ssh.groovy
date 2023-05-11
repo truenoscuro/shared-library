@@ -100,8 +100,9 @@ class Ssh{
         }
         String tag = conf.tag ?: "docker-${conf.language}"
         boolean isSudo= conf.isSudo?:false
-        String argDocker = conf.arg?:""
-        applySsh( switchLanguage( tag ,conf.language ,isSudo,argDocker ) )
+        String argDocker = conf.arg ?: ""
+        utils.echo "${argDocker}"
+        //applySsh( switchLanguage( tag ,conf.language ,isSudo,argDocker ) )
 
        
        
