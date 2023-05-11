@@ -53,7 +53,7 @@ class Ssh  implements Serializable {
 
     def switchLanguage(String tag  , String language,boolean isSudo){
         def sshCom = { }
-        String path ="./${name}"
+        String path ="./${tag}"
         switch(language) {
             case "maven":
                 String[] listFiles = utils.listFiles("target")
@@ -64,8 +64,8 @@ class Ssh  implements Serializable {
                     put("Dockerfile","${path}")  
                     com("mkdir ${path}/target")
                     put( pack ,"${path}/target") 
-                    com("docker build ${path} -t ${name} ",isSudo)
-                    com("docker run -dp 8080:8080 ${name} ",isSudo) // esto cambia
+                    com("docker build ${path} -t ${tag} ",isSudo)
+                    com("docker run -dp 8080:8080 ${tag} ",isSudo) // esto cambia
                 }
             break
 
@@ -94,9 +94,9 @@ class Ssh  implements Serializable {
             utils.error "ssh docker necesita que especifiques el lenguages"
             return
         }
-        String name = conf.tag ?: "docker-${conf.language}"
+        String tag = conf.tag ?: "docker-${conf.language}"
         boolean isSudo= conf.isSudo?:false
-        applySsh( switchLanguage( name ,conf.language ,isSudo ) )
+        applySsh( switchLanguage( tag ,conf.language ,isSudo ) )
 
        
        
