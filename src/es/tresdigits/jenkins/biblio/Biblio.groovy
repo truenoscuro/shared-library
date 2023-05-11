@@ -26,10 +26,11 @@ class Biblio{
 
 
     static String getLang(String lang){
+        def solv = "custom"
         languages.each{ name,list ->
-            if(list.contains(lang)) return name
+            if(list.contains(lang)) solv = name
         }
-        return "custom"
+        return solv
 
     }
 
