@@ -7,12 +7,12 @@ class Ssh  implements Serializable {
     def utils 
     def credentialsId
     def remote
-    
+
     Ssh (utils,conf){
         this.utils = utils
         this.remote =[:]
         this.remote["name"] = conf.name
-        this,remote["host"] = conf.host
+        this.remote["host"] = conf.host
         this.remote["allowAnyHost"] = conf.allowAnyHost
         this.credentialsId = conf?.credentialsId
         if(conf.credentialsId == null){
