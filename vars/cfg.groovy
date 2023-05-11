@@ -12,7 +12,7 @@ import es.tresdigits.jenkins.configs.GlobalConfig
 @Field Map git = [url:"urlgit",credentialsId:"credentialsIdT", branch:"default master"]
 @Field Map sonar = [name:"",tool:"",pathScanner:"",haveBinaries:true, properties:"sonar-project.properties",binaries:"."]
 @Field Map ssh = [name:"server",host:"localhost",allowAnyHosts:true,credentialsId:"",user:"root",password:"admin"]
-
+@Field Map maven = [maven:"",jdk:""]
 // init global config
 @Field GlobalConfig globalConfig
 
