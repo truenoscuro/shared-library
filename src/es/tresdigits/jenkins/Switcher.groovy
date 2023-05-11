@@ -71,6 +71,7 @@ class Switcher  implements Serializable {
         }
         if( lang == "custom" ) return funct
         def functBiblio = Biblio.getFunct(funct);
+        //functions ()
         if(functBiblio == "scanner" ){
             return { getLang( lang )."${functBiblio}"() }
         }
