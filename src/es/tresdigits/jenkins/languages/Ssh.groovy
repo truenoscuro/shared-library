@@ -19,6 +19,9 @@ class Ssh  implements Serializable {
             this.remote["user"] = conf.user
             this.remote["password"] = conf.admin
         }
+        remote.each{
+            k,n -> utils.each "${k} ---- ${n} "
+        }
     }
     //TODO Podria cojer el script o no
     def com = { String c,boolean isSudo=false ->  utils.script.sshCommand([remote: this.remote , command: "${c}",sudo: isSudo])}
@@ -37,8 +40,6 @@ class Ssh  implements Serializable {
             usernameVariable: 'userName')]) {
                 remote.user =  script.userName
                 remote.identityFile = script.keyFile 
-                utils.echo "${remote.allowAnyHosts}"
-                utils.echo "${remote.host}"
                 body()
         }
     }
