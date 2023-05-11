@@ -60,7 +60,7 @@ class Ssh{
                 String[] listFiles = utils.listFiles("target")
                 String pack = "./target/${utils.findJarWar()}"
                 sshCom = {
-                    com("docker stop ${tag}",isSudo)
+                    com("docker stop ${tag} || true ",isSudo)
                     com("mkdir ${path}")
                     put("Dockerfile","${path}")  
                     com("mkdir ${path}/target")
