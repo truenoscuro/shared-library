@@ -63,7 +63,6 @@ class Switcher  implements Serializable {
                 language."${Biblio.getFunct(funct)}".call() 
             }}
         }
-
         if( lang == "custom" ) return funct
         return getLang( lang )."${Biblio.getFunct(funct)}"
 
