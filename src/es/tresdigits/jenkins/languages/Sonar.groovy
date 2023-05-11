@@ -20,9 +20,11 @@ class Sonar  {
     }
     
 
-    def scanner  = utils.script.withSonarQubeEnv("${conf.name}"){
+    def scanner  = {
+        utils.script.withSonarQubeEnv("${conf.name}"){
            utils.cmd "${conf.path} -Dproject.settings=${conf.properties} ${conf.binaries}"
-        }
+        }.call()
+    }
     
    
 
