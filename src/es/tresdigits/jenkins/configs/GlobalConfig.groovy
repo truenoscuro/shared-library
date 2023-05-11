@@ -28,7 +28,7 @@ class GlobalConfig  implements Serializable {
         ssh = conf.ssh
         if(ssh.name == null) ssh["name"] = "server"
         if(ssh.host == null ) ssh["host"] = "localhost"
-        if(ssh.allowAnyHost == null ) ssh["allowAnyHost"] = true
+        if(ssh.allowAnyHosts  == null ) ssh["allowAnyHosts "] = true
         if(ssh.credentialsId == null){
             if(ssh.user == null ) ssh["user"] = "root"
             if(ssh.password == null ) ssh["password"] = "root"
