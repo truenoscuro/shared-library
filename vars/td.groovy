@@ -11,19 +11,18 @@ import es.tresdigits.jenkins.Switcher
 @Field Utils utils;
 @Field Switcher switcher
 
-//script
+//init + git init
 def init( script , env , globalConfig ){
     utils = new Utils(script , env, globalConfig.isWindows)
     switcher = new Switcher( utils , globalConfig)
-}
 
-def git ( Map conf = switcher.globalConfig.git ){
-    def script = utils.script
-    def git = utils.git
-    script.stage("git clone de ${utils.getDirectoryGit(conf.url)}"){
-        git(conf)
+
+    //git 
+    script.stage("git clone de ${utils.getDirectoryGit( globalConfig.git )}"){
+        script.git(conf)
     }
 }
+
 
 def stage(Map jobs){
     def script = utils.script
