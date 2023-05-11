@@ -22,8 +22,8 @@ class Sonar  {
     
 
     def scanner  = {
-        utils.echo "$conf.path"
-        def tool = utils.script.tool "${conf.tool}"
+        utils.echo "$conf.tool"
+        def tool = utils.tool "${conf.tool}"
         //def path = conf.path ?: "${utils.tool(conf.tool)}/bin/sonar-scanner"
         utils.echo "${tool}"
         /*
