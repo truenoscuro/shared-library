@@ -53,7 +53,7 @@ class Switcher  implements Serializable {
 
     def getLang(String lang){
 
-        return "${language}"()
+        return "${lang}"()
     }
 
 
@@ -61,7 +61,7 @@ class Switcher  implements Serializable {
         if( funct instanceof List ){
             def language = getLang( lang )
             return { funct.each{ f -> 
-                
+
                 language."${f}".call() 
             }}
         }
