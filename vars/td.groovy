@@ -35,7 +35,7 @@ def stage(Map jobs){
         }
     }
 }
-
+@NonCPS
 def parallel( Map jobs ){
     def script = utils.script
     def stages = [:]
