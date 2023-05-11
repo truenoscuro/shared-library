@@ -60,9 +60,7 @@ def docker(Map conf){
 }
 
 def sshDocker( Map conf ){
-
-
-    def ssh = switcher.ssh()
+    def ssh = switcher.getClass("ssh")
     ssh.docker(conf)
 
 }

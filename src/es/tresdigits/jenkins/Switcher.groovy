@@ -6,6 +6,8 @@ import es.tresdigits.jenkins.languages.Maven
 import es.tresdigits.jenkins.languages.Sonar
 import es.tresdigits.jenkins.languages.Ssh
 
+//import Biblio
+import es.tresdigits.jenkins.biblio.Biblio
 
 class Switcher  implements Serializable {
 
@@ -21,41 +23,51 @@ class Switcher  implements Serializable {
         this.languages = [:]
     }
     
-    def angular(){
+    private def angular(){
         if(languages.angular == null){
             languages["angular"] = new Angular( utils )
         }
         return languages.angular
     }
 
-    def sonar(){
+    private def sonar(){
         if(languages.sonar == null){
             languages["sonar"] = new Sonar(utils,globalConfig.sonar)
         }
         return languages.sonar
     }
     
-    def maven(){
+    private def maven(){
         if(languages.maven == null){
             languages["maven"] = new Maven(utils)
         }
         return languages.maven
     }
 
-    def ssh(){
+    private def ssh(){
         if( languages.ssh == null ){
             languages["ssh"] = new Ssh(utils,globalConfig.ssh)
         }
         return languages.ssh
     }
 
+    def getLang(String lang){
+
+        return "${language}"()
+    }
+
 
     def getFunct(lang,funct){
-        if(funct instanceof List){
-            return { funct.each{ f -> "${lang}"()."${f}".call() } }
+        if( funct instanceof List ){
+            def language = getLang( lang )
+            return { funct.each{ f -> 
+                
+                language."${f}".call() 
+            }}
         }
+        if(lang == "custom") return funct
 
-        return (lang =="custom")? funct:"${lang}"()."${funct}"
+        return getClass( lang )."${funct}"
 
 
     }
