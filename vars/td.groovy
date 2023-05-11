@@ -31,7 +31,7 @@ def stage(Map jobs){
     
     script.stage(name){
         jobs.each{ String key,funct ->
-            if(key !="name") switcher.getFunct(key,funct)
+            if(key !="name") switcher.getFunct(key,funct).call()
         }
     }
 }
