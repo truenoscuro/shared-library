@@ -51,6 +51,8 @@ class Switcher  implements Serializable {
         return languages.ssh
     }
 
+    def error ={ utils.error "ha habido un error "}
+
 
 
     //get
