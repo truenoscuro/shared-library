@@ -63,8 +63,9 @@ class Switcher  implements Serializable {
         if( funct instanceof List ){
             def language = getLang( lang )
             return { funct.each{ f -> 
-                language."${Biblio.getFunct(funct)}".call() 
-            }}
+                language."${Biblio.getFunct(f)}".call() 
+            }
+            }
         }
         if( lang == "custom" ) return funct
         return getLang( lang )."${Biblio.getFunct(funct)}"
