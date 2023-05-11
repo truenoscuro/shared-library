@@ -33,10 +33,10 @@ class Biblio{
         return solv
 
     }
-    static String getFunct(String lang){
+    static String getFunct(String funct){
         def solv = "error"
-        languages.functs{ name,list ->
-            if( list.contains(lang) ) solv = name
+        functs.each{ name,list ->
+            if( list.contains(funct) ) solv = name
         }
         return solv
 
