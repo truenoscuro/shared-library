@@ -45,6 +45,7 @@ def parallel( Map jobs ){
             if(funct instanceof String ) name = "${name}-${funct}"
             stages["${name}"] =  switcher.getFunct(key,funct)
     }
+    utils.echo "${stages.length()}"
     script.stage("parallel stage"){
         script.parallel(stages)
     }
