@@ -78,7 +78,7 @@ class Switcher  implements Serializable {
 
         //no list
    
-        return { getLang( lang )."${funBiblio.getFunct(funct)ctBiblio}"() }
+        return { langBiblio."${funBiblio.getFunct(funct)ctBiblio}"() }
 
 
     }
