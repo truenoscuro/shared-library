@@ -52,7 +52,7 @@ class Switcher  implements Serializable {
     }
 
     def getLang(String lang){
-        
+        utils.echo "${Biblio.getLang(lang)}"
         return "${Biblio.getLang(lang)}"()
     }
 
