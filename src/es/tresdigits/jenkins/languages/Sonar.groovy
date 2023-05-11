@@ -23,10 +23,11 @@ class Sonar  {
 
     def scanner  = {
         utils.echo "$conf.path"
-        def path = conf.path ?: "${utils.tool(conf.tool)}/bin/sonar-scanner"
-        utils.echo "${path}"
+        def tool = utils.script.tool "${conf.tool}"
+        //def path = conf.path ?: "${utils.tool(conf.tool)}/bin/sonar-scanner"
+        utils.echo "${tool}"
         utils.script.withSonarQubeEnv("${conf.name}"){
-           utils.cmd "${path} -Dproject.settings=${conf.properties} ${conf.binaries}"
+           utils.cmd "${tool}/bin/sonar-scanner -Dproject.settings=${conf.properties} ${conf.binaries}"
         }
     }
 }   
