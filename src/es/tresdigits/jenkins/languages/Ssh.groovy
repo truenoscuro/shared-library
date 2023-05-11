@@ -59,7 +59,7 @@ class Ssh{
             case "maven":
                 String[] listFiles = utils.listFiles("target")
                 String pack = "./target/${utils.findJarWar()}"
-                args = (argDocker == "")"-p 8080:8080":argDocker
+                String args = (argDocker == "")"-p 8080:8080":argDocker
                 sshCom = {
                     com("docker stop ${tag} || true ",isSudo)
                     com("mkdir ${path}")
@@ -72,7 +72,7 @@ class Ssh{
             break
 
             case "angular":
-                args = (argDocker == "")"-p 80:80":argDocker
+                String args = (argDocker == "")"-p 80:80":argDocker
                 sshCom = {
                     com("docker stop ${tag} || true",isSudo)
                     com("rm -fr ${path}") // eliminacion de carpeta
