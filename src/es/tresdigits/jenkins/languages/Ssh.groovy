@@ -79,8 +79,8 @@ class Ssh{
                     put("Dockerfile",path)
                     utils.cmd "rm dist.zip" //TODO continaur dema qui
                     com("unzip ${path}/dist -d ${path}")
-                    com("docker build ${path} -t ${name}",isSudo)
-                    com("docker run -d -p 80:80 ${name} ",isSudo)   
+                    com("docker build ${path} -t ${tag}",isSudo)
+                    com("docker run -d -p 80:80 ${tag} ",isSudo)   
                 }
             break
         }
