@@ -49,9 +49,9 @@ def parallel( Map jobs ){
                 }
             }
     }
-    script.stage("parallel stage"){
-        script.parallel(stages)
-    }
+   
+    script.parallel(stages)
+    
    
     
    

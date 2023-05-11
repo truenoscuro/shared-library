@@ -62,17 +62,22 @@ class Switcher  implements Serializable {
 
 
     def getFunct(String lang,funct){
+        //caso custom
+        if( lang == "custom" ) return funct
+        //list funct
         if( funct instanceof List ){
             def language = getLang( lang )
             return { funct.each{ f -> 
-                language."${Biblio.getFunct(f)}".call() 
+                language."${Biblio.getFunct(f)}" 
             }
             }
         }
-        if( lang == "custom" ) return funct
+
+        //no list
+  
         def functBiblio = Biblio.getFunct(funct);
-        //functions ()
-        return {getLang( lang )."${functBiblio}"()}
+   
+        return { getLang( lang )."${functBiblio}"() }
 
 
     }
