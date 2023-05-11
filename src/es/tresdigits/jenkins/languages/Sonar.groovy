@@ -24,8 +24,6 @@ class Sonar  {
         String path = conf.path ?: "${utils.tool(conf.path)}/bin/sonar-scanner"
         utils.script.withSonarQubeEnv("${conf.name}"){
            utils.cmd "${path} -Dproject.settings=${conf.properties} ${conf.binaries}"
+        }
     }
-    
-   
-
-}
+}   
