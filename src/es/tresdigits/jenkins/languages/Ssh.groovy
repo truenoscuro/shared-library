@@ -100,7 +100,7 @@ class Ssh  implements Serializable {
              applySsh( switchLanguage( name ,conf.language ,isSudo ) )
             // applySsh( switchLanguage( language ) )
         }catch(Exception ex){
-            script.error "Ha habido un error en la ejecucion del docker en ssh"
+            utils.error "Ha habido un error en la ejecucion del docker en ssh"
         }
        
     }
