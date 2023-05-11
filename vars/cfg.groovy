@@ -23,7 +23,8 @@ def init(){
             isWindows: this.isWindows,
             git: this.git,
             sonar: this.sonar,
-            ssh: this.ssh
+            ssh: this.ssh,
+            maven:this.maven
           
 
         ]
