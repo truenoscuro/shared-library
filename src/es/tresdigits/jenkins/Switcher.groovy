@@ -57,7 +57,7 @@ class Switcher  implements Serializable {
     }
 
 
-    def getFunct(lang,funct){
+    def getFunct(String lang,String funct){
         if( funct instanceof List ){
             def language = getLang( lang )
             return { funct.each{ f -> 
