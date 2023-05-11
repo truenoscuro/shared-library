@@ -5,6 +5,7 @@ class GlobalConfig  implements Serializable {
     Map git
     Map sonar
     Map ssh
+    Map maven
     GlobalConfig(Map conf){
         
         //system pipelina
