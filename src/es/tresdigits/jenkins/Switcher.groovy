@@ -58,7 +58,7 @@ class Switcher  implements Serializable {
     //get
     def getLang(String lang){
         def langBiblio = Biblio.getLang(lang)
-        if( langBiblio instanceof String ) return langBiblio
+        if( langBiblio == "custom" ) return langBiblio
         return "${langBiblio}"()
     }
 
@@ -66,6 +66,8 @@ class Switcher  implements Serializable {
     def getFunct(String lang,funct){
         
         def langBiblio = getLang( lang )
+
+
         //caso custom
         if( langBiblio instanceof String ) return funct
         //list funct
