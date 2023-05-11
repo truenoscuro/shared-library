@@ -11,7 +11,7 @@ class Biblio{
 
     ]
 
-    private static funct = [
+    private static functs = [
 
         build:["build","b","construir","constr"],                               //b
         install:["install","i","instalar","inst"],                              //i
@@ -26,9 +26,17 @@ class Biblio{
 
 
     static String getLang(String lang){
-        def solv = "custom"
+        def solv = "error"
         languages.each{ name,list ->
-            if(list.contains(lang)) solv = name
+            if( list.contains(lang) ) solv = name
+        }
+        return solv
+
+    }
+    static String getFunct(String lang){
+        def solv = "error"
+        languages.functs{ name,list ->
+            if( list.contains(lang) ) solv = name
         }
         return solv
 
