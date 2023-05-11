@@ -84,7 +84,7 @@ def maven(){
     def cmd = utils.cmd
 
 
-    script.withMaven{
+    script.withMaven([]){
         cmd "mvn -v"
     }
 
