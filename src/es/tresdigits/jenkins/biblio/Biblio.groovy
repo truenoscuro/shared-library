@@ -33,6 +33,7 @@ class Biblio{
         return solv
 
     }
+    
     static String getFunct(String funct){
         def solv = "error"
         functs.each{ name,list ->
