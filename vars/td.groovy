@@ -28,14 +28,12 @@ def git ( Map conf = switcher.globalConfig.git ){
 def stage(Map jobs){
     def script = utils.script
     String name = jobs.name ?: "stage"
-    switcher.getFunct(key,funct)
-    /*
+    
     script.stage(name){
-        jobs.each{ key,funct ->
-            if(key !="name") switcher.getFunct(key,funct).call()
+        jobs.each{ String key,funct ->
+            if(key !="name") switcher.getFunct(key,funct)
         }
     }
-    */
 }
 
 def parallel(Map jobs ){
