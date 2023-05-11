@@ -1,7 +1,7 @@
 package es.tresdigits.jenkins.languages
 
 
-class Ssh  implements Serializable {
+class Ssh{
 
     
     def utils 
@@ -9,8 +9,9 @@ class Ssh  implements Serializable {
     def remote
 
     Ssh (utils,conf){
+        
         this.utils = utils
-        this.remote =[:]
+        this.remote = [:]
         this.remote["name"] = conf.name
         this.remote["host"] = conf.host
         this.remote["allowAnyHosts"] = conf.allowAnyHosts 
