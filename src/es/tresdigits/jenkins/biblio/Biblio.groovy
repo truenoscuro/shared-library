@@ -3,7 +3,7 @@ package es.tresdigits.jenkins.biblio
 class Biblio{
 
     private static languages =[
-        ssh:["ssh"]
+        ssh:["ssh"],
         maven:["maven","m","mvn","spring","springboot","boot"],                 //m
         angular:["angular","a","ng","node","npm"],                              //a
         sonar:["sonar","s","sonarq","scanner","sonar-scanner","sonarscaner"]    //s
