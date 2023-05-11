@@ -6,7 +6,6 @@ import groovy.transform.Field
 //import clases
 import es.tresdigits.jenkins.Utils
 import es.tresdigits.jenkins.Switcher
-import es.tresdigits.jenkins.Ssh
 //Aqui nomes ha daver ses funcions de dins node 
 // Field de clases
 @Field Utils utils;
