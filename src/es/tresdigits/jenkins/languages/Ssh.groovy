@@ -21,7 +21,7 @@ class Ssh{
             this.remote["password"] = conf.admin
         }
         remote.each{
-            k,n -> utils.each "${k} ---- ${n} "
+            k,n -> utils.echo "${k} ---- ${n} "
         }
     }
     //TODO Podria cojer el script o no
