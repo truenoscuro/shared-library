@@ -53,7 +53,13 @@ class Utils  implements Serializable {
         return pack
 
     }
- 
+
+    def String getDirectoryGit( String gitUrl ){
+        def regex1 = /\/(\w|-|\d)+\.(?=(git))/
+        def regex2 = /(\w|-|\d)+/
+        def directory = (gitUrl =~ regex1)[0][0]
+        return (directory =~ regex2)[0][0]
+    }
 
     
 

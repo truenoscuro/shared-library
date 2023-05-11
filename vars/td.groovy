@@ -20,7 +20,7 @@ def init( script , env , globalConfig ){
 def git ( Map conf = switcher.globalConfig.git ){
     def script = utils.script
     def git = utils.git
-    script.stage("git clone de ${conf.url}"){
+    script.stage("git clone de ${utils.getDirectoryGit(conf.url)}"){
         git(conf)
     }
 }
