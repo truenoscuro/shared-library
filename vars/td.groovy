@@ -36,7 +36,7 @@ def stage(Map jobs){
     }
 }
 
-def parallel(Map jobs ){
+def parallel( Map jobs ){
     def script = utils.script
     def stages = [:]
     jobs.each{
