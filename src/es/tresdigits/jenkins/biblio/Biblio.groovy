@@ -3,11 +3,10 @@ package es.tresdigits.jenkins.biblio
 class Biblio{
 
     private static languages =[
-
+        ssh:["ssh"]
         maven:["maven","m","mvn","spring","springboot","boot"],                 //m
         angular:["angular","a","ng","node","npm"],                              //a
         sonar:["sonar","s","sonarq","scanner","sonar-scanner","sonarscaner"]    //s
-
 
     ]
 
@@ -27,17 +26,19 @@ class Biblio{
 
     static String getLang(String lang){
         def solv = "error"
+        String lowerLang = lang.toLowerCase()
         languages.each{ name,list ->
-            if( list.contains(lang) ) solv = name
+            if( list.contains(lowerLang) ) solv = name
         }
         return solv
 
     }
-    
+
     static String getFunct(String funct){
         def solv = "error"
+        String lowerFunct = funct.toLowerCase()
         functs.each{ name,list ->
-            if( list.contains(funct) ) solv = name
+            if( list.contains(lowerFunct) ) solv = name
         }
         return solv
 
