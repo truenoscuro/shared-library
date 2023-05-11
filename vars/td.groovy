@@ -65,9 +65,9 @@ def docker(Map conf){
     utils.isLinux()
     utils.image(conf.tag).inside(conf.arg){
         if(conf.tag == "node" && conf.isAngular )
-            switcher.getFunct("angular","iAngular").call()
+            switcher.getFunct("angular","iAngular")
         conf.com.each{ lang ,funct ->
-            switcher.getFunct( lang , funct ).call()
+            switcher.getFunct( lang , funct )
         }
     }
     utils.isWindows = system
@@ -76,7 +76,6 @@ def docker(Map conf){
 def sshDocker( Map conf ){
     def ssh = switcher.getLang("ssh")
     ssh.docker(conf)
-
 }
 
 
