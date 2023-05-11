@@ -2,7 +2,7 @@ package es.tresdigits.jenkins.biblio
 
 class Biblio{
 
-    private static languagues =[
+    private static languages =[
 
         maven:["maven","m","mvn","spring","springboot","boot"],                 //m
         angular:["angular","a","ng","node","npm"],                              //a
@@ -27,7 +27,7 @@ class Biblio{
 
     static String getLang(String lang){
         String solv = ""
-        languagues.each{ name,list ->
+        languages.each{ name,list ->
             list.each{ alias ->
                 if(alias == lang) {
                     solv = name
