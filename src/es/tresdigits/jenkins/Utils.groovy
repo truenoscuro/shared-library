@@ -9,7 +9,7 @@ class Utils  implements Serializable {
 
     def script
     def env
-    def isWindows
+    boolean isWindows
 
     Utils (script,env,isWindows){
         this.script = script
@@ -25,12 +25,8 @@ class Utils  implements Serializable {
     def image = {String tag -> script.docker.image(tag) }
 
 
-    def isLinux(){
-        systemConfig.isWindows = false
-    }
-    def isWindows(){
-        systemConfig.isLinux = true
-    }
+    def isLinux(){ isWindows = false }
+    def isWindows(){ isWindows = true }
    /*
 
     def emailSent( toVar, subjectVar, bodyVar=" "){

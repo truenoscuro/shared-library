@@ -52,13 +52,14 @@ class Ssh{
     }
 
 
-    def switchLanguage(String tag  , String language, boolean isSudo){
+    def switchLanguage(String tag  , String language, boolean isSudo,String argDocker){
         def sshCom = { }
         String path ="./${tag}"
         switch(language) {
             case "maven":
                 String[] listFiles = utils.listFiles("target")
                 String pack = "./target/${utils.findJarWar()}"
+                args = (argDocker == "")"-p 8080:8080":argDocker
                 sshCom = {
                     com("docker stop ${tag} || true ",isSudo)
                     com("mkdir ${path}")
@@ -66,11 +67,12 @@ class Ssh{
                     com("mkdir ${path}/target")
                     put( pack ,"${path}/target") 
                     com("docker build ${path} -t ${tag} ",isSudo)
-                    com("docker run --name ${tag} -d -p 8080:8080 ${tag} ",isSudo) // esto cambia
+                    com("docker run --name ${tag} -d ${args} ${tag} ",isSudo) // esto cambia
                 }
             break
 
             case "angular":
+                args = (argDocker == "")"-p 80:80":argDocker
                 sshCom = {
                     com("docker stop ${tag} || true",isSudo)
                     com("rm -fr ${path}") // eliminacion de carpeta
@@ -81,7 +83,7 @@ class Ssh{
                     utils.cmd "rm dist.zip" //TODO continaur dema qui
                     com("unzip ${path}/dist -d ${path}")
                     com("docker build ${path} -t ${tag}",isSudo)
-                    com("docker run --name ${tag} -d -p 80:80 ${tag} ",isSudo)   
+                    com("docker run --name ${tag} -d ${args} ${tag} ",isSudo)   
                 }
             break
         }
@@ -98,7 +100,8 @@ class Ssh{
         }
         String tag = conf.tag ?: "docker-${conf.language}"
         boolean isSudo= conf.isSudo?:false
-        applySsh( switchLanguage( tag ,conf.language ,isSudo ) )
+        String argDocker = conf.arg?:""
+        applySsh( switchLanguage( tag ,conf.language ,isSudo,argDocker ) )
 
        
        
