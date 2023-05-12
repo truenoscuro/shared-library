@@ -68,7 +68,7 @@ class Ssh{
                     com("mkdir ${path}/target")
                     put( pack ,"${path}/target") 
                     com("docker build ${path} -t ${tag} ",isSudo)
-                    com("docker run --name ${tag} -d ${args} ${tag} ",isSudo) // esto cambia
+                    com("docker run --name ${tag} -d ${args} ",isSudo) // esto cambia
                 }
             break
 
