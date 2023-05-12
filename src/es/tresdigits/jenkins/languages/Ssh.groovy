@@ -62,6 +62,7 @@ class Ssh{
                 String args = (argDocker == "")?"-p 8080:8080":argDocker
                 sshCom = {
                     com("docker stop ${tag} || true ",isSudo)
+                    com("rm -fr ${path}") 
                     com("mkdir ${path}")
                     put("Dockerfile","${path}")  
                     com("mkdir ${path}/target")
