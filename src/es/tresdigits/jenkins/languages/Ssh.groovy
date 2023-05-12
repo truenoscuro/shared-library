@@ -62,13 +62,15 @@ class Ssh{
                 String args = (argDocker == "")?"-p 8080:8080":argDocker
                 sshCom = {
                     com("docker stop ${tag} || true ",isSudo)
+                    com("docker rm ${tag} || true",isSudo)
                     com("rm -fr ${path}") 
                     com("mkdir ${path}")
                     put("Dockerfile","${path}")  
                     com("mkdir ${path}/target")
                     put( pack ,"${path}/target") 
                     com("docker build ${path} -t ${tag} ",isSudo)
-                    com("docker run --name ${tag} -d ${args} ",isSudo) // esto cambia
+                   
+                    com("docker run --name ${tag} -d ${args} ${tag} ",isSudo) // esto cambia
                 }
             break
 
@@ -76,6 +78,7 @@ class Ssh{
                 String args = (argDocker == "")?"-p 80:80":argDocker
                 sshCom = {
                     com("docker stop ${tag} || true",isSudo)
+                    com("docker rm ${tag} || true",isSudo)
                     com("rm -fr ${path}") 
                     com("mkdir ${path}")
                     utils.cmd "zip -r dist.zip dist"
